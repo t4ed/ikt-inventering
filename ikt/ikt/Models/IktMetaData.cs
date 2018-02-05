@@ -29,7 +29,7 @@ namespace ikt.Models
         [Display(Name = "Ikt Tips")]
         public string Tips;
 
-        [Display(Name = "Länk Namn")]
+        [Display(Name = "Länk")]
         public string Link;
 
     }

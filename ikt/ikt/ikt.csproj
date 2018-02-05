@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\ClassMetaData.cs" />
+    <Compile Include="Models\IktClass.cs" />
     <Compile Include="Models\IktPersonal.cs" />
     <Compile Include="Models\IktPersonalMetaData.cs" />
     <Compile Include="Models\IktSubject.cs" />

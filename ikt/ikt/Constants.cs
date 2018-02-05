@@ -26,7 +26,11 @@ namespace ikt
         {
             "9810pema",
             "9824leda",
-            "9709ekch"
+            "9709ekch",
+            "9628hujo",
+            "9801riji",
+            "9827skma",
+            "9825faed"
         };
     }
 }

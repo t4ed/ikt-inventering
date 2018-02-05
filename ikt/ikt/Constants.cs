@@ -36,7 +36,7 @@ namespace ikt
 
             
 
-            if (staffdata.Count() != 0)
+            if (staffdata.Count() == 1)
             {
                 Staff staff = new Staff();
 

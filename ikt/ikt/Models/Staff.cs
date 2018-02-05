@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ikt.Models
 {
-    public class Staff
+    public partial class Staff
     {
         public int ID { get; set; }
         public string Username { get; set; }

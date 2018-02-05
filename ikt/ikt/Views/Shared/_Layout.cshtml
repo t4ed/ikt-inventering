@@ -12,6 +12,10 @@
         {
             Response.Redirect(Url.Action("SignOut", "Account"));
         }
+        else
+        {
+            ViewBag.Staff = Constants.GetStaffInfo(User.Identity.Name);
+        }
     }
 
 </head>

@@ -354,6 +354,39 @@ namespace ikt.Migrations
 
             Class.ForEach(s => context.Class.AddOrUpdate(st => st.Name, s));
             context.SaveChanges();
+
+            var Project = new List<Project>
+            {
+                new Project
+                {
+                    Name = "Barnkunskap/Svenska 3",
+                    Description = "I Svenska 3 ska vi göra ett projekt där vi knyter ihop källkritik och stoffinsamling på nätet (Barnkonventionen etc) med kursen Barnhälsovård.",
+                    Date = "HT17",
+                    PDF = "...",
+                    Grade = "VO15"
+                },
+
+                new Project
+                {
+                    Name = "Dokumentärfilm-sprojektet.",
+                    Description = "Ett arbete inom svenska 1 där eleverna spelar in egna dokumentärfilmer kring ämnesområdet språksociologi.",
+                    Date = "VT2017 , HT2017, VT2018",
+                    PDF = "...",
+                    Grade = "Alla åk 1"
+                },
+
+                new Project
+                {
+                    Name = "Sveriges 'mörka' historia",
+                    Description = "Ett ämnesövergripande arbetsområde i samhällskunskap och historia med fokus på den del av Sveriges historia som vi sällar pratar om - utifrån",
+                    Date = "Nasa 16 , Na15B , Na15C",
+                    PDF = "",
+                    Grade = "VT 2018"
+                },
+            };
+
+            Project.ForEach(s => context.Project.AddOrUpdate(st => st.Name, s));
+            context.SaveChanges();
         }
     }
 }

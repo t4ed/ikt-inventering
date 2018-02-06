@@ -187,6 +187,18 @@
     <Compile Include="Migrations\201802051253111_InitialCreate.Designer.cs">
       <DependentUpon>201802051253111_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802060805402_SubjectMetaDataUpdate.cs" />
+    <Compile Include="Migrations\201802060805402_SubjectMetaDataUpdate.Designer.cs">
+      <DependentUpon>201802060805402_SubjectMetaDataUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802060829053_subjects.cs" />
+    <Compile Include="Migrations\201802060829053_subjects.Designer.cs">
+      <DependentUpon>201802060829053_subjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802060909588_subjectFix.cs" />
+    <Compile Include="Migrations\201802060909588_subjectFix.Designer.cs">
+      <DependentUpon>201802060909588_subjectFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\ClassMetaData.cs" />
@@ -264,6 +276,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802051253111_InitialCreate.resx">
       <DependentUpon>201802051253111_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802060805402_SubjectMetaDataUpdate.resx">
+      <DependentUpon>201802060805402_SubjectMetaDataUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802060829053_subjects.resx">
+      <DependentUpon>201802060829053_subjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802060909588_subjectFix.resx">
+      <DependentUpon>201802060909588_subjectFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

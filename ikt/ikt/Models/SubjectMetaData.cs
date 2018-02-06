@@ -12,8 +12,8 @@ namespace ikt.Models
     public partial class SubjectMetaData
     {
         [Required(ErrorMessage = "Namnet är blankt")]
-        [StringLength(25, MinimumLength = 3, ErrorMessage = "Namnet Måste vara mellan 3 och 25 bokstäver")]
-        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[a-zåäöA-ZÅÄÖ0-9\s]*$", ErrorMessage = "Namnet kan inte ha speciella tecken")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Namnet Måste vara mellan 3 och 100 bokstäver")]
+        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[a-zåäöA-ZÅÄÖ0-9\s---]*$", ErrorMessage = "Namnet kan inte ha speciella tecken")]
         [Display(Name = "Ämne")]
         public string Name;
     }

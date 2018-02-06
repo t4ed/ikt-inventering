@@ -39,320 +39,320 @@ namespace ikt.Migrations
             {
                 new Class
                 {
-                    Namn = "EK15A"
+                    Name = "EK15A"
                 },
 
                 new Class
                 {
-                    Namn = "EK15B"
+                    Name = "EK15B"
                 },
 
                 new Class
                 {
-                    Namn = "EK16A"
+                    Name = "EK16A"
                 },
 
                 new Class
                 {
-                    Namn = "EK16B"
+                    Name = "EK16B"
                 },
 
                 new Class
                 {
-                    Namn = "EK17A"
+                    Name = "EK17A"
                 },
 
                 new Class
                 {
-                    Namn = "IMA"
+                    Name = "IMA"
                 },
 
                 new Class
                 {
-                    Namn = "IMS17:1"
+                    Name = "IMS17:1"
                 },
 
                 new Class
                 {
-                    Namn = "IMS17:2A"
+                    Name = "IMS17:2A"
                 },
 
                 new Class
                 {
-                    Namn = "IMS17:2B1"
+                    Name = "IMS17:2B1"
                 },
 
                 new Class
                 {
-                    Namn = "IMS17:2B2"
+                    Name = "IMS17:2B2"
                 },
 
                 new Class
                 {
-                    Namn = "IMS17:3A"
+                    Name = "IMS17:3A"
                 },
 
                 new Class
                 {
-                    Namn = "IMS17:3B"
+                    Name = "IMS17:3B"
                 },
 
                 new Class
                 {
-                    Namn = "NA15A"
+                    Name = "NA15A"
                 },
 
                 new Class
                 {
-                    Namn = "NA15B"
+                    Name = "NA15B"
                 },
 
                 new Class
                 {
-                    Namn = "NA15C"
+                    Name = "NA15C"
                 },
 
                 new Class
                 {
-                    Namn = "NA15C"
+                    Name = "NA15C"
                 },
 
                 new Class
                 {
-                    Namn = "NA15D"
+                    Name = "NA15D"
                 },
 
                 new Class
                 {
-                    Namn = "NA16A"
+                    Name = "NA16A"
                 },
 
                 new Class
                 {
-                    Namn = "NA16B"
+                    Name = "NA16B"
                 },
 
                 new Class
                 {
-                    Namn = "NA16C"
+                    Name = "NA16C"
                 },
 
                 new Class
                 {
-                    Namn = "NA16D"
+                    Name = "NA16D"
                 },
 
                 new Class
                 {
-                    Namn = "NA17A"
+                    Name = "NA17A"
                 },
 
                 new Class
                 {
-                    Namn = "NA17B"
+                    Name = "NA17B"
                 },
 
                 new Class
                 {
-                    Namn = "NA17C"
+                    Name = "NA17C"
                 },
 
                 new Class
                 {
-                    Namn = "NA17D"
+                    Name = "NA17D"
                 },
 
                 new Class
                 {
-                    Namn = "NA4"
+                    Name = "NA4"
                 },
 
                 new Class
                 {
-                    Namn = "SA15A"
+                    Name = "SA15A"
                 },
 
                 new Class
                 {
-                    Namn = "SA15B"
+                    Name = "SA15B"
                 },
 
                 new Class
                 {
-                    Namn = "SA16A"
+                    Name = "SA16A"
                 },
 
                 new Class
                 {
-                    Namn = "SA16B"
+                    Name = "SA16B"
                 },
 
                 new Class
                 {
-                    Namn = "SA17A"
+                    Name = "SA17A"
                 },
 
                 new Class
                 {
-                    Namn = "SA17B"
+                    Name = "SA17B"
                 },
 
                 new Class
                 {
-                    Namn = "SA4"
+                    Name = "SA4"
                 },
 
                 new Class
                 {
-                    Namn = "T4"
+                    Name = "T4"
                 },
 
                 new Class
                 {
-                    Namn = "TE15A"
+                    Name = "TE15A"
                 },
 
                 new Class
                 {
-                    Namn = "TE15B"
+                    Name = "TE15B"
                 },
 
                 new Class
                 {
-                    Namn = "TE15C"
+                    Name = "TE15C"
                 },
 
                 new Class
                 {
-                    Namn = "TE15D"
+                    Name = "TE15D"
                 },
 
                 new Class
                 {
-                    Namn = "TE16A"
+                    Name = "TE16A"
                 },
 
                 new Class
                 {
-                    Namn = "TE16B"
+                    Name = "TE16B"
                 },
 
                 new Class
                 {
-                    Namn = "TE16C"
+                    Name = "TE16C"
                 },
 
                 new Class
                 {
-                    Namn = "TE16D"
+                    Name = "TE16D"
                 },
 
                 new Class
                 {
-                    Namn = "TE17A"
+                    Name = "TE17A"
                 },
                 new Class
                 {
-                    Namn = "TE17B"
-                },
-
-                new Class
-                {
-                    Namn = "TE17C"
+                    Name = "TE17B"
                 },
 
                 new Class
                 {
-                    Namn = "TE17D"
+                    Name = "TE17C"
                 },
 
                 new Class
                 {
-                    Namn = "TE4"
+                    Name = "TE17D"
                 },
 
                 new Class
                 {
-                    Namn = "VF15A"
+                    Name = "TE4"
                 },
 
                 new Class
                 {
-                    Namn = "VF15B"
+                    Name = "VF15A"
                 },
 
                 new Class
                 {
-                    Namn = "VF16A"
+                    Name = "VF15B"
                 },
 
                 new Class
                 {
-                    Namn = "VF16B"
+                    Name = "VF16A"
                 },
 
                 new Class
                 {
-                    Namn = "VF17"
+                    Name = "VF16B"
                 },
 
                 new Class
                 {
-                    Namn = "VF4"
+                    Name = "VF17"
                 },
 
                 new Class
                 {
-                    Namn = "VO15A"
+                    Name = "VF4"
                 },
 
                 new Class
                 {
-                    Namn = "VO15B"
+                    Name = "VO15A"
                 },
 
                 new Class
                 {
-                    Namn = "VO15Y"
+                    Name = "VO15B"
                 },
 
                 new Class
                 {
-                    Namn = "Vo16A"
+                    Name = "VO15Y"
                 },
 
                 new Class
                 {
-                    Namn = "Vo16B"
+                    Name = "Vo16A"
                 },
 
                 new Class
                 {
-                    Namn = "Vo16Y"
+                    Name = "Vo16B"
                 },
 
                 new Class
                 {
-                    Namn = "Vo17A"
+                    Name = "Vo16Y"
                 },
 
                 new Class
                 {
-                    Namn = "Vo17B"
+                    Name = "Vo17A"
                 },
 
                 new Class
                 {
-                    Namn = "Vo17Y"
+                    Name = "Vo17B"
                 },
 
                 new Class
                 {
-                    Namn = "VO4"
+                    Name = "Vo17Y"
+                },
+
+                new Class
+                {
+                    Name = "VO4"
                 },
             };
 
-            Class.ForEach(s => context.Class.AddOrUpdate(st => st.Name, s));
+            Class.ForEach(s => context.Classes.AddOrUpdate(st => st.Name, s));
             context.SaveChanges();
 
             var Project = new List<Project>
@@ -363,7 +363,7 @@ namespace ikt.Migrations
                     Description = "I Svenska 3 ska vi göra ett projekt där vi knyter ihop källkritik och stoffinsamling på nätet (Barnkonventionen etc) med kursen Barnhälsovård.",
                     Date = "HT17",
                     PDF = "...",
-                    Grade = "VO15"
+                    Grade = 3
                 },
 
                 new Project
@@ -372,20 +372,95 @@ namespace ikt.Migrations
                     Description = "Ett arbete inom svenska 1 där eleverna spelar in egna dokumentärfilmer kring ämnesområdet språksociologi.",
                     Date = "VT2017 , HT2017, VT2018",
                     PDF = "...",
-                    Grade = "Alla åk 1"
+                    Grade = 1
                 },
 
                 new Project
                 {
                     Name = "Sveriges 'mörka' historia",
                     Description = "Ett ämnesövergripande arbetsområde i samhällskunskap och historia med fokus på den del av Sveriges historia som vi sällar pratar om - utifrån",
-                    Date = "Nasa 16 , Na15B , Na15C",
+                    Date = "VT 2018",
                     PDF = "",
-                    Grade = "VT 2018"
+                    Grade = 2
                 },
             };
 
-            Project.ForEach(s => context.Project.AddOrUpdate(st => st.Name, s));
+            Project.ForEach(s => context.Projects.AddOrUpdate(st => st.Name, s));
+            context.SaveChanges();
+
+            var subject = new List<Subject>
+            {
+                new Subject { Name =  "Datalagring"},
+                new Subject { Name =  "Gymnasieingenjören i praktiken"},
+                new Subject { Name =  "Mjukvarudesign"},
+                new Subject { Name =  "Programmering"},
+                new Subject { Name =  "Webbserverprogrammering"},
+                new Subject { Name =  "Webbutveckling"},
+                new Subject { Name =  "Affärsjuridik"},
+                new Subject { Name =  "Engelska"},
+                new Subject { Name =  "Svenska"},
+                new Subject { Name =  "Matematik"},
+                new Subject { Name =  "Psykologi"},
+                new Subject { Name =  "Massage"},
+                new Subject { Name =  "Entreprenörskap och företagande"},
+                new Subject { Name =  "Moderna språk - Tyska"},
+                new Subject { Name =  "Moderna språk - Spanska"},
+                new Subject { Name =  "Moderna språk - Franska"},
+                new Subject { Name =  "Marknadsföring"},
+                new Subject { Name =  "Företagsekonomi"},
+                new Subject { Name =  "Idrott och hälsa"},
+                new Subject { Name =  "Samhällskunskap"},
+                new Subject { Name =  "Naturkunskap"},
+                new Subject { Name =  "Historia"},
+                new Subject { Name =  "Religionskunskap"},
+                new Subject { Name =  "Svenska som andraspråk"},
+                new Subject { Name =  "Specialpedagogik"},
+                new Subject { Name =  "Kemi"},
+                new Subject { Name =  "Bioteknik"},
+                new Subject { Name =  "Fysik"},
+                new Subject { Name =  "Politik och hållbar utveckling"},
+                new Subject { Name =  "Geografi"},
+                new Subject { Name =  "Filosofi"},
+                new Subject { Name =  "Biologi"},
+                new Subject { Name =  "Sociologi"},
+                new Subject { Name =  "Internationella relationer"},
+                new Subject { Name =  "Ledarskap och organisation"},
+                new Subject { Name =  "Människor miljöer"},
+                new Subject { Name =  "Kommunikation"},
+                new Subject { Name =  "Tillämpad programmering"},
+                new Subject { Name =  "Hållbart samhällsbyggande"},
+                new Subject { Name =  "Design"},
+                new Subject { Name =  "Teknik"},
+                new Subject { Name =  "Cad"},
+                new Subject { Name =  "Gränssnittsdesign"},
+                new Subject { Name =  "Dator- och nätverksteknik"},
+                new Subject { Name =  "Byggnadsverk"},
+                new Subject { Name =  "Arkitektur"},
+                new Subject { Name =  "Luftbehandling"},
+                new Subject { Name =  "Värmelära"},
+                new Subject { Name =  "Kyl- och värmepumpsteknik"},
+                new Subject { Name =  "Mät- och reglerteknik"},
+                new Subject { Name =  "Elkraftteknik"},
+                new Subject { Name =  "Sanitetsteknik"},
+                new Subject { Name =  "VVS Gassvetsning rör"},
+                new Subject { Name =  "Bild och form"},
+                new Subject { Name =  "Svets grund"},
+                new Subject { Name =  "Matlagning"},
+                new Subject { Name =  "Verktygs- och materialhantering"},
+                new Subject { Name =  "Systemuppbyggnad"},
+                new Subject { Name =  "VVS Svets och lödning rör"},
+                new Subject { Name =  "Praktisk ellära"},
+                new Subject { Name =  "Vård och omsorg vid demenssjukdom"},
+                new Subject { Name =  "Psykiatri"},
+                new Subject { Name =  "Barnhälsovård"},
+                new Subject { Name =  "Akutsjukvård"},
+                new Subject { Name =  "Hemsjukvård"},
+                new Subject { Name =  "Etik och människans livsvillkor"},
+                new Subject { Name =  "Medicin"},
+                new Subject { Name =  "Vård- och omsorgsarbete"},
+                new Subject { Name =  "Hälsopedagogik"}
+            };
+            subject.ForEach(s => context.Subjects.AddOrUpdate(su => su.Name, s));
             context.SaveChanges();
         }
     }

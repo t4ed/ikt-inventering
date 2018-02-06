@@ -35,360 +35,70 @@ namespace ikt.Migrations
             staff.ForEach(s => context.Staff.AddOrUpdate(st => st.Username, s));
             context.SaveChanges();
 
-            var Class = new List<Class>
+            var classes = new List<Class>
             {
-                new Class
-                {
-                    Name = "EK15A"
-                },
+                new Class { Name = "EK15A" },
+                new Class { Name = "EK15B" },
+                new Class { Name = "EK16A" },
+                new Class { Name = "EK16B" },
+                new Class { Name = "EK17A" },
+                new Class { Name = "IMA17" },
+                new Class { Name = "IMS17:1" },
+                new Class { Name = "IMS17:2A" },
+                new Class { Name = "IMS17:2B1" },
+                new Class { Name = "IMS17:2B2" },
+                new Class { Name = "IMS17:3A" },
+                new Class { Name = "IMS17:3B" },
+                new Class { Name = "NA15A" },
+                new Class { Name = "NA15B" },
+                new Class { Name = "NA15C"},
+                new Class { Name = "NA15C" },
+                new Class { Name = "NA15D" },
+                new Class { Name = "NA16A" },
+                new Class { Name = "NA16B" },
+                new Class { Name = "NA16C" },
+                new Class { Name = "NA16D"},
+                new Class { Name = "NA17A" },
+                new Class { Name = "NA17B"},
+                new Class { Name = "NA17C" },
+                new Class { Name = "NA17D" },
+                new Class { Name = "SA15A" },
+                new Class { Name = "SA15B" },
+                new Class { Name = "SA16A" },
+                new Class { Name = "SA16B" },
+                new Class { Name = "SA17A" },
+                new Class { Name = "SA17B" },
+                new Class { Name = "T4" },
+                new Class { Name = "TE15A" },
+                new Class { Name = "TE15B" },
+                new Class { Name = "TE15C" },
+                new Class { Name = "TE15D" },
+                new Class { Name = "TE16A" },
+                new Class { Name = "TE16B" },
+                new Class { Name = "TE16C" },
+                new Class { Name = "TE16D" },
+                new Class { Name = "TE17A" },
+                new Class { Name = "TE17B" },
+                new Class { Name = "TE17C" },
+                new Class { Name = "TE17D" },
+                new Class { Name = "VF15A" },
+                new Class { Name = "VF15B" },
+                new Class { Name = "VF16A" },
+                new Class { Name = "VF16B" },
+                new Class { Name = "VF17" },
+                new Class { Name = "VO15A" },
+                new Class { Name = "VO15B" },
+                new Class { Name = "VO16A" },
+                new Class { Name = "VO16B" },
+                new Class { Name = "VO17A" },
+                new Class { Name = "VO17B" },
 
-                new Class
-                {
-                    Name = "EK15B"
-                },
-
-                new Class
-                {
-                    Name = "EK16A"
-                },
-
-                new Class
-                {
-                    Name = "EK16B"
-                },
-
-                new Class
-                {
-                    Name = "EK17A"
-                },
-
-                new Class
-                {
-                    Name = "IMA"
-                },
-
-                new Class
-                {
-                    Name = "IMS17:1"
-                },
-
-                new Class
-                {
-                    Name = "IMS17:2A"
-                },
-
-                new Class
-                {
-                    Name = "IMS17:2B1"
-                },
-
-                new Class
-                {
-                    Name = "IMS17:2B2"
-                },
-
-                new Class
-                {
-                    Name = "IMS17:3A"
-                },
-
-                new Class
-                {
-                    Name = "IMS17:3B"
-                },
-
-                new Class
-                {
-                    Name = "NA15A"
-                },
-
-                new Class
-                {
-                    Name = "NA15B"
-                },
-
-                new Class
-                {
-                    Name = "NA15C"
-                },
-
-                new Class
-                {
-                    Name = "NA15C"
-                },
-
-                new Class
-                {
-                    Name = "NA15D"
-                },
-
-                new Class
-                {
-                    Name = "NA16A"
-                },
-
-                new Class
-                {
-                    Name = "NA16B"
-                },
-
-                new Class
-                {
-                    Name = "NA16C"
-                },
-
-                new Class
-                {
-                    Name = "NA16D"
-                },
-
-                new Class
-                {
-                    Name = "NA17A"
-                },
-
-                new Class
-                {
-                    Name = "NA17B"
-                },
-
-                new Class
-                {
-                    Name = "NA17C"
-                },
-
-                new Class
-                {
-                    Name = "NA17D"
-                },
-
-                new Class
-                {
-                    Name = "NA4"
-                },
-
-                new Class
-                {
-                    Name = "SA15A"
-                },
-
-                new Class
-                {
-                    Name = "SA15B"
-                },
-
-                new Class
-                {
-                    Name = "SA16A"
-                },
-
-                new Class
-                {
-                    Name = "SA16B"
-                },
-
-                new Class
-                {
-                    Name = "SA17A"
-                },
-
-                new Class
-                {
-                    Name = "SA17B"
-                },
-
-                new Class
-                {
-                    Name = "SA4"
-                },
-
-                new Class
-                {
-                    Name = "T4"
-                },
-
-                new Class
-                {
-                    Name = "TE15A"
-                },
-
-                new Class
-                {
-                    Name = "TE15B"
-                },
-
-                new Class
-                {
-                    Name = "TE15C"
-                },
-
-                new Class
-                {
-                    Name = "TE15D"
-                },
-
-                new Class
-                {
-                    Name = "TE16A"
-                },
-
-                new Class
-                {
-                    Name = "TE16B"
-                },
-
-                new Class
-                {
-                    Name = "TE16C"
-                },
-
-                new Class
-                {
-                    Name = "TE16D"
-                },
-
-                new Class
-                {
-                    Name = "TE17A"
-                },
-                new Class
-                {
-                    Name = "TE17B"
-                },
-
-                new Class
-                {
-                    Name = "TE17C"
-                },
-
-                new Class
-                {
-                    Name = "TE17D"
-                },
-
-                new Class
-                {
-                    Name = "TE4"
-                },
-
-                new Class
-                {
-                    Name = "VF15A"
-                },
-
-                new Class
-                {
-                    Name = "VF15B"
-                },
-
-                new Class
-                {
-                    Name = "VF16A"
-                },
-
-                new Class
-                {
-                    Name = "VF16B"
-                },
-
-                new Class
-                {
-                    Name = "VF17"
-                },
-
-                new Class
-                {
-                    Name = "VF4"
-                },
-
-                new Class
-                {
-                    Name = "VO15A"
-                },
-
-                new Class
-                {
-                    Name = "VO15B"
-                },
-
-                new Class
-                {
-                    Name = "VO15Y"
-                },
-
-                new Class
-                {
-                    Name = "Vo16A"
-                },
-
-                new Class
-                {
-                    Name = "Vo16B"
-                },
-
-                new Class
-                {
-                    Name = "Vo16Y"
-                },
-
-                new Class
-                {
-                    Name = "Vo17A"
-                },
-
-                new Class
-                {
-                    Name = "Vo17B"
-                },
-
-                new Class
-                {
-                    Name = "Vo17Y"
-                },
-
-                new Class
-                {
-                    Name = "VO4"
-                },
             };
 
-            Class.ForEach(s => context.Classes.AddOrUpdate(st => st.Name, s));
+            classes.ForEach(s => context.Classes.AddOrUpdate(st => st.Name, s));
             context.SaveChanges();
 
-            var Project = new List<Project>
-            {
-                new Project
-                {
-                    Name = "Barnkunskap/Svenska 3",
-                    Description = "I Svenska 3 ska vi göra ett projekt där vi knyter ihop källkritik och stoffinsamling på nätet (Barnkonventionen etc) med kursen Barnhälsovård.",
-                    Date = "HT17",
-                    PDF = "...",
-                    Grade = 3
-                },
-
-                new Project
-                {
-                    Name = "Dokumentärfilm-sprojektet.",
-                    Description = "Ett arbete inom svenska 1 där eleverna spelar in egna dokumentärfilmer kring ämnesområdet språksociologi.",
-                    Date = "VT2017 , HT2017, VT2018",
-                    PDF = "...",
-                    Grade = 1
-                },
-
-                new Project
-                {
-                    Name = "Sveriges 'mörka' historia",
-                    Description = "Ett ämnesövergripande arbetsområde i samhällskunskap och historia med fokus på den del av Sveriges historia som vi sällar pratar om - utifrån",
-                    Date = "VT 2018",
-                    PDF = "",
-                    Grade = 2
-                },
-            };
-
-            Project.ForEach(s => context.Projects.AddOrUpdate(st => st.Name, s));
-            context.SaveChanges();
-
-            var subject = new List<Subject>
+            var subjects = new List<Subject>
             {
                 new Subject { Name =  "Datalagring"},
                 new Subject { Name =  "Gymnasieingenjören i praktiken"},
@@ -460,8 +170,47 @@ namespace ikt.Migrations
                 new Subject { Name =  "Vård- och omsorgsarbete"},
                 new Subject { Name =  "Hälsopedagogik"}
             };
-            subject.ForEach(s => context.Subjects.AddOrUpdate(su => su.Name, s));
+            subjects.ForEach(s => context.Subjects.AddOrUpdate(su => su.Name, s));
             context.SaveChanges();
+
+            var projects = new List<Project>
+            {
+                new Project
+                {
+                    Name = "Barnkunskap",
+                    Description = "I Svenska 3 ska vi göra ett projekt där vi knyter ihop källkritik och stoffinsamling på nätet (Barnkonventionen etc) med kursen Barnhälsovård.",
+                    Date = "HT17",
+                    SubjectID = subjects.Single(s => s.Name == "Svenska").ID,
+                    ClassID = classes.Single(c => c.Name == "VO15").ID,
+                    PDF = "",
+                    Grade = 3
+                },
+
+                new Project
+                {
+                    Name = "Dokumentärfilm-projektet.",
+                    Description = "Ett arbete inom svenska 1 där eleverna spelar in egna dokumentärfilmer kring ämnesområdet språksociologi.",
+                    Date = "VT2017 , HT2017, VT2018",
+                    SubjectID = subjects.Single(s => s.Name == "Svenska").ID,
+                    PDF = "",
+                    Grade = 1
+                },
+
+                new Project
+                {
+                    Name = "Sveriges 'mörka' historia",
+                    Description = "Ett ämnesövergripande arbetsområde i samhällskunskap och historia med fokus på den del av Sveriges historia som vi sällar pratar om - utifrån",
+                    Date = "VT 2018",
+                    SubjectID = subjects.Single(s => s.Name == "Samhällskunskap").ID,
+                    PDF = "",
+                    Grade = 2
+                },
+            };
+
+            projects.ForEach(s => context.Projects.AddOrUpdate(st => st.Name, s));
+            context.SaveChanges();
+
+           
         }
     }
 }

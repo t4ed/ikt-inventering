@@ -6,6 +6,8 @@ namespace ikt.DAL
     public class iktContext : DbContext
     {
         public DbSet<Staff> Staff { get; set; }
-        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Class> Class { get; set; }
+        public DbSet<Project> Project { get; set; }
     }
+
 }

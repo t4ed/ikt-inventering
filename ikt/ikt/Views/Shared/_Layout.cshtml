@@ -8,13 +8,17 @@
     @Scripts.Render("~/bundles/modernizr")
 
     @{ 
-        if (!Constants.CheckIfValidUser(User.Identity.Name))
+        if (!Login.CheckIfValidUser(User.Identity.Name))
         {
             Response.Redirect(Url.Action("SignOut", "Account"));
         }
         else
         {
-            ViewBag.Staff = Constants.GetStaffInfo(User.Identity.Name);
+            ViewBag.Staff = Login.GetStaffInfo(User.Identity.Name);
+            if (ViewBag.Staff.Username == "invalid")
+            {
+                Response.Redirect(Url.Action("Create", "Staffs", new { Username = User.Identity.Name.Split('@')[0] }));
+            }
         }
     }
 

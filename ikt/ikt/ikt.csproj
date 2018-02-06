@@ -194,6 +194,7 @@
     <Compile Include="Models\Ikt.cs" />
     <Compile Include="Models\IktMetaData.cs" />
     <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ProjectClass.cs" />
     <Compile Include="Models\ProjectMetaData.cs" />
     <Compile Include="Models\ProjectStaff.cs" />
     <Compile Include="Models\Staff.cs" />

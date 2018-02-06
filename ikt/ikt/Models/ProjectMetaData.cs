@@ -22,7 +22,7 @@ namespace ikt.Models
 
         [Required(ErrorMessage = "Beskrivningen av projektet kan inte vara tom.")]
         [StringLength(250, MinimumLength = 3, ErrorMessage = "Namnet måste vara mellan 3 och 250 tecken långt.")]
-        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[a-zåäöA-ZÅÄÖ0-9'-'---\s]*$", ErrorMessage = "Beskrivningen får inte innehålla några specialtecken.")]
+        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[a-zåäöA-ZÅÄÖ0-9'-'---\s(-).,;:]*$", ErrorMessage = "Beskrivningen får inte innehålla några specialtecken.")]
         [Display(Name = "Beskrivning")]
         public string Description;
 

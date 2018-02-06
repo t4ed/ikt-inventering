@@ -11,17 +11,12 @@ namespace ikt.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "ikt.DAL.iktContext";
         }
 
         protected override void Seed(ikt.DAL.iktContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
-
             var staff = new List<Staff>
             {
                 new Staff
@@ -29,7 +24,7 @@ namespace ikt.Migrations
                     Username = "9810pema",
                     FirstName = "Marcus",
                     LastName = "Perhamn"
-                },
+                }
             };
 
             staff.ForEach(s => context.Staff.AddOrUpdate(st => st.Username, s));
@@ -52,7 +47,6 @@ namespace ikt.Migrations
                 new Class { Name = "NA15A" },
                 new Class { Name = "NA15B" },
                 new Class { Name = "NA15C"},
-                new Class { Name = "NA15C" },
                 new Class { Name = "NA15D" },
                 new Class { Name = "NA16A" },
                 new Class { Name = "NA16B" },
@@ -91,7 +85,7 @@ namespace ikt.Migrations
                 new Class { Name = "VO16A" },
                 new Class { Name = "VO16B" },
                 new Class { Name = "VO17A" },
-                new Class { Name = "VO17B" },
+                new Class { Name = "VO17B" }
 
             };
 
@@ -113,9 +107,9 @@ namespace ikt.Migrations
                 new Subject { Name =  "Psykologi"},
                 new Subject { Name =  "Massage"},
                 new Subject { Name =  "Entreprenörskap och företagande"},
-                new Subject { Name =  "Moderna språk - Tyska"},
-                new Subject { Name =  "Moderna språk - Spanska"},
-                new Subject { Name =  "Moderna språk - Franska"},
+                new Subject { Name =  "Tyska"},
+                new Subject { Name =  "Spanska"},
+                new Subject { Name =  "Franska"},
                 new Subject { Name =  "Marknadsföring"},
                 new Subject { Name =  "Företagsekonomi"},
                 new Subject { Name =  "Idrott och hälsa"},
@@ -123,7 +117,6 @@ namespace ikt.Migrations
                 new Subject { Name =  "Naturkunskap"},
                 new Subject { Name =  "Historia"},
                 new Subject { Name =  "Religionskunskap"},
-                new Subject { Name =  "Svenska som andraspråk"},
                 new Subject { Name =  "Specialpedagogik"},
                 new Subject { Name =  "Kemi"},
                 new Subject { Name =  "Bioteknik"},
@@ -172,25 +165,24 @@ namespace ikt.Migrations
             };
             subjects.ForEach(s => context.Subjects.AddOrUpdate(su => su.Name, s));
             context.SaveChanges();
-
+            
             var projects = new List<Project>
             {
                 new Project
                 {
                     Name = "Barnkunskap",
                     Description = "I Svenska 3 ska vi göra ett projekt där vi knyter ihop källkritik och stoffinsamling på nätet (Barnkonventionen etc) med kursen Barnhälsovård.",
-                    Date = "HT17",
+                    Date = "2017",
                     SubjectID = subjects.Single(s => s.Name == "Svenska").ID,
-                    ClassID = classes.Single(c => c.Name == "VO15").ID,
                     PDF = "",
                     Grade = 3
                 },
 
                 new Project
                 {
-                    Name = "Dokumentärfilm-projektet.",
+                    Name = "Dokumentärfilmsprojektet",
                     Description = "Ett arbete inom svenska 1 där eleverna spelar in egna dokumentärfilmer kring ämnesområdet språksociologi.",
-                    Date = "VT2017 , HT2017, VT2018",
+                    Date = "2017",
                     SubjectID = subjects.Single(s => s.Name == "Svenska").ID,
                     PDF = "",
                     Grade = 1
@@ -198,9 +190,9 @@ namespace ikt.Migrations
 
                 new Project
                 {
-                    Name = "Sveriges 'mörka' historia",
+                    Name = "Sveriges mörka historia",
                     Description = "Ett ämnesövergripande arbetsområde i samhällskunskap och historia med fokus på den del av Sveriges historia som vi sällar pratar om - utifrån",
-                    Date = "VT 2018",
+                    Date = "2018",
                     SubjectID = subjects.Single(s => s.Name == "Samhällskunskap").ID,
                     PDF = "",
                     Grade = 2
@@ -209,8 +201,6 @@ namespace ikt.Migrations
 
             projects.ForEach(s => context.Projects.AddOrUpdate(st => st.Name, s));
             context.SaveChanges();
-
-           
         }
     }
 }

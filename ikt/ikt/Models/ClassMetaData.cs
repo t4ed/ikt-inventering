@@ -12,8 +12,8 @@ namespace ikt.Models
     public partial class ClassMetaData
     {
         [Required(ErrorMessage = "Klassnamnet kan inte vara tomt.")]
-        [StringLength(10, MinimumLength = 2, ErrorMessage = "Klassnamnet måste vara mellan 2 och 10 tecken.")]
-        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[a-zåäöA-ZÅÄÖ0-9]*$", ErrorMessage = "Klassnamnet får bara bestå bokstäver och siffror.")]
+        [StringLength(14, MinimumLength = 2, ErrorMessage = "Klassnamnet måste vara mellan 2 och 14 tecken.")]
+        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[a-zåäöA-ZÅÄÖ0-9:]*$", ErrorMessage = "Klassnamnet får bara bestå bokstäver och siffror.")]
         [Display(Name = "Klass")]
         public string Name;
     }

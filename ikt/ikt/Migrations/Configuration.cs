@@ -351,6 +351,9 @@ namespace ikt.Migrations
                     Namn = "VO4"
                 },
             };
+
+            Class.ForEach(s => context.Class.AddOrUpdate(st => st.Name, s));
+            context.SaveChanges();
         }
     }
 }

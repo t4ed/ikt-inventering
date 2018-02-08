@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201802080949225_metadata.Designer.cs">
       <DependentUpon>201802080949225_metadata.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802080953257_metadata2.cs" />
+    <Compile Include="Migrations\201802080953257_metadata2.Designer.cs">
+      <DependentUpon>201802080953257_metadata2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\ClassMetaData.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802080949225_metadata.resx">
       <DependentUpon>201802080949225_metadata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802080953257_metadata2.resx">
+      <DependentUpon>201802080953257_metadata2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

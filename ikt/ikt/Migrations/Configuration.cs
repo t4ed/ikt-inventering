@@ -17,6 +17,7 @@ namespace ikt.Migrations
 
         protected override void Seed(ikt.DAL.iktContext context)
         {
+            /*
             var staff = new List<Staff>
             {
                 new Staff
@@ -29,6 +30,7 @@ namespace ikt.Migrations
 
             staff.ForEach(s => context.Staff.AddOrUpdate(st => st.Username, s));
             context.SaveChanges();
+            */
 
             var classes = new List<Class>
             {

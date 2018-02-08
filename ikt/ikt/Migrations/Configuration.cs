@@ -202,7 +202,7 @@ namespace ikt.Migrations
             };
             projects.ForEach(s => context.Projects.AddOrUpdate(st => st.Name, s));
             context.SaveChanges();
-
+            
             var projectClasses = new List<ProjectClass>
             {
                 new ProjectClass
@@ -210,7 +210,7 @@ namespace ikt.Migrations
                     ProjectID = projects.Single(p => p.Name == "Barnkunskap").ID,
                     ClassID = classes.Single(c => c.Name == "VO15A").ID
                 },
-
+                
                 new ProjectClass
                 {
                     ProjectID = projects.Single(p => p.Name == "Barnkunskap").ID,
@@ -229,6 +229,126 @@ namespace ikt.Migrations
                     ClassID = classes.Single(c => c.Name == "NA15C").ID
                 },
             };
+            projectClasses.ForEach(s => context.ProjectClasses.AddOrUpdate(st => st.ID, s));
+            context.SaveChanges();
+            
+            var IKT = new List<Ikt>
+            {
+                new Ikt
+                {
+                    Name = "Padlet",
+                    Description = "Som digital anslagstavla där både elever och lärare kan skriva samtidigt. Används ibland för exit tickets men främst som ett verktyg då man vill ge elever möjlighet att skriva frågor eller träna olika aspekter som i realtid läggs upp på skärmen i klassrummet. Alla kan skriva samtidigt. Och man kan sedan plocka guldkornen.",
+                    Comment = "Funkar bra för att skapa delaktighet i klassrummet. Alla ser det de själva skriver. Vill man kontrollera vem som skriver vad behöver eleverna skapa varsitt konto.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Delade Dokument Office 365",
+                    Description = "Delar två dokument med varje elev. Ett som fungerar som logg där eleverna får skriva övningar, frågor, skrivuppgifter. I dessa kan jag följa elevernas process samt ge respons om jag vill. I det andra dokumentet, som eleverna bara kan se, samlar jag elevernas examinationsuppgifter så att de alltid kan gå tillbaka till dessa för att se vad de behöver förbättra.",
+                    Comment = "Ger en bra överblick över elevernas kunskap. Eleverna blir även mer på hugget då de vet att det kan läsas. Resultatdokumentet är smidigt att återkomma till i omdömessamtal och för att peka på elevens utvecklingsmöjligheter.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Visma SPCS",
+                    Description = "Bokföringsprogram där eleverna får kontera affärshändelser samt skapa och utläsa ekonomiska rapporter.",
+                    Comment = "Ämnesspecifikt program. Används för att verklighetsanpassa undervisningen.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Google Expeditions",
+                    Description = "App som låter läraren styra en VR-upplevelse i ett klassrum. Elever använder sina telefoner i VR-glasögon. ",
+                    Comment = "Tar en lektion i anspråk. Ger en engagerande upplevelse, passar som utgångspunkt till samtal och diskussioner. Finns färdigt material riktat till historia, religion, kemi, biologi, mm. 32 VR-glasögon finns att låna",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "OneNote för klassrum",
+                    Description = "Ett anteckningsverktyg med delnings- och återkopplingsfunktioner",
+                    Comment = "Flexibel arbetsyta, bra överblick för elevåterkopplingar.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Moodle",
+                    Description = "Digitalt provverktyg.",
+                    Comment = "Kräver administration av elevuppgifter",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Safe Exam Browser",
+                    Description = "Webbläsare för digitala prov som låter lärare styra vilka program och webbsidor som skall vara tillgängliga vid examinationstillfällen.",
+                    Comment = "Kräver viss administration.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "GitHub",
+                    Description = "Samarbetsyta och versionshanteringssystem för mjukvaruutveckling.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Socrative",
+                    Description = "Digitalt responssystem.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Codecademy",
+                    Description = "Digital arbetsbok för programmering- och webbutvecklings-uppgifter.",
+                    Link = ""
+                },
+
+                new Ikt
+                {
+                    Name = "Microsoft Teams",
+                    Description = "Synkron kommunikation, fildelning och uppgiftshantering mm.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Microsoft Sway",
+                    Description = "Presentationer och informationssidor direkt i webbläsare.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Microsoft Forms",
+                    Description = "Formulär och utvärderingar.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "reMarkable Live View",
+                    Description = "Livesynkning mellan läs/skrivplatta och datorskärm.",
+                    Link = ""
+                },
+                
+                new Ikt
+                {
+                    Name = "Smartprojektor med aktiva elever",
+                    Description = "Smartprojektorn används aktivt och är integrerad i undervisningen, till exempel vid grammatikövningar där elever får möjlighet att fylla i svar med smartpennan, eller när texter omarbetas",
+                    Comment = "Fungerar bra då eleverna blir aktiva och uppmärksamma. Är gruppen stor kan det vara bra att dela den i två grupper",
+                    Link = ""
+                }
+            };
+            IKT.ForEach(s => context.Ikts.AddOrUpdate(st => st.Name, s));
+            context.SaveChanges();
         }
     }
 }

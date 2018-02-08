@@ -9,5 +9,7 @@ namespace ikt.DAL
         public DbSet<Project> Projects { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Class> Classes { get; set; }
+        public DbSet<ProjectClass> ProjectClasses { get; set; }
+        public DbSet<Ikt> Ikts { get; set; }
     }
 }

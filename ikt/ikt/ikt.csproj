@@ -189,6 +189,18 @@
     <Compile Include="Migrations\201802061213067_projectClass.Designer.cs">
       <DependentUpon>201802061213067_projectClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802080757048_ikt-seed.cs" />
+    <Compile Include="Migrations\201802080757048_ikt-seed.Designer.cs">
+      <DependentUpon>201802080757048_ikt-seed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802080806033_metadatafix.cs" />
+    <Compile Include="Migrations\201802080806033_metadatafix.Designer.cs">
+      <DependentUpon>201802080806033_metadatafix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802080825028_iktMetaDataFix.cs" />
+    <Compile Include="Migrations\201802080825028_iktMetaDataFix.Designer.cs">
+      <DependentUpon>201802080825028_iktMetaDataFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\ClassMetaData.cs" />
@@ -268,6 +280,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802061213067_projectClass.resx">
       <DependentUpon>201802061213067_projectClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802080757048_ikt-seed.resx">
+      <DependentUpon>201802080757048_ikt-seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802080806033_metadatafix.resx">
+      <DependentUpon>201802080806033_metadatafix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802080825028_iktMetaDataFix.resx">
+      <DependentUpon>201802080825028_iktMetaDataFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

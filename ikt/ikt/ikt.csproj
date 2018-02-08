@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201802080825028_iktMetaDataFix.Designer.cs">
       <DependentUpon>201802080825028_iktMetaDataFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802080923546_metadataIKT.cs" />
+    <Compile Include="Migrations\201802080923546_metadataIKT.Designer.cs">
+      <DependentUpon>201802080923546_metadataIKT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\ClassMetaData.cs" />
@@ -290,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802080825028_iktMetaDataFix.resx">
       <DependentUpon>201802080825028_iktMetaDataFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802080923546_metadataIKT.resx">
+      <DependentUpon>201802080923546_metadataIKT.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

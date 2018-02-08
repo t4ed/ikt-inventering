@@ -202,7 +202,7 @@ namespace ikt.Migrations
             };
             projects.ForEach(s => context.Projects.AddOrUpdate(st => st.Name, s));
             context.SaveChanges();
-            /*
+            
             var projectClasses = new List<ProjectClass>
             {
                 new ProjectClass
@@ -210,7 +210,7 @@ namespace ikt.Migrations
                     ProjectID = projects.Single(p => p.Name == "Barnkunskap").ID,
                     ClassID = classes.Single(c => c.Name == "VO15A").ID
                 },
-
+                
                 new ProjectClass
                 {
                     ProjectID = projects.Single(p => p.Name == "Barnkunskap").ID,
@@ -229,9 +229,9 @@ namespace ikt.Migrations
                     ClassID = classes.Single(c => c.Name == "NA15C").ID
                 },
             };
-            projectClasses.ForEach(s => context.ProjectClasses.AddOrUpdate(st => st.ProjectID, s));
+            projectClasses.ForEach(s => context.ProjectClasses.AddOrUpdate(st => st.ID, s));
             context.SaveChanges();
-            */
+            
             var IKT = new List<Ikt>
             {
                 new Ikt
@@ -241,7 +241,7 @@ namespace ikt.Migrations
                     Comment = "Funkar bra för att skapa delaktighet i klassrummet. Alla ser det de själva skriver. Vill man kontrollera vem som skriver vad behöver eleverna skapa varsitt konto.",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Delade Dokument Office 365",
@@ -249,7 +249,7 @@ namespace ikt.Migrations
                     Comment = "Ger en bra överblick över elevernas kunskap. Eleverna blir även mer på hugget då de vet att det kan läsas. Resultatdokumentet är smidigt att återkomma till i omdömessamtal och för att peka på elevens utvecklingsmöjligheter.",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Visma SPCS",
@@ -257,7 +257,7 @@ namespace ikt.Migrations
                     Comment = "Ämnesspecifikt program. Används för att verklighetsanpassa undervisningen.",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Google Expeditions",
@@ -265,7 +265,7 @@ namespace ikt.Migrations
                     Comment = "Tar en lektion i anspråk. Ger en engagerande upplevelse, passar som utgångspunkt till samtal och diskussioner. Finns färdigt material riktat till historia, religion, kemi, biologi, mm. 32 VR-glasögon finns att låna",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "OneNote för klassrum",
@@ -273,7 +273,7 @@ namespace ikt.Migrations
                     Comment = "Flexibel arbetsyta, bra överblick för elevåterkopplingar.",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Moodle",
@@ -281,7 +281,7 @@ namespace ikt.Migrations
                     Comment = "Kräver administration av elevuppgifter",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Safe Exam Browser",
@@ -289,28 +289,25 @@ namespace ikt.Migrations
                     Comment = "Kräver viss administration.",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "GitHub",
-                    Description = "Samarbetsyta och versionshanterings-system för mjukvaruutveckling.",
-                    Comment = "",
+                    Description = "Samarbetsyta och versionshanteringssystem för mjukvaruutveckling.",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Socrative",
                     Description = "Digitalt responssystem.",
-                    Comment = "",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Codecademy",
-                    Description = "Digital ”arbetsbok” för programmering- och webbutvecklings-uppgifter.",
-                    Comment = "",
+                    Description = "Digital arbetsbok för programmering- och webbutvecklings-uppgifter.",
                     Link = ""
                 },
 
@@ -318,34 +315,30 @@ namespace ikt.Migrations
                 {
                     Name = "Microsoft Teams",
                     Description = "Synkron kommunikation, fildelning och uppgiftshantering mm.",
-                    Comment = "",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Microsoft Sway",
                     Description = "Presentationer och informationssidor direkt i webbläsare.",
-                    Comment = "",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Microsoft Forms",
                     Description = "Formulär och utvärderingar.",
-                    Comment = "",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "reMarkable Live View",
                     Description = "Livesynkning mellan läs/skrivplatta och datorskärm.",
-                    Comment = "",
                     Link = ""
                 },
-
+                
                 new Ikt
                 {
                     Name = "Smartprojektor med aktiva elever",

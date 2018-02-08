@@ -19,12 +19,12 @@ namespace ikt.Models
 
         [Required(ErrorMessage = "Beskrivningen är blank")]
         [StringLength(500, MinimumLength = 10, ErrorMessage = "Beskrivningen måste vara mellan 10 och 500 tecken")]
-        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[,.a-zåäöA-ZÅÄÖ0-9'-'---\s,.:;(-)]*$", ErrorMessage = "Beskrivningen kan inte innehålla speciella tecken")]
+        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[,.a-zåäöA-ZÅÄÖ0-9'-'---\s:;(-)/]*$", ErrorMessage = "Beskrivningen kan inte innehålla speciella tecken")]
         [Display(Name = "Beskrivning")]
         public string Description;
 
         [StringLength(500, MinimumLength = 5, ErrorMessage = "Kommentaren måste vara mellan 5 och 500 tecken")]
-        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[,.a-zåäöA-ZÅÄÖ0-9'-'---\s.,:;(-)]*$", ErrorMessage = "Beskrivningen kan inte innehålla speciella tecken")]
+        [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[,.a-zåäöA-ZÅÄÖ0-9'-'---\s:;(-)/]*$", ErrorMessage = "Beskrivningen kan inte innehålla speciella tecken")]
         [Display(Name = "Kommentar")]
         public string Comment;
 

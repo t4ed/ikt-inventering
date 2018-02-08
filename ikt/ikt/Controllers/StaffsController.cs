@@ -26,7 +26,7 @@ namespace ikt.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create([Bind(Include = "ID,Username,FirstName,LastName")] Staff staff)
+        public ActionResult Create([Bind(Include = "ID,Username,FirstName,LastName,CreatedDate,CreatedBy")] Staff staff)
         {
             if (ModelState.IsValid)
             {

@@ -12,5 +12,9 @@ namespace ikt.Models
         public string Description { get; set; }
         public string Comment { get; set; }
         public string Link { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; } = "";
     }
 }

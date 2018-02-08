@@ -189,10 +189,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Login.cs" />
-    <Compile Include="Migrations\201802081120240_test.cs" />
-    <Compile Include="Migrations\201802081120240_test.Designer.cs">
-      <DependentUpon>201802081120240_test.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\ClassMetaData.cs" />
@@ -289,11 +285,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802081120240_test.resx">
-      <DependentUpon>201802081120240_test.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

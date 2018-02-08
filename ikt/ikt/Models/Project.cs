@@ -15,5 +15,9 @@ namespace ikt.Models
         public string Description { get; set; }
         public string Date { get; set; }
         public string PDF { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; } = "";
     }
 }

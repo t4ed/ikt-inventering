@@ -12,5 +12,9 @@ namespace ikt.Models
         public virtual Class Class { get; set; }
         public int? ProjectID { get; set; }
         public virtual Project Project { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; } = "";
     }
 }

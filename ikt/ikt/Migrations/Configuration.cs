@@ -200,9 +200,35 @@ namespace ikt.Migrations
                     Grade = 2
                 },
             };
-
             projects.ForEach(s => context.Projects.AddOrUpdate(st => st.Name, s));
             context.SaveChanges();
+
+            var projectClasses = new List<ProjectClass>
+            {
+                new ProjectClass
+                {
+                    ProjectID = projects.Single(p => p.Name == "Barnkunskap").ID,
+                    ClassID = classes.Single(c => c.Name == "VO15A").ID
+                },
+
+                new ProjectClass
+                {
+                    ProjectID = projects.Single(p => p.Name == "Barnkunskap").ID,
+                    ClassID = classes.Single(c => c.Name == "VO15B").ID
+                },
+
+                new ProjectClass
+                {
+                    ProjectID = projects.Single(p => p.Name == "Sveriges mörka historia").ID,
+                    ClassID = classes.Single(c => c.Name == "NA15B").ID
+                },
+
+                new ProjectClass
+                {
+                    ProjectID = projects.Single(p => p.Name == "Sveriges mörka historia").ID,
+                    ClassID = classes.Single(c => c.Name == "NA15C").ID
+                },
+            };
         }
     }
 }

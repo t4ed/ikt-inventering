@@ -11,8 +11,6 @@ namespace ikt.Models
         public string Name { get; set; }
         public int? SubjectID { get; set; }
         public virtual Subject Subject { get; set; }
-        public int? ClassID { get; set; }
-        public virtual Class Class { get; set; }
         public int Grade { get; set; }
         public string Description { get; set; }
         public string Date { get; set; }

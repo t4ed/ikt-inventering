@@ -34,6 +34,7 @@ namespace ikt.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
+            ViewBag.Username = staff.Username;
             return View(staff);
         }
     }

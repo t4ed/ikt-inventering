@@ -7,6 +7,22 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    @{ 
+        if (!Login.CheckIfValidUser(User.Identity.Name))
+        {
+            Response.Redirect(Url.Action("SignOut", "Account"));
+        }
+        else
+        {
+            ViewBag.Staff = Login.GetStaffInfo(User.Identity.Name);
+            if (ViewBag.Staff.Username == "invalid")
+            {
+                Response.Redirect(Url.Action("Create", "Staffs", new { Username = User.Identity.Name.Split('@')[0] }));
+            }
+        }
+        ViewBag.Test = "Hello";
+    }
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

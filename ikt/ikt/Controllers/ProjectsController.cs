@@ -49,7 +49,7 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,SubjectID,Grade,Description,Date,PDF")] Project project)
+        public ActionResult Create([Bind(Include = "ID,Name,SubjectID,Grade,Description,Date,PDF,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,SubjectID,Grade,Description,Date,PDF")] Project project)
+        public ActionResult Edit([Bind(Include = "ID,Name,SubjectID,Grade,Description,Date,PDF,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Project project)
         {
             if (ModelState.IsValid)
             {

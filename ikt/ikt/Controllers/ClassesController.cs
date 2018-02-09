@@ -47,10 +47,12 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name")] Class @class)
+        public ActionResult Create([Bind(Include = "ID,Name,CreatedDate,CreatedBy")] Class @class)
         {
             if (ModelState.IsValid)
             {
+                @class.UpdatedDate = @class.CreatedDate;
+                @class.UpdatedBy = @class.CreatedBy;
                 db.Classes.Add(@class);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,7 +81,7 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name")] Class @class)
+        public ActionResult Edit([Bind(Include = "ID,Name,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Class @class)
         {
             if (ModelState.IsValid)
             {

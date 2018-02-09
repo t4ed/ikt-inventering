@@ -23,6 +23,10 @@ namespace ikt.Controllers
 
         public void SignOut()
         {
+            Session["Username"] = "";
+            Session["FirstName"] = "";
+            Session["LastName"] = "";
+
             string callbackUrl = Url.Action("SignOutCallback", "Account", routeValues: null, protocol: Request.Url.Scheme);
 
             HttpContext.GetOwinContext().Authentication.SignOut(

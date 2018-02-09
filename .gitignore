@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Remove migrations
+ikt/ikt/[Mm]igrations/*.resx
+ikt/ikt/[Mm]igrations/*.cs
+!ikt/ikt/[Mm]igrations/[Cc]onfiguration.cs
+
 # User-specific files
 *.suo
 *.user

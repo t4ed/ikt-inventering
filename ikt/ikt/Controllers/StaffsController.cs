@@ -30,6 +30,8 @@ namespace ikt.Controllers
         {
             if (ModelState.IsValid)
             {
+                staff.UpdatedDate = staff.CreatedDate;
+                staff.UpdatedBy = staff.CreatedBy;
                 db.Staff.Add(staff);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");

@@ -15,11 +15,13 @@ namespace ikt.Controllers
     public class HomeController : Controller
     {
         private iktContext db = new iktContext();
-        public ActionResult Index(string search, int? page)
+        public ActionResult Index(string search, int? subjectID, string sortBy, int? page)
         {
             SearchIndexViewModel viewModel = new SearchIndexViewModel();
             var projects = db.Projects.Include(p => p.Subject);
             var ikts = db.Ikts.AsQueryable();
+
+            ViewBag.SubjectID = new SelectList(db.Subjects.OrderBy(s => s.Name), "ID", "Name");
 
             if (!string.IsNullOrEmpty(search))
             {
@@ -29,6 +31,13 @@ namespace ikt.Controllers
                 ikts = ikts.Where(i => i.Name.Contains(search) ||
                 i.CreatedBy.Contains(search) ||
                 i.UpdatedBy.Contains(search));
+                viewModel.Search = search;
+            }
+
+            if (subjectID.HasValue)
+            {
+                projects = projects.Where(p => p.SubjectID == subjectID);
+                ikts = ikts.Where(i => i.Name == "");
             }
             
             if (page > ((projects.Count() + ikts.Count()) / Constants.ItemsPerPage))
@@ -65,11 +74,26 @@ namespace ikt.Controllers
                 });
             }
 
+            switch (sortBy)
+            {
+                case "nameAZ":
+                    searchItems = searchItems.OrderBy(s => s.Name).ToList();
+                    break;
+                case "nameZA":
+                    searchItems = searchItems.OrderByDescending(s => s.Name).ToList();
+                    break;
+            }
+
+            viewModel.SubjectID = subjectID;
+            viewModel.SortBy = sortBy;
+            viewModel.Sort = new Dictionary<string, string>
+            {
+                {"Namn: A-Ö", "nameAZ" },
+                {"Namn: Ö-A", "nameZA" }
+            };
+
             viewModel.SearchResult = searchItems.ToPagedList(currentPage, Constants.ItemsPerPage);
-            /*
-            viewModel.Projects = projects.ToList();
-            viewModel.IKTs = ikts.ToList();
-            */
+
             return View(viewModel);
         }
     }

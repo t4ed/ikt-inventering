@@ -13,5 +13,8 @@ namespace ikt.ViewModels
         public List<Ikt> IKTs { get; set; }
         public IPagedList<SearchItem> SearchResult { get; set; }
         public string Search { get; set; }
+        public string SortBy { get; set; }
+        public Dictionary<string, string> Sort { get; set; }
+        public int? SubjectID { get; set; }
     }
 }

@@ -9,8 +9,9 @@ namespace ikt.ViewModels
 {
     public class SearchIndexViewModel
     {
-        public IPagedList<Project> Projects { get; set; }
-        public IPagedList<Ikt> IKTs { get; set; }
+        public List<Project> Projects { get; set; }
+        public List<Ikt> IKTs { get; set; }
+        public IPagedList<SearchItem> SearchResult { get; set; }
         public string Search { get; set; }
     }
 }

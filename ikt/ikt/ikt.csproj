@@ -207,6 +207,7 @@
     <Compile Include="Models\ProjectClass.cs" />
     <Compile Include="Models\ProjectMetaData.cs" />
     <Compile Include="Models\ProjectStaff.cs" />
+    <Compile Include="Models\SearchItem.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\StaffMetaData.cs" />
     <Compile Include="Models\Subject.cs" />

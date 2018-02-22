@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ikt.DAL;
 using ikt.Models;
+using ikt.ViewModels;
 
 namespace ikt.Controllers
 {
@@ -18,6 +19,7 @@ namespace ikt.Controllers
         // GET: Ikts
         public ActionResult Index()
         {
+            var Ikts = db.Ikts.Include(P => P.ID);
             return View(db.Ikts.ToList());
         }
 
@@ -39,6 +41,8 @@ namespace ikt.Controllers
         // GET: Ikts/Create
         public ActionResult Create()
         {
+            ViewBag.StaffList = new SelectList(db.Staff, "ID", "Name");
+            ViewBag.ProjectList = new SelectList(db.Projects, "ID", "Name");
             return View();
         }
 
@@ -47,16 +51,20 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Description,Comment,Link")] Ikt ikt)
+        public ActionResult Create([Bind(Include = "ID,Name,Description,Comment,Link,CreatedDate,CreatedBy")] Ikt Ikts)
         {
             if (ModelState.IsValid)
             {
-                db.Ikts.Add(ikt);
+                Ikts.UpdatedDate = Ikts.CreatedDate;
+                Ikts.UpdatedBy = Ikts.CreatedBy;
+                db.Ikts.Add(Ikts);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(ikt);
+            //ViewBag.StaffList = new SelectList(db.Staff, "ID", "Name", Staff.StaffID);
+            //ViewBag.ProjectList = new SelectList(db.Staff, "ID", "Name", Staff.ProjectID);
+            return View(Ikts);
         }
 
         // GET: Ikts/Edit/5
@@ -79,15 +87,17 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Description,Comment,Link")] Ikt ikt)
+        public ActionResult Edit([Bind(Include = "ID,Name,Description,Comment,Link,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Ikt Ikts)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ikt).State = EntityState.Modified;
+                Ikts.UpdatedDate = Ikts.CreatedDate;
+                Ikts.UpdatedBy = Ikts.CreatedBy;
+                db.Entry(Ikts).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(ikt);
+            return View(Ikts);
         }
 
         // GET: Ikts/Delete/5

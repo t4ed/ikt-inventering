@@ -21,5 +21,7 @@ namespace ikt
             "9826skma",
             "9825faed"
         };
+
+        public static int ItemsPerPage = 10;
     }
 }

@@ -40,7 +40,7 @@ namespace ikt.Controllers
         // GET: Projects/Create
         public ActionResult Create()
         {
-            ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name");
+            ViewBag.SubjectID = new SelectList(db.Subjects.OrderBy(s => s.Name), "ID", "Name");
             return View();
         }
 

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ikt.DAL;
 using ikt.Models;
+using ikt.ViewModels;
 
 namespace ikt.Controllers
 {
@@ -18,27 +19,35 @@ namespace ikt.Controllers
         // GET: Ikts
         public ActionResult Index()
         {
+            var Ikts = db.Ikts.Include(P => P.ID);
             return View(db.Ikts.ToList());
         }
 
         // GET: Ikts/Details/5
         public ActionResult Details(int? id)
         {
+            IktDetailsViewModel viewModel = new IktDetailsViewModel();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Ikt ikt = db.Ikts.Find(id);
+            viewModel.Ikt = ikt;
             if (ikt == null)
             {
                 return HttpNotFound();
             }
-            return View(ikt);
+            viewModel.Ikt = ikt;
+            viewModel.IktClass = db.IktClasses.Where(i => i.IktID == id).ToList();
+            viewModel.IktStaff = db.IktStaffs.Where(i => i.IktID == id).ToList();
+            return View(viewModel);
         }
 
         // GET: Ikts/Create
         public ActionResult Create()
         {
+            ViewBag.StaffList = new SelectList(db.Staff, "ID", "Name");
+            ViewBag.ProjectList = new SelectList(db.Projects, "ID", "Name");
             return View();
         }
 
@@ -47,16 +56,20 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Description,Comment,Link")] Ikt ikt)
+        public ActionResult Create([Bind(Include = "ID,Name,Description,Comment,Link,CreatedDate,CreatedBy")] Ikt Ikts)
         {
             if (ModelState.IsValid)
             {
-                db.Ikts.Add(ikt);
+                Ikts.UpdatedDate = Ikts.CreatedDate;
+                Ikts.UpdatedBy = Ikts.CreatedBy;
+                db.Ikts.Add(Ikts);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(ikt);
+            //ViewBag.StaffList = new SelectList(db.Staff, "ID", "Name", Staff.StaffID);
+            //ViewBag.ProjectList = new SelectList(db.Staff, "ID", "Name", Staff.ProjectID);
+            return View(Ikts);
         }
 
         // GET: Ikts/Edit/5
@@ -79,15 +92,17 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Description,Comment,Link")] Ikt ikt)
+        public ActionResult Edit([Bind(Include = "ID,Name,Description,Comment,Link,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Ikt Ikts)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ikt).State = EntityState.Modified;
+                Ikts.UpdatedDate = Ikts.CreatedDate;
+                Ikts.UpdatedBy = Ikts.CreatedBy;
+                db.Entry(Ikts).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(ikt);
+            return View(Ikts);
         }
 
         // GET: Ikts/Delete/5

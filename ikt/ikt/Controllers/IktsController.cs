@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ikt.DAL;
 using ikt.Models;
+using ikt.ViewModels;
 
 namespace ikt.Controllers
 {
@@ -24,16 +25,21 @@ namespace ikt.Controllers
         // GET: Ikts/Details/5
         public ActionResult Details(int? id)
         {
+            IktDetailsViewModel viewModel = new IktDetailsViewModel();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Ikt ikt = db.Ikts.Find(id);
+            viewModel.Ikt = ikt;
             if (ikt == null)
             {
                 return HttpNotFound();
             }
-            return View(ikt);
+            viewModel.Ikt = ikt;
+            viewModel.IktClass = db.IktClasses.Where(i => i.IktID == id).ToList();
+            viewModel.IktStaff = db.IktStaffs.Where(i => i.IktID == id).ToList();
+            return View(viewModel);
         }
 
         // GET: Ikts/Create

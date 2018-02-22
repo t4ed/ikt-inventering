@@ -28,6 +28,16 @@ namespace ikt.Migrations
                     CreatedBy = "admin",
                     UpdatedDate = DateTime.Now,
                     UpdatedBy = "admin"
+                },
+                new Staff
+                {
+                    Username = "larar",
+                    FirstName = "Lärare",
+                    LastName = "Svensson",
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = "admin",
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = "admin"
                 }
             };
 
@@ -1409,6 +1419,38 @@ namespace ikt.Migrations
                 }
             };
             IKT.ForEach(s => context.Ikts.AddOrUpdate(st => st.Name, s));
+            context.SaveChanges();
+
+            var iktStaff = new List<IktStaff>
+            {
+                new IktStaff
+                {
+                    IktID = 1,
+                    StaffID = staff.Single(s => s.Username == "larar").ID,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = "admin",
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = "admin"
+                }
+            };
+
+            iktStaff.ForEach(i => context.IktStaffs.AddOrUpdate(st => st.Staff, i));
+            context.SaveChanges();
+
+            var iktClass = new List<IktClass>
+            {
+                new IktClass
+                {
+                    IktID = 1,
+                    ClassID = classes.Single(c => c.Name == "NA17A").ID,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = "admin",
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = "admin"
+                }
+            };
+
+            iktClass.ForEach(i => context.IktClasses.AddOrUpdate(c => c.Class, i));
             context.SaveChanges();
         }
     }

@@ -20,6 +20,7 @@ namespace ikt.Controllers
             SearchIndexViewModel viewModel = new SearchIndexViewModel();
             var projects = db.Projects.Include(p => p.Subject);
             var ikts = db.Ikts.AsQueryable();
+            var iktsForStaff = db.Ikts.AsQueryable();
             var iktStaff = db.IktStaffs.AsQueryable();
 
             ViewBag.SubjectID = new SelectList(db.Subjects.OrderBy(s => s.Name), "ID", "Name");
@@ -33,12 +34,17 @@ namespace ikt.Controllers
                 i.CreatedBy.Contains(search) ||
                 i.UpdatedBy.Contains(search)
                 );
-                /*
+                
                 iktStaff = iktStaff.Where(s => s.Staff.Username.Contains(search) ||
                 s.Staff.FirstName.Contains(search) ||
                 s.Staff.LastName.Contains(search)
                 );
-                */
+
+                foreach (var staff in iktStaff)
+                {
+                    iktsForStaff = iktsForStaff.Where(i => i.ID == staff.ID);
+                }
+                
                 viewModel.Search = search;
             }
 
@@ -46,12 +52,14 @@ namespace ikt.Controllers
             {
                 projects = projects.Where(p => p.SubjectID == subjectID);
                 ikts = ikts.Where(i => i.Name == "");
+                iktsForStaff = iktsForStaff.Where(i => i.Name == "");
             }
 
             if (grade.HasValue)
             {
                 projects = projects.Where(p => p.Grade == grade);
                 ikts = ikts.Where(i => i.Name == "");
+                iktsForStaff = iktsForStaff.Where(i => i.Name == "");
             }
             
             if (page > ((projects.Count() + ikts.Count()) / Constants.ItemsPerPage))
@@ -62,6 +70,8 @@ namespace ikt.Controllers
             
             List<Project> pList = projects.ToList();
             List<Ikt> iList = ikts.ToList();
+            //iList.Concat(iktsForStaff.ToList());
+            //Remove duplicate IDs from list.
 
             List<SearchItem> searchItems = new List<SearchItem>();
             for (int i = 0; i < pList.Count; i++)

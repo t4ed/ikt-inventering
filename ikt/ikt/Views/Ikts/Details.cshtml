@@ -36,27 +36,34 @@
         <dt>
             Lärare
         </dt>
-        @foreach(var staff in Model.IktStaff)
-        {
-            <dd>
-                @staff.Staff.FirstName @staff.Staff.LastName
-            </dd>
-        }
+        @foreach (var staff in Model.IktStaff)
+    {
+        <dd>
+            @staff.Staff.FirstName @staff.Staff.LastName
+        </dd>
+}
         <dt>
             Klasser
         </dt>
-        @foreach(var klass in Model.IktClass)
-        {
-            <dd>
-                @klass.Class.Name
-            </dd>
-        }
+        @foreach (var klass in Model.IktClass)
+    {
+        <dd>
+            @klass.Class.Name
+        </dd>
+}
         <dt>
             @Html.DisplayNameFor(model => model.Ikt.Link)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Ikt.Link)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ikt.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ikt.CreatedDate)
         </dd>
 
     </dl>

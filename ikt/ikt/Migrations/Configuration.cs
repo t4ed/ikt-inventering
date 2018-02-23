@@ -5,6 +5,7 @@ namespace ikt.Migrations
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Globalization;
     using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ikt.DAL.iktContext>
@@ -1251,7 +1252,7 @@ namespace ikt.Migrations
                     Description = "Som digital anslagstavla där både elever och lärare kan skriva samtidigt. Används ibland för exit tickets men främst som ett verktyg då man vill ge elever möjlighet att skriva frågor eller träna olika aspekter som i realtid läggs upp på skärmen i klassrummet. Alla kan skriva samtidigt. Och man kan sedan plocka guldkornen.",
                     Comment = "Funkar bra för att skapa delaktighet i klassrummet. Alla ser det de själva skriver. Vill man kontrollera vem som skriver vad behöver eleverna skapa varsitt konto.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("12 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
                     UpdatedDate = DateTime.Now,
                     UpdatedBy = "admin"

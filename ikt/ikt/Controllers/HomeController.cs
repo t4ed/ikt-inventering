@@ -90,6 +90,12 @@ namespace ikt.Controllers
                 case "nameZA":
                     searchItems = searchItems.OrderByDescending(s => s.Name).ToList();
                     break;
+                case "dateNew":
+                    searchItems = searchItems.OrderByDescending(s => s.CreatedDate).ToList();
+                    break;
+                case "dateOld":
+                    searchItems = searchItems.OrderBy(s => s.CreatedDate).ToList();
+                    break;
             }
 
             viewModel.SubjectID = subjectID;
@@ -97,7 +103,9 @@ namespace ikt.Controllers
             viewModel.Sort = new Dictionary<string, string>
             {
                 {"Namn: A-Ö", "nameAZ" },
-                {"Namn: Ö-A", "nameZA" }
+                {"Namn: Ö-A", "nameZA" },
+                {"Datum skapat: Nyast först", "dateNew" },
+                {"Datum skapat: Äldst först", "dateOld" },
             };
 
             viewModel.SearchResult = searchItems.ToPagedList(currentPage, Constants.ItemsPerPage);

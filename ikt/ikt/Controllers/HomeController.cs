@@ -15,7 +15,7 @@ namespace ikt.Controllers
     public class HomeController : Controller
     {
         private iktContext db = new iktContext();
-        public ActionResult Index(string search, int? subjectID, string sortBy, int? page)
+        public ActionResult Index(string search, int? subjectID, int? grade, string sortBy, int? page)
         {
             SearchIndexViewModel viewModel = new SearchIndexViewModel();
             var projects = db.Projects.Include(p => p.Subject);
@@ -45,6 +45,12 @@ namespace ikt.Controllers
             if (subjectID.HasValue)
             {
                 projects = projects.Where(p => p.SubjectID == subjectID);
+                ikts = ikts.Where(i => i.Name == "");
+            }
+
+            if (grade.HasValue)
+            {
+                projects = projects.Where(p => p.Grade == grade);
                 ikts = ikts.Where(i => i.Name == "");
             }
             
@@ -98,6 +104,14 @@ namespace ikt.Controllers
                     break;
             }
 
+            viewModel.Grade = grade;
+            viewModel.GradeList = new Dictionary<string, int>
+            {
+                {"Årskurs 1", 1 },
+                {"Årskurs 2", 2 },
+                {"Årskurs 3", 3 },
+                {"Årskurs 4", 4 },
+            };
             viewModel.SubjectID = subjectID;
             viewModel.SortBy = sortBy;
             viewModel.Sort = new Dictionary<string, string>

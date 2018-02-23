@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="/">
-                    <img src="~/Content/Images/LoggaEdit.png" alt="logga" width="90" height="60" />
+                    <img src="~/Content/Images/LoggaEdit.png" alt="logga" width="77" height="50" />
                 </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -45,8 +45,8 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="NavbarDropdownItem">@Html.ActionLink("Projekt", "Create", "Projects")</li>
-                            <li class="NavbarDropdownItem">@Html.ActionLink("Verktyg", "Create", "Ikts")</li>
+                            <li>@Html.ActionLink("Projekt", "Create", "Projects")</li>
+                            <li>@Html.ActionLink("Verktyg", "Create", "Ikts")</li>
                         </ul>
                     </li>
                 </ul>
@@ -58,7 +58,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - IKT & Projekt Biblotek</p>
+            <p id="copyrighter">&copy; @DateTime.Now.Year - IKT & Projekt Biblotek</p>
         </footer>
     </div>
 

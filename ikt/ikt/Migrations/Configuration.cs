@@ -1417,6 +1417,18 @@ namespace ikt.Migrations
                     CreatedBy = "admin",
                     UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
+                },
+
+                new Ikt
+                {
+                    Name = "Svensson",
+                    Description = "Sven testar saker",
+                    Comment = "Hello",
+                    Link = "",
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    CreatedBy = "admin",
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    UpdatedBy = "admin"
                 }
             };
             IKT.ForEach(s => context.Ikts.AddOrUpdate(st => st.Name, s));
@@ -1426,7 +1438,18 @@ namespace ikt.Migrations
             {
                 new IktStaff
                 {
+                    ID = 1,
                     IktID = 1,
+                    StaffID = staff.Single(s => s.Username == "larar").ID,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    CreatedBy = "admin",
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    UpdatedBy = "admin"
+                },
+                new IktStaff
+                {
+                    ID = 2,
+                    IktID = 16,
                     StaffID = staff.Single(s => s.Username == "larar").ID,
                     CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
@@ -1435,13 +1458,14 @@ namespace ikt.Migrations
                 }
             };
 
-            iktStaff.ForEach(i => context.IktStaffs.AddOrUpdate(st => st.StaffID, i));
+            iktStaff.ForEach(i => context.IktStaffs.AddOrUpdate(st => st.ID, i));
             context.SaveChanges();
 
             var iktClass = new List<IktClass>
             {
                 new IktClass
                 {
+                    ID =1,
                     IktID = 1,
                     ClassID = classes.Single(c => c.Name == "NA17A").ID,
                     CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
@@ -1451,7 +1475,7 @@ namespace ikt.Migrations
                 }
             };
 
-            iktClass.ForEach(i => context.IktClasses.AddOrUpdate(c => c.ClassID, i));
+            iktClass.ForEach(i => context.IktClasses.AddOrUpdate(c => c.ID, i));
             context.SaveChanges();
         }
     }

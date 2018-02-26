@@ -69,9 +69,10 @@ namespace ikt.Controllers
             int currentPage = (page ?? 1);
             
             List<Project> pList = projects.ToList();
-            List<Ikt> iList = ikts.ToList();
+            //List<Ikt> iList = ikts.ToList();
             //iList.Concat(iktsForStaff.ToList());
             //Remove duplicate IDs from list.
+            List<Ikt> iList = MergeIKT(ikts.ToList(), iktsForStaff.ToList());
 
             List<SearchItem> searchItems = new List<SearchItem>();
             for (int i = 0; i < pList.Count; i++)
@@ -135,6 +136,28 @@ namespace ikt.Controllers
             viewModel.SearchResult = searchItems.ToPagedList(currentPage, Constants.ItemsPerPage);
 
             return View(viewModel);
+        }
+
+        private List<Ikt> MergeIKT(List<Ikt> listA, List<Ikt> listB)
+        {
+            List<Ikt> mergedIkt = new List<Ikt>();
+            
+            foreach (var itemA in listA)
+            {
+                if (!mergedIkt.Contains(itemA))
+                {
+                    mergedIkt.Add(itemA);
+                }
+            }
+
+            foreach (var itemB in listB)
+            {
+                if (!mergedIkt.Contains(itemB))
+                {
+                    mergedIkt.Add(itemB);
+                }
+            }
+            return mergedIkt;
         }
     }
 }

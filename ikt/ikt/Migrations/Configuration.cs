@@ -25,19 +25,19 @@ namespace ikt.Migrations
                     Username = "admin",
                     FirstName = "Admin",
                     LastName = "Adminsson",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
                 new Staff
                 {
                     Username = "larar",
-                    FirstName = "Lärare",
+                    FirstName = "Lars",
                     LastName = "Svensson",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 }
             };
@@ -50,485 +50,485 @@ namespace ikt.Migrations
                 new Class
                 {
                     Name = "EK15A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "EK15B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "EK16A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "EK16B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "EK17A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "IMA17",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "IMS17:1",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "IMS17:2A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "IMS17:2B1",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "IMS17:2B2",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "IMS17:3A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "IMS17:3B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA15A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA15B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA15C",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA15D",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA16A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA16B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA16C",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA16D",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA17A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA17B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA17C",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "NA17D",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "SA15A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "SA15B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "SA16A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "SA16B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "SA17A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "SA17B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "T4",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE15A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE15B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE15C",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE15D",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE16A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE16B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE16C",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 { Name = "TE16D",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE17A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE17B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE17C",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "TE17D",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VF15A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VF15B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VF16A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VF16B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VF17",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VO15A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VO15B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VO16A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VO16B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VO17A",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Class
                 {
                     Name = "VO17B",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 }
 
@@ -541,611 +541,611 @@ namespace ikt.Migrations
                 new Subject
                 {
                     Name =  "Datalagring",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Gymnasieingenjören i praktiken",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Mjukvarudesign",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Programmering",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Webbserverprogrammering",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Webbutveckling",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Affärsjuridik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Engelska",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Svenska",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Matematik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Psykologi",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Massage",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Entreprenörskap och företagande",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Tyska",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Spanska",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Franska",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Marknadsföring",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Företagsekonomi",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Idrott och hälsa",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Samhällskunskap",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Naturkunskap",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Historia",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Religionskunskap",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Specialpedagogik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Kemi",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Bioteknik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Fysik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Politik och hållbar utveckling",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Geografi",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Filosofi",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Biologi",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Sociologi",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Internationella relationer",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Ledarskap och organisation",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Människor miljöer",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Kommunikation",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
                 new Subject
                 {
                     Name =  "Tillämpad programmering",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Hållbart samhällsbyggande",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Design",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Teknik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Cad",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Gränssnittsdesign",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Dator- och nätverksteknik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Byggnadsverk",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Arkitektur",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Luftbehandling",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Värmelära",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Kyl- och värmepumpsteknik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Mät- och reglerteknik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Elkraftteknik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Sanitetsteknik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "VVS Gassvetsning rör",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Bild och form",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Svets grund",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Matlagning",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Verktygs- och materialhantering",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Systemuppbyggnad",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "VVS Svets och lödning rör",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Praktisk ellära",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Vård och omsorg vid demenssjukdom",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Psykiatri",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Barnhälsovård",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Akutsjukvård",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Hemsjukvård",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Etik och människans livsvillkor",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Medicin",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Vård- och omsorgsarbete",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
                 new Subject
                 {
                     Name =  "Hälsopedagogik",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 }
             };
@@ -1162,9 +1162,9 @@ namespace ikt.Migrations
                     SubjectID = subjects.Single(s => s.Name == "Svenska").ID,
                     PDF = "",
                     Grade = 3,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1176,9 +1176,9 @@ namespace ikt.Migrations
                     SubjectID = subjects.Single(s => s.Name == "Svenska").ID,
                     PDF = "",
                     Grade = 1,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1190,9 +1190,9 @@ namespace ikt.Migrations
                     SubjectID = subjects.Single(s => s.Name == "Samhällskunskap").ID,
                     PDF = "",
                     Grade = 2,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
             };
@@ -1205,9 +1205,9 @@ namespace ikt.Migrations
                 {
                     ProjectID = projects.Single(p => p.Name == "Barnkunskap").ID,
                     ClassID = classes.Single(c => c.Name == "VO15A").ID,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1215,9 +1215,9 @@ namespace ikt.Migrations
                 {
                     ProjectID = projects.Single(p => p.Name == "Barnkunskap").ID,
                     ClassID = classes.Single(c => c.Name == "VO15B").ID,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1225,9 +1225,9 @@ namespace ikt.Migrations
                 {
                     ProjectID = projects.Single(p => p.Name == "Sveriges mörka historia").ID,
                     ClassID = classes.Single(c => c.Name == "NA15B").ID,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1235,9 +1235,9 @@ namespace ikt.Migrations
                 {
                     ProjectID = projects.Single(p => p.Name == "Sveriges mörka historia").ID,
                     ClassID = classes.Single(c => c.Name == "NA15C").ID,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
             };
@@ -1254,7 +1254,7 @@ namespace ikt.Migrations
                     Link = "",
                     CreatedDate = DateTime.Parse("12 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1264,9 +1264,9 @@ namespace ikt.Migrations
                     Description = "Delar två dokument med varje elev. Ett som fungerar som logg där eleverna får skriva övningar, frågor, skrivuppgifter. I dessa kan jag följa elevernas process samt ge respons om jag vill. I det andra dokumentet, som eleverna bara kan se, samlar jag elevernas examinationsuppgifter så att de alltid kan gå tillbaka till dessa för att se vad de behöver förbättra.",
                     Comment = "Ger en bra överblick över elevernas kunskap. Eleverna blir även mer på hugget då de vet att det kan läsas. Resultatdokumentet är smidigt att återkomma till i omdömessamtal och för att peka på elevens utvecklingsmöjligheter.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1276,9 +1276,9 @@ namespace ikt.Migrations
                     Description = "Bokföringsprogram där eleverna får kontera affärshändelser samt skapa och utläsa ekonomiska rapporter.",
                     Comment = "Ämnesspecifikt program. Används för att verklighetsanpassa undervisningen.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1288,9 +1288,9 @@ namespace ikt.Migrations
                     Description = "App som låter läraren styra en VR-upplevelse i ett klassrum. Elever använder sina telefoner i VR-glasögon. ",
                     Comment = "Tar en lektion i anspråk. Ger en engagerande upplevelse, passar som utgångspunkt till samtal och diskussioner. Finns färdigt material riktat till historia, religion, kemi, biologi, mm. 32 VR-glasögon finns att låna",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1300,9 +1300,9 @@ namespace ikt.Migrations
                     Description = "Ett anteckningsverktyg med delnings- och återkopplingsfunktioner",
                     Comment = "Flexibel arbetsyta, bra överblick för elevåterkopplingar.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1312,9 +1312,9 @@ namespace ikt.Migrations
                     Description = "Digitalt provverktyg.",
                     Comment = "Kräver administration av elevuppgifter",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1324,9 +1324,9 @@ namespace ikt.Migrations
                     Description = "Webbläsare för digitala prov som låter lärare styra vilka program och webbsidor som skall vara tillgängliga vid examinationstillfällen.",
                     Comment = "Kräver viss administration.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1335,9 +1335,9 @@ namespace ikt.Migrations
                     Name = "GitHub",
                     Description = "Samarbetsyta och versionshanteringssystem för mjukvaruutveckling.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1346,9 +1346,9 @@ namespace ikt.Migrations
                     Name = "Socrative",
                     Description = "Digitalt responssystem.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1357,9 +1357,9 @@ namespace ikt.Migrations
                     Name = "Codecademy",
                     Description = "Digital arbetsbok för programmering- och webbutvecklings-uppgifter.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1368,9 +1368,9 @@ namespace ikt.Migrations
                     Name = "Microsoft Teams",
                     Description = "Synkron kommunikation, fildelning och uppgiftshantering mm.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1379,9 +1379,9 @@ namespace ikt.Migrations
                     Name = "Microsoft Sway",
                     Description = "Presentationer och informationssidor direkt i webbläsare.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1390,9 +1390,9 @@ namespace ikt.Migrations
                     Name = "Microsoft Forms",
                     Description = "Formulär och utvärderingar.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1401,9 +1401,9 @@ namespace ikt.Migrations
                     Name = "reMarkable Live View",
                     Description = "Livesynkning mellan läs/skrivplatta och datorskärm.",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 },
 
@@ -1413,9 +1413,9 @@ namespace ikt.Migrations
                     Description = "Smartprojektorn används aktivt och är integrerad i undervisningen, till exempel vid grammatikövningar där elever får möjlighet att fylla i svar med smartpennan, eller när texter omarbetas",
                     Comment = "Fungerar bra då eleverna blir aktiva och uppmärksamma. Är gruppen stor kan det vara bra att dela den i två grupper",
                     Link = "",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 }
             };
@@ -1428,14 +1428,14 @@ namespace ikt.Migrations
                 {
                     IktID = 1,
                     StaffID = staff.Single(s => s.Username == "larar").ID,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 }
             };
 
-            iktStaff.ForEach(i => context.IktStaffs.AddOrUpdate(st => st.Staff, i));
+            iktStaff.ForEach(i => context.IktStaffs.AddOrUpdate(st => st.StaffID, i));
             context.SaveChanges();
 
             var iktClass = new List<IktClass>
@@ -1444,14 +1444,14 @@ namespace ikt.Migrations
                 {
                     IktID = 1,
                     ClassID = classes.Single(c => c.Name == "NA17A").ID,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
-                    UpdatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
                 }
             };
 
-            iktClass.ForEach(i => context.IktClasses.AddOrUpdate(c => c.Class, i));
+            iktClass.ForEach(i => context.IktClasses.AddOrUpdate(c => c.ClassID, i));
             context.SaveChanges();
         }
     }

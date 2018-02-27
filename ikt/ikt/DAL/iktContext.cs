@@ -10,6 +10,7 @@ namespace ikt.DAL
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Class> Classes { get; set; }
         public DbSet<ProjectClass> ProjectClasses { get; set; }
+        public DbSet<ProjectStaff> ProjectStaffs { get; set; }
         public DbSet<Ikt> Ikts { get; set; }
         public DbSet<IktClass> IktClasses { get; set; }
         public DbSet<IktStaff> IktStaffs { get; set; }

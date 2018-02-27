@@ -15,40 +15,34 @@ namespace ikt.Controllers
     public class HomeController : Controller
     {
         private iktContext db = new iktContext();
-        public ActionResult Index(string search, int? subjectID, int? ClassID, int? grade, string sortBy, int? page)
+        public ActionResult Index(string search, int? subjectID, int? grade, string sortBy, int? page)
         {
             SearchIndexViewModel viewModel = new SearchIndexViewModel();
             var projects = db.Projects.Include(p => p.Subject);
-            var classes = db.Classes.Include(p => p.Name); 
             var ikt = db.Ikts.AsQueryable();
 
             ViewBag.SubjectID = new SelectList(db.Subjects.OrderBy(s => s.Name), "ID", "Name");
-            ViewBag.ClassID = new SelectList(db.Classes.OrderBy(s => s.Name), "ID", "Name"); 
 
             if (!string.IsNullOrEmpty(search))
             {
-                projects = projects.Where(p => p.Name.Contains(search) ||
-                p.Subject.Name.Contains(search));
+                projects =
+                    from p in db.Projects
+                    join s in db.ProjectStaffs on p.ID equals s.ProjectID into ps
+                    from s in ps.DefaultIfEmpty()
+                    join c in db.ProjectClasses on p.ID equals c.ProjectID into pc
+                    from c in pc.DefaultIfEmpty()
+                    where
+                        p.Name.Contains(search) ||
+                        p.Subject.Name.Contains(search) ||
+                        s.Staff.FirstName.Contains(search) ||
+                        s.Staff.LastName.Contains(search) ||
+                        s.Staff.Username.Contains(search) ||
+                        c.Class.Name.Contains(search)
+                    select p;
 
-                classes = classes.Where(p => p.Name.Contains(search) ||
-                p.Name.Contains(search)); 
+                projects = projects.Distinct();
 
-                /*
-                ikt = from i in db.Ikts
-                           join s in db.IktStaffs on
-                           i.ID equals s.IktID
-                           join c in db.IktClasses on
-                           i.ID equals c.IktID
-                           where
-                           s.Staff.FirstName.Contains(search) ||
-                           s.Staff.LastName.Contains(search) ||
-                           s.Staff.Username.Contains(search) ||
-                           c.Class.Name.Contains(search) ||
-                           i.Name.Contains(search)
-                          select i;
-                */
-
-                ikt = 
+                ikt =
                     from i in db.Ikts
                     join s in db.IktStaffs on i.ID equals s.IktID into st
                     from s in st.DefaultIfEmpty()
@@ -74,12 +68,6 @@ namespace ikt.Controllers
                 ikt = ikt.Where(i => i.Name == "");
             }
 
-            if (ClassID.HasValue)
-            {
-                classes = classes.Where(p => p.ID == ClassID);
-                ikt = ikt.Where(i => i.Name == "");
-            }
-
             if (grade.HasValue)
             {
                 projects = projects.Where(p => p.Grade == grade);
@@ -94,9 +82,6 @@ namespace ikt.Controllers
             
             List<Project> pList = projects.ToList();
             List<Ikt> iList = ikt.ToList();
-            //iList.Concat(iktsForStaff.ToList());
-            //Remove duplicate IDs from list.
-            //List<Ikt> iList = MergeIKT(ikts.ToList(), iktsForStaff.ToList());
 
             List<SearchItem> searchItems = new List<SearchItem>();
             for (int i = 0; i < pList.Count; i++)
@@ -148,7 +133,6 @@ namespace ikt.Controllers
                 {"Årskurs 4", 4 },
             };
             viewModel.SubjectID = subjectID;
-            viewModel.ClassID = ClassID; 
             viewModel.SortBy = sortBy;
             viewModel.Sort = new Dictionary<string, string>
             {

@@ -9,7 +9,6 @@
 {
     @Html.TextBox("Search", null, new { @class = "form-control", @placeholder = "Sök", @value = Model.Search })
     @Html.DropDownList("SubjectID", null, "Alla", htmlAttributes: new { @class = "form-control" })
-    @Html.DropDownList("ClassID", null, "Alla", htmlAttributes: new { @class = "form-control" })
     <label>Sortera: </label> @Html.DropDownListFor(vm => vm.SortBy,
                     new SelectList(Model.Sort, "Value", "Key"),
                     "-",

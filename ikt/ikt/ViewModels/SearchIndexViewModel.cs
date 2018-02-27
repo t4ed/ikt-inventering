@@ -18,8 +18,5 @@ namespace ikt.ViewModels
         public int? SubjectID { get; set; }
         public Dictionary<string, int> GradeList { get; set; }
         public int? Grade { get; set; }
-
-        public int? ClassID { get; set; }
-        public Dictionary<string, int> ClassList { get; set; }
     }
 }

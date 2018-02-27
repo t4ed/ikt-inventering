@@ -39,6 +39,16 @@ namespace ikt.Migrations
                     CreatedBy = "admin",
                     UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
+                },
+                new Staff
+                {
+                    Username = "9810pema",
+                    FirstName = "Marcus",
+                    LastName = "Perhamn",
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    CreatedBy = "admin",
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    UpdatedBy = "admin"
                 }
             };
 
@@ -1476,6 +1486,50 @@ namespace ikt.Migrations
             };
 
             iktClass.ForEach(i => context.IktClasses.AddOrUpdate(c => c.ID, i));
+            context.SaveChanges();
+
+            var projectClass = new List<ProjectClass>
+            {
+                new ProjectClass
+                {
+                    ID = 1,
+                    ProjectID = 1,
+                    ClassID = classes.Single(c => c.Name == "NA17A").ID,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    CreatedBy = "admin",
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    UpdatedBy = "admin"
+                }
+            };
+
+            projectClass.ForEach(p => context.ProjectClasses.AddOrUpdate(c => c.ID, p));
+            context.SaveChanges();
+
+            var projectStaff = new List<ProjectStaff>
+            {
+                new ProjectStaff
+                {
+                    ID = 1,
+                    ProjectID = 2,
+                    StaffID = staff.Single(s => s.Username == "larar").ID,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    CreatedBy = "admin",
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    UpdatedBy = "admin"
+                },
+                new ProjectStaff
+                {
+                    ID = 2,
+                    ProjectID = 2,
+                    StaffID = staff.Single(s => s.Username == "9810pema").ID,
+                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    CreatedBy = "admin",
+                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
+                    UpdatedBy = "admin"
+                }
+            };
+
+            projectStaff.ForEach(p => context.ProjectStaffs.AddOrUpdate(s => s.ID, p));
             context.SaveChanges();
         }
     }

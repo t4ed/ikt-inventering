@@ -16,5 +16,7 @@ namespace ikt.ViewModels
         public string SortBy { get; set; }
         public Dictionary<string, string> Sort { get; set; }
         public int? SubjectID { get; set; }
+        public Dictionary<string, int> GradeList { get; set; }
+        public int? Grade { get; set; }
     }
 }

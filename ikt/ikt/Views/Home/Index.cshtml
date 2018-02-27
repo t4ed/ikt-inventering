@@ -15,6 +15,10 @@
                     new SelectList(Model.Sort, "Value", "Key"),
                     "-",
                     new { @class = "form-control" })
+    <label>Årskurs: </label> @Html.DropDownListFor(vm => vm.Grade,
+                            new SelectList(Model.GradeList, "Value", "Key"),
+                            "-",
+                            new { @class = "form-control" })
     <button type="submit" class="btn btn-default">Sök</button>
 }
 
@@ -28,6 +32,7 @@
          search = Model.Search,
          subjectID = Model.SubjectID,
          sortBy = Model.SortBy,
+         grade = Model.Grade,
          page
      }))
 <table class="table table-striped">

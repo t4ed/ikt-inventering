@@ -25,23 +25,40 @@ namespace ikt.Controllers
 
             if (!string.IsNullOrEmpty(search))
             {
-                projects = projects.Where(p => p.Name.Contains(search) ||
-                p.Subject.Name.Contains(search));
-                
-                ikt = from i in db.Ikts
-                           join s in db.IktStaffs on
-                           i.ID equals s.IktID
-                           join c in db.IktClasses on
-                           i.ID equals c.IktID
-                           where
-                           s.Staff.FirstName.Contains(search) ||
+                projects =
+                    from p in db.Projects
+                    join s in db.ProjectStaffs on p.ID equals s.ProjectID into ps
+                    from s in ps.DefaultIfEmpty()
+                    join c in db.ProjectClasses on p.ID equals c.ProjectID into pc
+                    from c in pc.DefaultIfEmpty()
+                    where
+                        p.Name.Contains(search) ||
+                        p.Subject.Name.Contains(search) ||
+                        s.Staff.FirstName.Contains(search) ||
+                        s.Staff.LastName.Contains(search) ||
+                        s.Staff.Username.Contains(search) ||
+                        c.Class.Name.Contains(search)
+                    select p;
+
+                projects = projects.Distinct();
+
+                ikt =
+                    from i in db.Ikts
+                    join s in db.IktStaffs on i.ID equals s.IktID into st
+                    from s in st.DefaultIfEmpty()
+                    join c in db.IktClasses on i.ID equals c.IktID into cl
+                    from c in cl.DefaultIfEmpty()
+                    where
+                    s.Staff.FirstName.Contains(search) ||
                            s.Staff.LastName.Contains(search) ||
                            s.Staff.Username.Contains(search) ||
                            c.Class.Name.Contains(search) ||
                            i.Name.Contains(search)
-                          select i;
-                
-                
+                    select i;
+
+                ikt = ikt.Distinct();
+
+
                 viewModel.Search = search;
             }
 
@@ -65,9 +82,6 @@ namespace ikt.Controllers
             
             List<Project> pList = projects.ToList();
             List<Ikt> iList = ikt.ToList();
-            //iList.Concat(iktsForStaff.ToList());
-            //Remove duplicate IDs from list.
-            //List<Ikt> iList = MergeIKT(ikts.ToList(), iktsForStaff.ToList());
 
             List<SearchItem> searchItems = new List<SearchItem>();
             for (int i = 0; i < pList.Count; i++)

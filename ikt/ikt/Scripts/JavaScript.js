@@ -15,8 +15,11 @@
         isRTL: false,
         showMonthAfterYear: false,
         yearSuffix: '',
-        showWeek: true,
+        showWeek: true
     });
 $("#SubjectID").autocomplete({
+    
+});
+$("#ClassID").autocomplete({
     
 });

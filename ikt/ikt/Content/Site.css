@@ -47,3 +47,18 @@ textarea {
 .form-group {
     width: 100%;
 }
+
+#vDetails_Headline{
+    text-align:center;
+}
+#vDetails_LeftContainer{
+    height:400px;
+    width:20%;
+    background-color: lightcyan;
+}
+
+#vDetails_MainContainer{
+    width:20%;
+    height: 400px;
+    background-color:grey;
+}

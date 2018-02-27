@@ -19,9 +19,7 @@ namespace ikt.Controllers
         {
             SearchIndexViewModel viewModel = new SearchIndexViewModel();
             var projects = db.Projects.Include(p => p.Subject);
-            var ikts = db.Ikts.AsQueryable();
-            var iktsForStaff = db.Ikts.AsQueryable();
-            var iktStaff = db.IktStaffs.AsQueryable();
+            var ikt = db.Ikts.AsQueryable();
 
             ViewBag.SubjectID = new SelectList(db.Subjects.OrderBy(s => s.Name), "ID", "Name");
 
@@ -29,21 +27,20 @@ namespace ikt.Controllers
             {
                 projects = projects.Where(p => p.Name.Contains(search) ||
                 p.Subject.Name.Contains(search));
-
-                ikts = ikts.Where(i => i.Name.Contains(search) ||
-                i.CreatedBy.Contains(search) ||
-                i.UpdatedBy.Contains(search)
-                );
                 
-                iktStaff = iktStaff.Where(s => s.Staff.Username.Contains(search) ||
-                s.Staff.FirstName.Contains(search) ||
-                s.Staff.LastName.Contains(search)
-                );
-
-                foreach (var staff in iktStaff)
-                {
-                    iktsForStaff = iktsForStaff.Where(i => i.ID == staff.ID);
-                }
+                ikt = from i in db.Ikts
+                           join s in db.IktStaffs on
+                           i.ID equals s.IktID
+                           join c in db.IktClasses on
+                           i.ID equals c.IktID
+                           where
+                           s.Staff.FirstName.Contains(search) ||
+                           s.Staff.LastName.Contains(search) ||
+                           s.Staff.Username.Contains(search) ||
+                           c.Class.Name.Contains(search) ||
+                           i.Name.Contains(search)
+                          select i;
+                
                 
                 viewModel.Search = search;
             }
@@ -51,28 +48,26 @@ namespace ikt.Controllers
             if (subjectID.HasValue)
             {
                 projects = projects.Where(p => p.SubjectID == subjectID);
-                ikts = ikts.Where(i => i.Name == "");
-                iktsForStaff = iktsForStaff.Where(i => i.Name == "");
+                ikt = ikt.Where(i => i.Name == "");
             }
 
             if (grade.HasValue)
             {
                 projects = projects.Where(p => p.Grade == grade);
-                ikts = ikts.Where(i => i.Name == "");
-                iktsForStaff = iktsForStaff.Where(i => i.Name == "");
+                ikt = ikt.Where(i => i.Name == "");
             }
             
-            if (page > ((projects.Count() + ikts.Count()) / Constants.ItemsPerPage))
+            if (page > ((projects.Count() + ikt.Count()) / Constants.ItemsPerPage))
             {
-                page = (int)Math.Ceiling((projects.Count() + ikts.Count()) / (float)Constants.ItemsPerPage);
+                page = (int)Math.Ceiling((projects.Count() + ikt.Count()) / (float)Constants.ItemsPerPage);
             }
             int currentPage = (page ?? 1);
             
             List<Project> pList = projects.ToList();
-            //List<Ikt> iList = ikts.ToList();
+            List<Ikt> iList = ikt.ToList();
             //iList.Concat(iktsForStaff.ToList());
             //Remove duplicate IDs from list.
-            List<Ikt> iList = MergeIKT(ikts.ToList(), iktsForStaff.ToList());
+            //List<Ikt> iList = MergeIKT(ikts.ToList(), iktsForStaff.ToList());
 
             List<SearchItem> searchItems = new List<SearchItem>();
             for (int i = 0; i < pList.Count; i++)

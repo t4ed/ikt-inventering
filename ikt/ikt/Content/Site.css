@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 70px;
     padding-bottom: 20px;
-    background-image: url("Images/BgrImage4.png");
+    background-image: url("WebImages/BgrImage4.png");
     background-attachment:fixed;
 }
 
@@ -22,7 +22,18 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 350px !important;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #4B4A49;
+}
+
+input:hover {
+    cursor: text !important;
 }
 #copyrighter {
     color: #000000;
@@ -33,17 +44,14 @@ textarea {
     color: #FFFFFF !important;
 }
 .dropdown-menu {
-    background-color: #111111;
+    background-color: #3B3A39;
     border: 0px;
+}
+.dropdown-toggle:active {
+    background-color: #4B4A49;
 }
 .navbar-fixed-top {
     background-color: #6B6A69;
     border: 0px;
     height: 50px;
-}
-.form-control {
-    width:100% !important;
-}
-.form-group {
-    width: 100%;
 }

@@ -31,9 +31,10 @@ textarea {
     color: #ffffff;
     background-color: #4B4A49;
 }
-
-input:hover {
-    cursor: text !important;
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    cursor: text;
 }
 #copyrighter {
     color: #000000;

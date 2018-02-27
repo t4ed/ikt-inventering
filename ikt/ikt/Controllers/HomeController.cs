@@ -27,7 +27,7 @@ namespace ikt.Controllers
             {
                 projects = projects.Where(p => p.Name.Contains(search) ||
                 p.Subject.Name.Contains(search));
-                
+                /*
                 ikt = from i in db.Ikts
                            join s in db.IktStaffs on
                            i.ID equals s.IktID
@@ -40,8 +40,25 @@ namespace ikt.Controllers
                            c.Class.Name.Contains(search) ||
                            i.Name.Contains(search)
                           select i;
-                
-                
+                */
+
+                ikt = 
+                    from i in db.Ikts
+                    join s in db.IktStaffs on i.ID equals s.IktID into st
+                    from s in st.DefaultIfEmpty()
+                    join c in db.IktClasses on i.ID equals c.IktID into cl
+                    from c in cl.DefaultIfEmpty()
+                    where
+                    s.Staff.FirstName.Contains(search) ||
+                           s.Staff.LastName.Contains(search) ||
+                           s.Staff.Username.Contains(search) ||
+                           c.Class.Name.Contains(search) ||
+                           i.Name.Contains(search)
+                    select i;
+
+                ikt = ikt.Distinct();
+
+
                 viewModel.Search = search;
             }
 

@@ -1449,7 +1449,7 @@ namespace ikt.Migrations
                 new IktStaff
                 {
                     ID = 2,
-                    IktID = 16,
+                    IktID = 1,
                     StaffID = staff.Single(s => s.Username == "admin").ID,
                     CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",

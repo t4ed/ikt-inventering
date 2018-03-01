@@ -86,11 +86,11 @@
     }
     @if (iktStaff == null)
     {
-        @Html.ActionLink("Lägg till mig som användare av verktyget!", "AddStaff", new { staffID = currentStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Lägg till mig som användare av verktyget!", "AddStaff", new { staffID = currentStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-success" })
     }
     else
     {
-        @Html.ActionLink("Ta bort mig som användare av verktyget!", "RemoveStaff", new { id = iktStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Ta bort mig som användare av verktyget!", "RemoveStaff", new { id = iktStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-danger" })
     }
 </div>
 <hr />

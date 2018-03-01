@@ -49,16 +49,49 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,SubjectID,Grade,Description,Date,PDF,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Project project)
+        public ActionResult Create(string Name, string SubjectID, string ClassID, int Grade, string Description, string Date, string CreatedBy)
         {
+            Project project = new Project
+            {
+                Name = Name,
+                SubjectID = db.Subjects.Where(s => s.Name == SubjectID).Single().ID,
+                Grade = Grade,
+                Description = Description,
+                Date = Date,
+                CreatedDate = DateTime.Now,
+                CreatedBy = CreatedBy,
+                UpdatedDate = DateTime.Now,
+                UpdatedBy = CreatedBy
+            };
+
             if (ModelState.IsValid)
             {
                 db.Projects.Add(project);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", project.SubjectID);
+                db.ProjectClasses.Add(new ProjectClass
+                {
+                    ClassID = db.Classes.Where(c => c.Name == ClassID).Single().ID,
+                    ProjectID = project.ID,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = CreatedBy
+                });
+
+                db.ProjectStaffs.Add(new ProjectStaff
+                {
+                    StaffID = db.Staff.Where(s => s.Username == CreatedBy).Single().ID,
+                    ProjectID = project.ID,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = CreatedBy
+                });
+
+                db.SaveChanges();
+                return RedirectToRoute("Default");
+            }
+            
             return View(project);
         }
 
@@ -83,13 +116,27 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,SubjectID,Grade,Description,Date,PDF,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Project project)
+        public ActionResult Edit(int ID, string Name, int Grade, string SubjectID, string Description, string Date, string CreatedBy, string CreatedDate, string UpdatedBy)
         {
+            Project project = new Project
+            {
+                ID = ID,
+                Name = Name,
+                SubjectID = db.Subjects.Where(s => s.Name == SubjectID).Single().ID,
+                Grade = Grade,
+                Description = Description,
+                Date = Date,
+                CreatedBy = CreatedBy,
+                CreatedDate = DateTime.Parse(CreatedDate),
+                UpdatedBy = UpdatedBy,
+                UpdatedDate = DateTime.Now
+            };
+
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = ID });
             }
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", project.SubjectID);
             return View(project);

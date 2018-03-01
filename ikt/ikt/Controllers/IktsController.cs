@@ -54,8 +54,18 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Description,Comment,Link,CreatedDate,CreatedBy")] Ikt Ikts)
+        public ActionResult Create(string Name, string ClassID, string Description, string Comment, string Link, string CreatedBy)
         {
+            Ikt Ikts = new Ikt
+            {
+                Name = Name,
+                Description = Description,
+                Comment = Comment,
+                Link = Link,
+                CreatedBy = CreatedBy,
+                CreatedDate = DateTime.Now
+            };
+
             if (ModelState.IsValid)
             {
                 Ikts.UpdatedDate = Ikts.CreatedDate;
@@ -72,8 +82,18 @@ namespace ikt.Controllers
                     UpdatedBy = Ikts.UpdatedBy
                 });
 
+                db.IktClasses.Add(new IktClass()
+                {
+                    IktID = Ikts.ID,
+                    ClassID = db.Classes.Where(c => c.Name == ClassID).Single().ID,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = Ikts.CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = Ikts.UpdatedBy
+                });
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToRoute("Default");
             }
             return View(Ikts);
         }
@@ -98,15 +118,26 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Description,Comment,Link,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Ikt Ikts)
+        public ActionResult Edit(int ID, string Name, string Description, string Comment, string Link, string CreatedBy, string CreatedDate, string UpdatedBy)
         {
+            Ikt Ikts = new Ikt
+            {
+                ID = ID,
+                Name = Name,
+                Description = Description,
+                Comment = Comment,
+                Link = Link,
+                CreatedBy = CreatedBy,
+                CreatedDate = DateTime.Parse(CreatedDate),
+                UpdatedBy = UpdatedBy,
+                UpdatedDate = DateTime.Now
+            };
+
             if (ModelState.IsValid)
             {
-                Ikts.UpdatedDate = Ikts.CreatedDate;
-                Ikts.UpdatedBy = Ikts.CreatedBy;
                 db.Entry(Ikts).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = ID });
             }
             return View(Ikts);
         }

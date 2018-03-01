@@ -1168,7 +1168,7 @@ namespace ikt.Migrations
                 {
                     Name = "Barnkunskap",
                     Description = "I Svenska 3 ska vi göra ett projekt där vi knyter ihop källkritik och stoffinsamling på nätet (Barnkonventionen etc) med kursen Barnhälsovård.",
-                    Date = "2017",
+                    Date = "2017-11-04",
                     SubjectID = subjects.Single(s => s.Name == "Svenska").ID,
                     PDF = "",
                     Grade = 3,
@@ -1182,7 +1182,7 @@ namespace ikt.Migrations
                 {
                     Name = "Dokumentärfilmsprojektet",
                     Description = "Ett arbete inom svenska 1 där eleverna spelar in egna dokumentärfilmer kring ämnesområdet språksociologi.",
-                    Date = "2017",
+                    Date = "2017-12-08",
                     SubjectID = subjects.Single(s => s.Name == "Svenska").ID,
                     PDF = "",
                     Grade = 1,
@@ -1196,7 +1196,7 @@ namespace ikt.Migrations
                 {
                     Name = "Sveriges mörka historia",
                     Description = "Ett ämnesövergripande arbetsområde i samhällskunskap och historia med fokus på den del av Sveriges historia som vi sällar pratar om - utifrån",
-                    Date = "2018",
+                    Date = "2018-01-25",
                     SubjectID = subjects.Single(s => s.Name == "Samhällskunskap").ID,
                     PDF = "",
                     Grade = 2,

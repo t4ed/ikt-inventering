@@ -1,103 +1,82 @@
 ﻿@model ikt.Models.Project
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Projekt";
 }
 
 <h2>@Html.DisplayFor(model => model.Name)</h2>
-
-<div>
-    <h4>Project</h4>
-    <hr />
-    <dl class=" col-md-3">
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Subject.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Grade)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Grade)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PDF)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PDF)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedBy)
-        </dd>
-
-    </dl>
-
-    <div class="col-md-9">
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-    </div>
-
-</div>
-<div class="row"></div>
+<h4>@ViewBag.Title</h4>
 <hr />
-<p>
+<div class=" col-md-12">
+    <div class="col-md-3">
+        <div class="form-group">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Subject.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Subject.Name)
+                </dd>
+            </dl>
+        </div>
+        <div class="form-group">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+            </dl>
+        </div>
+        <div class="form-group">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Grade)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Grade)
+                </dd>
+            </dl>
+        </div>
+        <div class="form-group">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Date)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Date)
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="form-group">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+            </dl>
+        </div>
+        @if (!string.IsNullOrEmpty(Model.PDF))
+        {
+        <div class="form-group">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PDF)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PDF)
+                </dd>
+            </dl>
+        </div>
+        }
+    </div>
+</div>
+<div  class="form-group btn-StickBottom">
     @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-default" })
-</p>
+    @Html.ActionLink("Redigera", "Edit", new { id = Model.ID }, new { @class = "btn btn-default" })
+</div>

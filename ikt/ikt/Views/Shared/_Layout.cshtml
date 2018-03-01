@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
+    <title>@ViewBag.Title - Verktyg & Projekt Bibliotek</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    @{ 
+    @{
         if (!Login.CheckIfValidUser(User.Identity.Name))
         {
             Response.Redirect(Url.Action("SignOut", "Account"));
@@ -58,7 +59,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p id="copyrighter">&copy; @DateTime.Now.Year - Verktyg & Projekt Biblotek</p>
+            <p id="copyrighter">&copy; @DateTime.Now.Year - Verktyg & Projekt Bibliotek</p>
         </footer>
     </div>
 

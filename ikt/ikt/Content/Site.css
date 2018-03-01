@@ -3,6 +3,7 @@
     padding-bottom: 20px;
     background-image: url("WebImages/BgrImage4.png");
     background-attachment:fixed;
+    font-family: Poppins, sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -31,9 +32,10 @@ textarea {
     color: #ffffff;
     background-color: #4B4A49;
 }
-
-input:hover {
-    cursor: text !important;
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    cursor: text;
 }
 #copyrighter {
     color: #000000;
@@ -42,6 +44,9 @@ input:hover {
 .dropdown a, .navbar-text, .navbar-right a {
     /*color: #66FCF1 !important;*/
     color: #FFFFFF !important;
+}
+.dropdown a:hover, .navbar-right a:hover {
+    background-color: #4B4A49 !important;
 }
 .dropdown-menu {
     background-color: #3B3A39;

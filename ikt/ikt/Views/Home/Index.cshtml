@@ -6,21 +6,31 @@
 @{
     ViewBag.Title = "Starting page";
 }
+<div class="search">
+    @using (Html.BeginRouteForm("Default", FormMethod.Get)){
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            @Html.TextBox("Search", null, new { @class = "form-control searchBar", @placeholder = "Sök", @value = Model.Search })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Ämnen: </label>
+            @Html.DropDownList("SubjectID", null, "Alla", htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Årskurs: </label> 
+            @Html.DropDownListFor(vm => vm.Grade,new SelectList(Model.GradeList, "Value", "Key"),"Alla",new { @class = "form-control" })
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <label>Sortera: </label> 
+            @Html.DropDownListFor(vm => vm.SortBy,new SelectList(Model.Sort, "Value", "Key"),"-",new { @class = "form-control" })
+        </div>
+    </div>
+<button type="submit" class="btn btn-default">Sök</button>
 
-@using (Html.BeginRouteForm("Default", FormMethod.Get))
-{
-    @Html.TextBox("Search", null, new { @class = "form-control", @placeholder = "Sök", @value = Model.Search })
-    @Html.DropDownList("SubjectID", null, "Alla", htmlAttributes: new { @class = "form-control" })
-    <label>Sortera: </label> @Html.DropDownListFor(vm => vm.SortBy,
-                    new SelectList(Model.Sort, "Value", "Key"),
-                    "-",
-                    new { @class = "form-control" })
-    <label>Årskurs: </label> @Html.DropDownListFor(vm => vm.Grade,
-                            new SelectList(Model.GradeList, "Value", "Key"),
-                            "-",
-                            new { @class = "form-control" })
-    <button type="submit" class="btn btn-default">Sök</button>
-}
+    }
+</div>
 
 <p>
     @(String.IsNullOrWhiteSpace(Model.Search) ? "Visar " : "Du sökte efter " + Model.Search + ", hittade ") @Model.SearchResult.TotalItemCount resultat.
@@ -35,43 +45,14 @@
          grade = Model.Grade,
          page
      }))
-<table class="table table-striped">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SearchResult.First().Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SearchResult.First().Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SearchResult.First().Comment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SearchResult.First().Grade)
-        </th>
-        <th></th>
-    </tr>
+<div class="grid-container">
     @foreach (var item in Model.SearchResult)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comment)
-            </td>
-            <td>
-                @if (item.Grade > 0)
-                {
-                    @Html.DisplayFor(modelItem => item.Grade)
-                }
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", item.Type + "s", new { id = item.ItemID }, null)
-            </td>
-        </tr>
+        <div class="item">
+            <a href="@Url.Action("Details", item.Type + "s", new {id=item.ItemID })"><div class="card">
+                <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                @if (item.Grade > 0){ @Html.Raw("Årskurs ") @Html.DisplayFor(modelItem => item.Grade) }
+            </div></a>
+        </div>
     }
-</table>
+</div>

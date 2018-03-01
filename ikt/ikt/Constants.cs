@@ -22,6 +22,6 @@ namespace ikt
             "9825faed"
         };
 
-        public static int ItemsPerPage = 10;
+        public static int ItemsPerPage = 12;
     }
 }

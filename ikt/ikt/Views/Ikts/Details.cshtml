@@ -39,20 +39,20 @@
                     Klasser
                 </dt>
                 @foreach (var klass in Model.IktClass)
-    {
-            <dd>
-                @klass.Class.Name
-            </dd>
-}
+                {
+                    <dd>
+                        @klass.Class.Name
+                    </dd>
+                }
             </dl>
         </div>
         <div class="form-group">
             <dl>
                 <dt>
                     @if (!string.IsNullOrEmpty(Model.Ikt.Link))
-        {
-            @Html.Display("Länkar");
-}
+                    {
+                        @Html.Display("Länkar");
+                    }
                 </dt>
                 <dd>
                     @Html.DisplayFor(model => model.Ikt.Link)
@@ -61,39 +61,6 @@
         </div>
     </div>
     <div class="col-md-9">
-        <dt>
-            @Html.DisplayNameFor(model => model.Ikt.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Ikt.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ikt.Comment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ikt.Comment)
-        </dd>
-
-    </div>
-</div>
-
-<div class="row">
-    @{
-        ikt.DAL.iktContext iktContext = new ikt.DAL.iktContext();
-        string username = (string)HttpContext.Current.Session["Username"];
-        Staff currentStaff = iktContext.Staff.Where(s => s.Username == username).Single();
-        IktStaff iktStaff = iktContext.IktStaffs.Where(s => s.IktID == Model.Ikt.ID && s.StaffID == currentStaff.ID).SingleOrDefault();
-    }
-    @if (iktStaff == null)
-    {
-        @Html.ActionLink("Lägg till mig som användare av verktyget!", "AddStaff", new { staffID = currentStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-success" })
-    }
-    else
-    {
-        @Html.ActionLink("Ta bort mig som användare av verktyget!", "RemoveStaff", new { id = iktStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-danger" })
-    }
         <div class="form-group">
             <dl>
                 <dt>
@@ -109,6 +76,7 @@
                 <dt>
                     @Html.DisplayNameFor(model => model.Ikt.Comment)
                 </dt>
+
                 <dd>
                     @Html.DisplayFor(model => model.Ikt.Comment)
                 </dd>
@@ -116,7 +84,27 @@
         </div>
     </div>
 </div>
+
+<div class="row">
+    @{
+        ikt.DAL.iktContext iktContext = new ikt.DAL.iktContext();
+        string username = (string)HttpContext.Current.Session["Username"];
+        Staff currentStaff = iktContext.Staff.Where(s => s.Username == username).Single();
+        IktStaff iktStaff = iktContext.IktStaffs.Where(s => s.IktID == Model.Ikt.ID && s.StaffID == currentStaff.ID).SingleOrDefault();
+    }
+    
+</div>
 <div class="form-group btn-StickBottom">
     @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" })
     @Html.ActionLink("Redigera", "Edit", new { id = Model.Ikt.ID }, new { @class = "btn btn-default" })
+    @if (iktStaff == null)
+    {
+        @Html.Raw(" ")
+        @Html.ActionLink("Lägg till mig som användare av verktyget!", "AddStaff", new { staffID = currentStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-success" })
+    }
+    else
+    {
+        @Html.Raw(" ")
+        @Html.ActionLink("Ta bort mig som användare av verktyget!", "RemoveStaff", new { id = iktStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-danger" })
+    }
 </div>

@@ -23,13 +23,13 @@ $.ajax({
     type: 'GET',
     dataType: 'json',
     success(response) {
-        var data = []
+        var data = [];
         for (i = 0; i < response.length; i++) {
             data.push(response[i].Name);
         }
         $("#SubjectID").autocomplete({
             source: data
-        })
+        });
     },
     error(jqXHR, status, errorThrown) {
         console.log(jqXHR);
@@ -41,13 +41,13 @@ $.ajax({
     type: 'GET',
     dataType: 'json',
     success(response) {
-        var data = []
+        var data = [];
         for (i = 0; i < response.length; i++) {
             data.push(response[i].Name);
         }
         $("#ClassID").autocomplete({
             source: data
-        })
+        });
     },
     error(jqXHR, status, errorThrown) {
         console.log(jqXHR);

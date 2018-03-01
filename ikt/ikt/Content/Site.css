@@ -28,8 +28,6 @@ textarea {
     color: #ffffff;
     background-color: #4B4A49;
 }
-.form-control[disabled],
-.form-control[readonly],
 fieldset[disabled] .form-control {
     cursor: text;
 }
@@ -48,20 +46,16 @@ fieldset[disabled] .form-control {
 }
 .dropdown-menu {
     background-color: #3B3A39;
-    border: 0px;
+    border: 0;
 }
 .dropdown-toggle:active {
     background-color: #4B4A49;
 }
 .navbar-fixed-top {
     background-color: #6B6A69;
-    border: 0px;
+    border: 0;
     height: 50px;
 }
-#vDetails_Headline{
-    text-align: center;
-}
-
-#pDetails_Headline{
-    text-align: center;
+footer, .btn-StickBottom{
+    clear:both;
 }

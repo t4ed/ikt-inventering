@@ -46,8 +46,6 @@ namespace ikt.Controllers
         // GET: Ikts/Create
         public ActionResult Create()
         {
-            ViewBag.StaffList = new SelectList(db.Staff, "ID", "Name");
-            ViewBag.ProjectList = new SelectList(db.Projects, "ID", "Name");
             return View();
         }
 
@@ -63,12 +61,15 @@ namespace ikt.Controllers
                 Ikts.UpdatedDate = Ikts.CreatedDate;
                 Ikts.UpdatedBy = Ikts.CreatedBy;
                 db.Ikts.Add(Ikts);
+
+                db.IktStaffs.Add(new IktStaff {
+                    StaffID = db.Staff.Where(s => s.Username == Ikts.CreatedBy).Single().ID,
+                    IktID = Ikts.ID
+                });
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            //ViewBag.StaffList = new SelectList(db.Staff, "ID", "Name", Staff.StaffID);
-            //ViewBag.ProjectList = new SelectList(db.Staff, "ID", "Name", Staff.ProjectID);
             return View(Ikts);
         }
 

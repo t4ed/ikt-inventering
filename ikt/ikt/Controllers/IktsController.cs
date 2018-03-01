@@ -62,9 +62,14 @@ namespace ikt.Controllers
                 Ikts.UpdatedBy = Ikts.CreatedBy;
                 db.Ikts.Add(Ikts);
 
-                db.IktStaffs.Add(new IktStaff {
+                db.IktStaffs.Add(new IktStaff()
+                {
+                    IktID = Ikts.ID,
                     StaffID = db.Staff.Where(s => s.Username == Ikts.CreatedBy).Single().ID,
-                    IktID = Ikts.ID
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = Ikts.CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = Ikts.UpdatedBy
                 });
 
                 db.SaveChanges();

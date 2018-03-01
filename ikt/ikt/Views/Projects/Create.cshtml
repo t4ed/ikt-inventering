@@ -12,7 +12,7 @@
 <h2>@ViewBag.Title</h2>
 
 <hr />
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
@@ -51,7 +51,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
-                @Html.TextAreaFor(model => model.Description,new { @class = "form-control", @rows = "12" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = "12" })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
@@ -67,12 +67,12 @@
     <input type="text" name="UpdatedDate" id="UpdatedDate" value="@DateTime.Now" hidden required />
     <input type="text" name="UpdatedBy" id="UpdatedBy" value="@ViewBag.Staff.Username" hidden required />
 
-}
-
     <div class="form-group">
-        @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" } )
+        @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" })
         <input type="submit" value="Skapa" class="btn btn-default" />
     </div>
+
+}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

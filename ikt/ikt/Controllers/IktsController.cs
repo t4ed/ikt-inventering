@@ -140,5 +140,31 @@ namespace ikt.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult AddStaff(int iktID, int staffID)
+        {
+            IktStaff iktStaff = new IktStaff
+            {
+                StaffID = staffID,
+                IktID = iktID,
+                CreatedBy = db.Staff.Single(s => s.ID == staffID).Username,
+                CreatedDate = DateTime.Now,
+                UpdatedBy = db.Staff.Single(s => s.ID == staffID).Username,
+                UpdatedDate = DateTime.Now
+            };
+
+            db.IktStaffs.Add(iktStaff);
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = iktID });
+        }
+
+        public ActionResult RemoveStaff(int id, int iktID)
+        {
+            db.IktStaffs.Remove(db.IktStaffs.Where(i => i.ID == id).Single());
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = iktID });
+        }
     }
 }

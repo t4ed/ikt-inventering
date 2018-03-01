@@ -3,58 +3,54 @@
     padding-bottom: 20px;
     background-image: url("WebImages/BgrImage4.png");
     background-attachment:fixed;
+    font-family: Poppins, sans-serif;
 }
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
-
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 400px !important;
 }
-
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
     color: #ffffff;
     background-color: #4B4A49;
 }
-
-input:hover {
-    cursor: text !important;
+fieldset[disabled] .form-control {
+    cursor: text;
 }
 #copyrighter {
     color: #000000;
 }
-
 .dropdown a, .navbar-text, .navbar-right a {
-    /*color: #66FCF1 !important;*/
     color: #FFFFFF !important;
+}
+.dropdown a:hover, .navbar-right a:hover {
+    background-color: #4B4A49 !important;
+}
+.navbar-text {
+    margin-right:35px;
 }
 .dropdown-menu {
     background-color: #3B3A39;
-    border: 0px;
+    border: 0;
 }
 .dropdown-toggle:active {
     background-color: #4B4A49;
 }
 .navbar-fixed-top {
     background-color: #6B6A69;
-    border: 0px;
+    border: 0;
     height: 50px;
 }
-#vDetails_Headline{
-    text-align: center;
+footer, .btn-StickBottom{
+    clear:both;
 }

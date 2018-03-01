@@ -6,7 +6,7 @@
             Hello, @(String.IsNullOrWhiteSpace(ViewBag.Staff.Username) ? User.Identity.Name : ViewBag.Staff.FirstName)!
         </li>
         <li>
-            @Html.ActionLink("Sign out", "SignOut", "Account")
+            @Html.ActionLink("logga ut", "SignOut", "Account")
         </li>
     </ul>
     </text>
@@ -14,6 +14,6 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Sign in", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Logga in", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

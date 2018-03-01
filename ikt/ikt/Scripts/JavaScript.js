@@ -18,28 +18,38 @@
         showWeek: true
     });
 
-    $(document).ready(function () {  
-        $("#SubjectID").autocomplete({  
-           source: function(request,response) {  
-               $.ajax({  
-                   url: "/FetchData/FetchSubjectData",  
-                   type: "GET",  
-                   dataType: "json",  
-                   data: { Prefix: request.term },  
-                   success: function (data) {  
-                       response($.map(data, function (item) {  
-                           return { label: item.Name, value: item.Name};  
-                       }))  
-  
-                   }  
-               })  
-           },  
-           messages: {  
-               noResults: "", results: ""  
-           }  
-       });  
-   })  
+$.ajax({
+    url: "/FetchData/FetchSubjectData",
+    type: 'GET',
+    dataType: 'json',
+    success(response) {
+        var data = []
+        for (i = 0; i < response.length; i++) {
+            data.push(response[i].Name);
+        }
+        $("#SubjectID").autocomplete({
+            source: data
+        })
+    },
+    error(jqXHR, status, errorThrown) {
+        console.log(jqXHR);
+    }
+});
 
-$("#ClassID").autocomplete({
-    
+$.ajax({
+    url: "/FetchData/FetchClassData",
+    type: 'GET',
+    dataType: 'json',
+    success(response) {
+        var data = []
+        for (i = 0; i < response.length; i++) {
+            data.push(response[i].Name);
+        }
+        $("#ClassID").autocomplete({
+            source: data
+        })
+    },
+    error(jqXHR, status, errorThrown) {
+        console.log(jqXHR);
+    }
 });

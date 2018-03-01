@@ -24,8 +24,10 @@ textarea {
     color: #ffffff;
     background-color: #4B4A49;
 }
+.form-control[disabled],
+.form-control[readonly],
 fieldset[disabled] .form-control {
-    cursor: text;
+    cursor: text !important;
 }
 #copyrighter {
     color: #000000;

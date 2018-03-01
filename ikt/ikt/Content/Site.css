@@ -51,6 +51,64 @@ fieldset[disabled] .form-control {
     border: 0;
     height: 50px;
 }
+#vDetails_Headline{
+    text-align: center;
+}
+.search{
+    justify-content: center;
+}
+.searchBar{
+    align-items:center;
+    min-width:100%;
+}
+.searchBar input{
+    height: 60px;
+}
+select {
+    min-width: 100%;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 10px;
+}
+@media screen and (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: 33% 33% 33%;
+    }
+}
+@media screen and (max-width: 990px) {
+    .grid-container {
+        grid-template-columns: 
+            50% 50%;
+    }
+}
+@media screen and (max-width: 770px) {
+    .grid-container {
+        grid-template-columns:
+            100%;
+    }
+}
+.card {
+    background-color:mintcream;
+    padding: 5px;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius:10px;
+    height:150px;
+    transition: 0.5s;
+}
+.card:hover{
+    background-color:#6B6A69;
+    transition:0.5s;
+}
+.item a{
+    text-decoration:none;
+    color:inherit;
+}
+.item a:hover{
+    color:inherit;
+}
 footer, .btn-StickBottom{
     clear:both;
 }

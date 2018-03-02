@@ -53,3 +53,15 @@ $.ajax({
         console.log(jqXHR);
     }
 });
+
+$(document).ready(function () {
+    $('#SubjectID').on('change', function () {
+        this.form.submit();
+    });
+    $('#Grade').on('change', function () {
+        this.form.submit();
+    });
+    $('#SortBy').on('change', function () {
+        this.form.submit();
+    });
+});

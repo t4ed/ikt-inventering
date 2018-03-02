@@ -54,7 +54,7 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string Name, string SubjectID, string ClassID, int Grade, string Description, string Date, string CreatedBy)
+        public ActionResult Create(string Name, string SubjectID, string ClassID, int Grade, string Description, string Date, string CreatedBy, HttpPostedFileBase file)
         {
             Project project = new Project
             {
@@ -69,8 +69,33 @@ namespace ikt.Controllers
                 UpdatedBy = CreatedBy
             };
 
+            if (file != null)
+            {
+                if (ValidateFile(file))
+                {
+                    try
+                    {
+                        if (ModelState.IsValid)
+                        {
+                            SaveToDisk(file);
+                            project.PDF = file.FileName;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        ModelState.AddModelError("PDF", "Ett okänt fel inträffade. Vänligen försök igen. " + e.Message);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("PDF", "Filen " + file.FileName + " orsakade ett fel. Kolla att det är en PDF-fil och att den är mindre än " + Constants.MaxFileSizeMB + "MB");
+                }
+            }
+
+
             if (ModelState.IsValid)
             {
+
                 db.Projects.Add(project);
 
                 db.ProjectClasses.Add(new ProjectClass
@@ -121,7 +146,7 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int ID, string Name, int Grade, string SubjectID, string Description, string Date, string CreatedBy, string CreatedDate, string UpdatedBy)
+        public ActionResult Edit(int ID, string Name, int Grade, string SubjectID, string PDF, string Description, string Date, string CreatedBy, string CreatedDate, string UpdatedBy)
         {
             Project project = new Project
             {
@@ -131,6 +156,7 @@ namespace ikt.Controllers
                 Grade = Grade,
                 Description = Description,
                 Date = Date,
+                PDF = PDF,
                 CreatedBy = CreatedBy,
                 CreatedDate = DateTime.Parse(CreatedDate),
                 UpdatedBy = UpdatedBy,
@@ -206,6 +232,26 @@ namespace ikt.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Details", new { id = projectID });
+        }
+
+        private bool ValidateFile(HttpPostedFileBase file)
+        {
+            string[] allowedFileTypes = { ".pdf" };
+            string fileExtension = System.IO.Path.GetExtension(file.FileName).ToLower();
+
+            if (allowedFileTypes.Contains(fileExtension))
+            {
+                if (file.ContentLength > 0 && file.ContentLength < Constants.MegabytesToBytes(Constants.MaxFileSizeMB))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void SaveToDisk(HttpPostedFileBase file)
+        {
+            file.SaveAs(Server.MapPath(Constants.FilePath + file.FileName));
         }
     }
 }

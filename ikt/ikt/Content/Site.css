@@ -24,6 +24,11 @@ textarea {
     color: #ffffff;
     background-color: #4B4A49;
 }
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    background-color: #6B6A69 !important;
+    border: 0;
+}
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
@@ -38,8 +43,11 @@ fieldset[disabled] .form-control {
 .dropdown a:hover, .navbar-right a:hover {
     background-color: #4B4A49 !important;
 }
-.navbar-text {
-    margin-right:35px;
+.WelcomeMessage {
+    margin-right: 35px;
+}
+.WelcomeMessage a:hover {
+    background-color: #6B6A69 !important;
 }
 .dropdown-menu {
     background-color: #3B3A39;
@@ -52,9 +60,6 @@ fieldset[disabled] .form-control {
     background-color: #6B6A69;
     border: 0;
     height: 50px;
-}
-#vDetails_Headline{
-    text-align: center;
 }
 .search{
     justify-content: center;

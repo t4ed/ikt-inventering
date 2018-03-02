@@ -2,8 +2,10 @@
 {
     <text>
 <ul class="nav navbar-nav navbar-right">
-    <li class="navbar-text">
-        Välkommen, @(String.IsNullOrWhiteSpace(ViewBag.Staff.Username) ? User.Identity.Name : ViewBag.Staff.FirstName + " " + ViewBag.Staff.LastName)!
+    <li class="WelcomeMessage">
+        <a>
+            Välkommen, @(String.IsNullOrWhiteSpace(ViewBag.Staff.Username) ? User.Identity.Name : ViewBag.Staff.FirstName + " " + ViewBag.Staff.LastName)!
+        </a>
     </li>
     <li>
         @Html.ActionLink("Logga ut", "SignOut", "Account")

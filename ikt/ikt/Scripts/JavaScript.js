@@ -28,7 +28,10 @@ $.ajax({
             data.push(response[i].Name);
         }
         $("#SubjectID").autocomplete({
-            source: data
+            source: data,
+            minLength: 0
+        }).bind('focus', function () {
+            $(this).autocomplete("search", "");
         });
     },
     error(jqXHR, status, errorThrown) {
@@ -46,10 +49,25 @@ $.ajax({
             data.push(response[i].Name);
         }
         $("#ClassID").autocomplete({
-            source: data
+            source: data,
+            minLength: 0
+        }).bind('focus', function () {
+            $(this).autocomplete("search", "");
         });
     },
     error(jqXHR, status, errorThrown) {
         console.log(jqXHR);
     }
+});
+
+$(document).ready(function () {
+    $('#SubjectID').on('change', function () {
+        this.form.submit();
+    });
+    $('#Grade').on('change', function () {
+        this.form.submit();
+    });
+    $('#SortBy').on('change', function () {
+        this.form.submit();
+    });
 });

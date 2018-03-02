@@ -276,12 +276,10 @@
     <Content Include="Views\Classes\Edit.cshtml" />
     <Content Include="Views\Classes\Index.cshtml" />
     <Content Include="Views\Ikts\Create.cshtml" />
-    <Content Include="Views\Ikts\Delete.cshtml" />
     <Content Include="Views\Ikts\Details.cshtml" />
     <Content Include="Views\Ikts\Edit.cshtml" />
     <Content Include="Views\Ikts\Index.cshtml" />
     <Content Include="Views\Projects\Create.cshtml" />
-    <Content Include="Views\Projects\Delete.cshtml" />
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\Edit.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />

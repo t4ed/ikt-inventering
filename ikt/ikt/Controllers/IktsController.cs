@@ -153,7 +153,11 @@ namespace ikt.Controllers
             {
                 return HttpNotFound();
             }
-            return View(ikt);
+            db.IktClasses.RemoveRange(db.IktClasses.Where(c => c.IktID == id));
+            db.IktStaffs.RemoveRange(db.IktStaffs.Where(s => s.IktID == id));
+            db.Ikts.Remove(ikt);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Ikts/Delete/5

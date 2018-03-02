@@ -185,7 +185,11 @@ namespace ikt.Controllers
             {
                 return HttpNotFound();
             }
-            return View(project);
+            db.ProjectStaffs.RemoveRange(db.ProjectStaffs.Where(s => s.ProjectID == id));
+            db.ProjectClasses.RemoveRange(db.ProjectClasses.Where(c => c.ProjectID == id));
+            db.Projects.Remove(project);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Projects/Delete/5
@@ -194,9 +198,11 @@ namespace ikt.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Project project = db.Projects.Find(id);
+            db.ProjectStaffs.RemoveRange(db.ProjectStaffs.Where(s => s.ProjectID == id));
+            db.ProjectClasses.RemoveRange(db.ProjectClasses.Where(c => c.ProjectID == id));
             db.Projects.Remove(project);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)

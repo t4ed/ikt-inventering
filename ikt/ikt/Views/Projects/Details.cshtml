@@ -115,4 +115,25 @@
         @Html.Raw(" ")
         @Html.ActionLink("Ta bort mig från projektet!", "RemoveStaff", new { id = projectStaff.ID, projectID = Model.Project.ID }, new { @class = "btn btn-danger" })
     }
+    @Html.Raw(" ")
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Ta bort projektet</button>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-danger">Varning!</h4>
+            </div>
+            <div class="modal-body">
+                <h4>Är du säker på att du vill ta bort projektet @Model.Project.Name?</h4>
+            </div>
+            <div class="modal-footer">
+                @Html.ActionLink("Ta bort", "Delete", new { id = Model.Project.ID }, new {@class = "btn btn-danger" })
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
 </div>

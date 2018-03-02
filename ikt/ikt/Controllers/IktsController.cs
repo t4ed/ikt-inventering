@@ -32,7 +32,6 @@ namespace ikt.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Ikt ikt = db.Ikts.Find(id);
-            viewModel.Ikt = ikt;
             if (ikt == null)
             {
                 return HttpNotFound();
@@ -93,7 +92,7 @@ namespace ikt.Controllers
                 });
 
                 db.SaveChanges();
-                return RedirectToRoute("Default");
+                return RedirectToAction("Index", "Home");
             }
             return View(Ikts);
         }

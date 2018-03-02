@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ikt.DAL;
 using ikt.Models;
+using ikt.ViewModels;
 
 namespace ikt.Controllers
 {
@@ -25,6 +26,7 @@ namespace ikt.Controllers
         // GET: Projects/Details/5
         public ActionResult Details(int? id)
         {
+            ProjectDetailsViewModel viewModel = new ProjectDetailsViewModel();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -34,7 +36,10 @@ namespace ikt.Controllers
             {
                 return HttpNotFound();
             }
-            return View(project);
+            viewModel.Project = project;
+            viewModel.ProjectClass = db.ProjectClasses.Where(p => p.ProjectID == id).ToList();
+            viewModel.ProjectStaff = db.ProjectStaffs.Where(p => p.ProjectID == id).ToList();
+            return View(viewModel);
         }
 
         // GET: Projects/Create
@@ -89,7 +94,7 @@ namespace ikt.Controllers
                 });
 
                 db.SaveChanges();
-                return RedirectToRoute("Default");
+                return RedirectToAction("Index", "Home");
             }
             
             return View(project);
@@ -175,6 +180,32 @@ namespace ikt.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult AddStaff(int projectID, int staffID)
+        {
+            ProjectStaff projectStaff = new ProjectStaff
+            {
+                StaffID = staffID,
+                ProjectID = projectID,
+                CreatedBy = db.Staff.Single(s => s.ID == staffID).Username,
+                CreatedDate = DateTime.Now,
+                UpdatedBy = db.Staff.Single(s => s.ID == staffID).Username,
+                UpdatedDate = DateTime.Now
+            };
+
+            db.ProjectStaffs.Add(projectStaff);
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = projectID });
+        }
+
+        public ActionResult RemoveStaff(int id, int projectID)
+        {
+            db.ProjectStaffs.Remove(db.ProjectStaffs.Where(i => i.ID == id).Single());
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = projectID });
         }
     }
 }

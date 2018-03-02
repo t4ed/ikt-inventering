@@ -33,6 +33,7 @@ textarea {
 .form-control[readonly],
 fieldset[disabled] .form-control {
     cursor: text !important;
+    background-color: #FFFFFF;
 }
 #copyrighter {
     color: #000000;

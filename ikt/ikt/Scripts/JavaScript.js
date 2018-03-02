@@ -28,7 +28,10 @@ $.ajax({
             data.push(response[i].Name);
         }
         $("#SubjectID").autocomplete({
-            source: data
+            source: data,
+            minLength: 0
+        }).bind('focus', function () {
+            $(this).autocomplete("search", "");
         });
     },
     error(jqXHR, status, errorThrown) {
@@ -46,7 +49,10 @@ $.ajax({
             data.push(response[i].Name);
         }
         $("#ClassID").autocomplete({
-            source: data
+            source: data,
+            minLength: 0
+        }).bind('focus', function () {
+            $(this).autocomplete("search", "");
         });
     },
     error(jqXHR, status, errorThrown) {

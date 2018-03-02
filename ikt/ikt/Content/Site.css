@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 70px;
     padding-bottom: 20px;
+    background-image: url("WebImages/BgrImg.png");
+    background-attachment:fixed;
     background-image: url("WebImages/BgrImage4.png");
     background-attachment: fixed;
     font-family: Poppins, sans-serif;
@@ -38,6 +40,7 @@ textarea {
 .form-control[readonly],
 fieldset[disabled] .form-control {
     cursor: text !important;
+    background-color: #FFFFFF;
 }
 
 #copyrighter {

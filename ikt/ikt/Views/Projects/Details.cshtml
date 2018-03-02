@@ -76,7 +76,9 @@
                         @Html.DisplayNameFor(model => model.Project.PDF)
                     </dt>
                     <dd>
-                        @Html.DisplayFor(model => model.Project.PDF)
+                        <a href="@Url.Content(Constants.FilePath + Model.Project.PDF)" target="_blank">
+                            @Html.DisplayFor(model => model.Project.PDF)
+                        </a>
                     </dd>
                 </dl>
             </div>

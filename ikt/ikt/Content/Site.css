@@ -15,6 +15,10 @@
     white-space: normal;
 }
 
+a img {
+    margin:5px;
+}
+
 input,
 select,
 textarea {

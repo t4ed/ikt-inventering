@@ -1,9 +1,12 @@
-﻿body {
+﻿* {
+    font-family: Poppins, sans-serif !important;
+}
+
+body {
     padding-top: 70px;
     padding-bottom: 20px;
     background-image: url("WebImages/BgrImgColor.png");
     background-attachment:fixed;
-    font-family: Poppins, sans-serif;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -121,19 +124,21 @@ select {
 .grid-container {
     width: inherit;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-gap: 10px;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-gap: 1.33%;
 }
 
 @media screen and (max-width: 1200px) {
     .grid-container {
-        grid-template-columns: 33% 33% 33%;
+        grid-template-columns: 32% 32% 32%;
+        grid-gap: 1.5%;
     }
 }
 
 @media screen and (max-width: 990px) {
     .grid-container {
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 49% 49%;
+        grid-gap: 2%;
     }
 }
 
@@ -153,9 +158,13 @@ select {
     transition: 0.5s;
 }
 
+.card h3{
+    word-break: break-all;
+}
+
 .card:hover {
-        background-color: #6B6A69;
-        transition: 0.5s;
+    background-color: #6B6A69;
+    transition: 0.5s;
 }
 
 .card i{

@@ -9,6 +9,8 @@ namespace ikt
 {
     public class Constants
     {
+        public static string SiteName { get; } = "Verktyg & Projekt Bibliotek";
+
         public static int UserNameLength { get; } = 5;
 
         public static string[] Developers { get; } =
@@ -22,10 +24,10 @@ namespace ikt
             "9825faed"
         };
 
-        public static int ItemsPerPage = 12;
+        public static int ItemsPerPage { get; } = 12;
 
-        public static int MaxFileSizeMB = 10;
-        public static string FilePath = "~/Content/ProjectFiles/";
+        public static int MaxFileSizeMB { get; } = 10;
+        public static string FilePath { get; } = "~/Content/ProjectFiles/";
 
         public static long MegabytesToBytes(int MB)
         {

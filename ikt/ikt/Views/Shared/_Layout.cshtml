@@ -58,12 +58,13 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        
-        <footer>
-            <hr />
-            <p id="copyrighter">&copy; @DateTime.Now.Year - IKT</p>
-        </footer>
     </div>
+    <footer>
+        <p class="footerText" id="copyrighter">&copy; @DateTime.Now.Year - IKT</p>
+        <p class="footerText">T4</p>
+        <p class="footerText">Tillämpad Programmering</p>
+        <p class="footerText"><a href="https://github.com/t4ed/ikt-inventering">Github Projektsida</a></p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

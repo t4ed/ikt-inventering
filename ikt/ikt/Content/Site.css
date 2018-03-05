@@ -51,10 +51,10 @@ fieldset[disabled] .form-control {
 .footerText {
     color: #000000;
     float: left;
-    margin-right:10%;
+    margin:0 10% 0 5%;
 }
 footer {
-    width: 100%;
+   width: 100%;
     margin:20px 0 -45px 0;
     height: 45px;
     background: rgba(255,255,255, 0.5);
@@ -164,6 +164,7 @@ select {
 
 .card:hover {
     background-color: #6B6A69;
+    color:#FFFFFF;
     transition: 0.5s;
 }
 

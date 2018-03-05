@@ -41,11 +41,11 @@
                 <dt>
                     @if (!string.IsNullOrEmpty(Model.Ikt.Link))
                     {
-                        @Html.Display("Länkar");
+                        @Html.Raw("Länkar");
                     }
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Ikt.Link)
+                    <a href="@Model.Ikt.Link" target="_blank">@Html.DisplayFor(model => model.Ikt.Link)</a>
                 </dd>
             </dl>
         </div>

@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 70px;
     padding-bottom: 20px;
-    background-image: url("WebImages/BgrImg.png");
+    background-image: url("WebImages/BgrImgColor.png");
     background-attachment:fixed;
     font-family: Poppins, sans-serif;
 }

@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "Lägger till Verktyg";
+    ViewBag.Staff = Login.GetStaffInfo(User.Identity.Name);
+    if (ViewBag.Staff.Username == "invalid")
+    {
+        Response.Redirect(Url.Action("Create", "Staffs", new { Username = User.Identity.Name.Split('@')[0] }));
+    }
 }
 
 <h2>@ViewBag.Title</h2>
@@ -42,11 +47,7 @@
             </div>
         </div>
     </div>
-
-    @{
-        string username = (string)HttpContext.Current.Session["Username"];
-    }
-    <input type="text" name="CreatedBy" id="CreatedBy" value="@username" hidden required />
+    <input type="text" name="CreatedBy" id="CreatedBy" value="@ViewBag.Staff.Username" hidden required />
 
     <div class="form-group">
         @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" })

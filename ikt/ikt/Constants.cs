@@ -9,7 +9,7 @@ namespace ikt
 {
     public class Constants
     {
-        public static string SiteName { get; } = "Verktyg & Projekt Bibliotek";
+        public static string SiteName { get; } = "IKT";
 
         public static int UserNameLength { get; } = 5;
 

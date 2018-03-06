@@ -148,26 +148,14 @@ namespace ikt.Controllers
             return View(viewModel);
         }
 
-        private List<Ikt> MergeIKT(List<Ikt> listA, List<Ikt> listB)
+        [AllowAnonymous]
+        public ActionResult LandingPage()
         {
-            List<Ikt> mergedIkt = new List<Ikt>();
-            
-            foreach (var itemA in listA)
+            if (Request.IsAuthenticated)
             {
-                if (!mergedIkt.Contains(itemA))
-                {
-                    mergedIkt.Add(itemA);
-                }
+                return RedirectToAction("Index");
             }
-
-            foreach (var itemB in listB)
-            {
-                if (!mergedIkt.Contains(itemB))
-                {
-                    mergedIkt.Add(itemB);
-                }
-            }
-            return mergedIkt;
+            return View();
         }
     }
 }

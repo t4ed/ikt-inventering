@@ -5,9 +5,66 @@
     ViewBag.Title = "Projekt";
 }
 
+
 <h2>@Html.DisplayFor(model => model.Project.Name)</h2>
 <h4>@ViewBag.Title</h4>
 <hr />
+<script src="/Scripts/pdf.js"></script>
+
+<script>
+    // If absolute URL from the remote server is provided, configure the CORS
+    // header on that server.
+    var url = "/Content/ProjectFiles/@Model.Project.PDF";
+
+    // Disable workers to avoid yet another cross-origin issue (workers need
+    // the URL of the script to be loaded, and dynamically loading a cross-origin
+    // script does not work).
+    //PDFJS.disableWorker = true;
+
+    // The workerSrc property shall be specified.
+    PDFJS.workerSrc = '/Scripts/pdf.worker.js';
+
+    // Asynchronous download of PDF
+    var loadingTask = PDFJS.getDocument(url);
+    loadingTask.promise.then(function (pdf) {
+        console.log('PDF loaded');
+
+        // Fetch the first page
+        var pageNumber = 1;
+        pdf.getPage(pageNumber).then(function (page) {
+            console.log('Page loaded');
+
+            var scale = 1.5;
+            var viewport = page.getViewport(scale);
+
+            // Prepare canvas using PDF page dimensions
+            var canvas = document.getElementById('the-canvas');
+            var context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            // Render PDF page into canvas context
+            var renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            var renderTask = page.render(renderContext);
+            renderTask.then(function () {
+                console.log('Page rendered');
+            });
+        });
+    }, function (reason) {
+        // PDF loading error
+        console.error(reason);
+    });
+</script>
+
+@if (!string.IsNullOrEmpty(Model.Project.PDF))
+{
+    <canvas id="the-canvas"></canvas>
+}
+
+
 <div class=" col-md-12">
     <div class="col-md-3">
         <div class="form-group">
@@ -63,7 +120,7 @@
                 <dt>
                     @Html.DisplayNameFor(model => model.Project.Description)
                 </dt>
-                <dd>
+                <dd class="descriptionBreaker">
                     @Html.DisplayFor(model => model.Project.Description)
                 </dd>
             </dl>
@@ -103,20 +160,24 @@
 }
 
 <div class="form-group btn-StickBottom">
-    @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Redigera", "Edit", new { id = Model.Project.ID }, new { @class = "btn btn-default" })
+    <a href="@Url.Action("Index", "Home")" class="btn btn-default"><i class="fas fa-chevron-circle-left"></i> Tillbaka</a>
+    <a href="@Url.Action("Edit", new { id = Model.Project.ID })" class="btn btn-default"><i class="fas fa-edit"></i> Redigera</a>
     @if (projectStaff == null)
     {
         @Html.Raw(" ")
-        @Html.ActionLink("Lägg till mig i projektet!", "AddStaff", new { staffID = currentStaff.ID, projectID = Model.Project.ID }, new { @class = "btn btn-success" })
+        <a href="@Url.Action("AddStaff", new { staffID = currentStaff.ID, projectID = Model.Project.ID })" class="btn btn-success">
+            <i class="fas fa-user-plus"></i> Lägg till mig i projekt
+        </a>
     }
     else
     {
         @Html.Raw(" ")
-        @Html.ActionLink("Ta bort mig från projektet!", "RemoveStaff", new { id = projectStaff.ID, projectID = Model.Project.ID }, new { @class = "btn btn-danger" })
+        <a href="@Url.Action("RemoveStaff", new { id = projectStaff.ID, projectID = Model.Project.ID })" class="btn btn-danger">
+            <i class="fas fa-user-times"></i> Ta bort mig från projektet
+        </a>
     }
     @Html.Raw(" ")
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Ta bort projektet</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Ta bort projektet</button>
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
@@ -130,8 +191,8 @@
                 <h4>Är du säker på att du vill ta bort projektet @Model.Project.Name?</h4>
             </div>
             <div class="modal-footer">
-                @Html.ActionLink("Ta bort", "Delete", new { id = Model.Project.ID }, new {@class = "btn btn-danger" })
-                <button type="button" class="btn btn-info" data-dismiss="modal">Stäng</button>
+                <a href="@Url.Action("Delete",new { id = Model.Project.ID })" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Ta bort</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times"></i> Stäng</button>
             </div>
         </div>
 

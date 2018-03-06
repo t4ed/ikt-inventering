@@ -36,19 +36,18 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="/">
-                    <img src="~/Content/WebImages/Loggo.png" alt="logga" width="65" height="50" />
+                    <img class="loggo" src="~/Content/WebImages/Loggo.png" alt="logga" width="55" height="40" />
                 </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Lägg till
-                            <span class="caret"></span>
+                            <i class="fas fa-plus dropdownFasCreate"></i> Lägg till 
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Projekt", "Create", "Projects")</li>
-                            <li>@Html.ActionLink("Verktyg", "Create", "Ikts")</li>
+                            <li><a href="@Url.Action("Create", "Projects")"><i class="fas fa-file-alt dropdownFas"></i> Projekt</a></li>
+                            <li><a href="@Url.Action("Create", "Ikts")"><i class="fas fa-cogs dropdownFas"></i> Verktyg</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -58,12 +57,13 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        
-        <footer>
-            <hr />
-            <p id="copyrighter">&copy; @DateTime.Now.Year - @Constants.SiteName</p>
-        </footer>
     </div>
+    <footer>
+        <p class="footerText" id="copyrighter">&copy; @DateTime.Now.Year - IKT</p>
+        <p class="footerText">T4</p>
+        <p class="footerText">Tillämpad Programmering</p>
+        <p class="footerText"><a href="https://github.com/t4ed/ikt-inventering">Github Projektsida</a></p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

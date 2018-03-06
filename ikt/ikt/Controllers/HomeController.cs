@@ -134,6 +134,8 @@ namespace ikt.Controllers
                 {"Årskurs 4", 4 },
             };
             viewModel.SubjectID = subjectID;
+
+
             viewModel.SortBy = sortBy;
             viewModel.Sort = new Dictionary<string, string>
             {

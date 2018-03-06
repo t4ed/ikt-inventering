@@ -68,7 +68,6 @@ namespace ikt.Controllers
                 UpdatedDate = DateTime.Now,
                 UpdatedBy = CreatedBy
             };
-
             if (file != null)
             {
                 if (ValidateFile(file))
@@ -77,8 +76,15 @@ namespace ikt.Controllers
                     {
                         if (ModelState.IsValid)
                         {
-                            SaveToDisk(file);
-                            project.PDF = file.FileName;
+                            Random r = new Random();
+                            string newName;
+                            do
+                            {
+                                newName = Convert.ToString(r.Next());
+                            } while (System.IO.File.Exists(Constants.FilePath + newName));
+                            newName += ".pdf";
+                            SaveToDisk(file, newName);
+                            project.PDF = newName;
                         }
                     }
                     catch (Exception e)
@@ -95,9 +101,7 @@ namespace ikt.Controllers
 
             if (ModelState.IsValid)
             {
-
                 db.Projects.Add(project);
-
                 db.ProjectClasses.Add(new ProjectClass
                 {
                     ClassID = db.Classes.Where(c => c.Name == ClassID).Single().ID,
@@ -146,7 +150,7 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int ID, string Name, int Grade, string SubjectID, string PDF, string Description, string Date, string CreatedBy, string CreatedDate, string UpdatedBy)
+        public ActionResult Edit(int ID, string Name, int Grade, string SubjectID, string PDF, string Description, string Date, string CreatedBy, string CreatedDate, string UpdatedBy, HttpPostedFileBase file)
         {
             Project project = new Project
             {
@@ -156,12 +160,53 @@ namespace ikt.Controllers
                 Grade = Grade,
                 Description = Description,
                 Date = Date,
-                PDF = PDF,
                 CreatedBy = CreatedBy,
                 CreatedDate = DateTime.Parse(CreatedDate),
                 UpdatedBy = UpdatedBy,
                 UpdatedDate = DateTime.Now
             };
+
+            if (file != null)
+            {
+                if (ValidateFile(file))
+                {
+                    try
+                    {
+                        if (ModelState.IsValid)
+                        {
+                            string newName;
+                            if (string.IsNullOrEmpty(PDF))
+                            {
+                                Random r = new Random();
+                                do
+                                {
+                                    newName = Convert.ToString(r.Next());
+                                } while (System.IO.File.Exists(Constants.FilePath + newName));
+                                newName += ".pdf";
+                            }
+                            else
+                            {
+                                newName = PDF;
+                            }
+                            SaveToDisk(file, newName);
+                            project.PDF = newName;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        ModelState.AddModelError("PDF", "Ett okänt fel inträffade. Vänligen försök igen. " + e.Message);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("PDF", "Filen " + file.FileName + " orsakade ett fel. Kolla att det är en PDF-fil och att den är mindre än " + Constants.MaxFileSizeMB + "MB");
+                }
+            }
+            else if (!string.IsNullOrEmpty(PDF))
+            {
+                project.PDF = PDF;
+            }
+            
 
             if (ModelState.IsValid)
             {
@@ -255,9 +300,9 @@ namespace ikt.Controllers
             return false;
         }
 
-        private void SaveToDisk(HttpPostedFileBase file)
+        private void SaveToDisk(HttpPostedFileBase file, string newName)
         {
-            file.SaveAs(Server.MapPath(Constants.FilePath + file.FileName));
+            file.SaveAs(Server.MapPath(Constants.FilePath + newName));
         }
     }
 }

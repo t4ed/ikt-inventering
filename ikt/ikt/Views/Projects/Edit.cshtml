@@ -7,7 +7,7 @@
 <h4>Projekt</h4>
 <hr />
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Projects", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -30,8 +30,20 @@
                 @Html.EditorFor(model => model.Grade, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })
             </div>
+            @if (!string.IsNullOrEmpty(Model.PDF))
+            {
+                <div class="form-group">
+                    <label for="PDF">Uppladdad PDF</label>
+                    <dd>
+                        <a href="@Url.Content(Constants.FilePath + Model.PDF)" target="_blank">
+                            Visa PDF (öppnas i ny flik)
+                        </a>
+                    </dd>
+                    @Html.HiddenFor(model => model.PDF)
+                </div>
+            }
             <div class="form-group">
-                @Html.LabelFor(model => model.PDF, htmlAttributes: new { @class = "control-label" })
+                <label for="file">Ny PDF</label>
                 <input type="file" name="file" id="file" class="form-control" accept=".pdf" />
                 @Html.ValidationMessageFor(model => model.PDF, "", new { @class = "text-danger" })
             </div>

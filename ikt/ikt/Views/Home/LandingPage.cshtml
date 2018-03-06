@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login - @Constants.SiteName</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container jumbotron">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h1 style="text-align:center;">Välkommen till @Constants.SiteName!</h1>
+            </div>
+        </div>
+        <hr style="border-top: 1px solid black" />
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                <p>
+                    @Constants.SiteName är ett bibliotek av projekt och digitala verktyg som används av lärare på Erik Dahlbergsgymnasiet. Tanken med sidan är att lärare enkelt ska kunna dela med sig av sina projekt till andra lärare.
+                    För att fortsätta till sidan måste du logga in med den mailaddress du fått av skolan, 'förnamn.efternamn@@jonkoping.se'.
+                </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <a class="btn btn-info" style="width:100%; font-size:21px;" href="@Url.Action("Index")">Logga in med Jönköpings Kommun</a>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

@@ -1,5 +1,42 @@
 ﻿@{
-    ViewBag.Title = "Sign Out";
+    Layout = null;
+    ViewBag.Title = "Utloggad";
 }
-<h2>@ViewBag.Title.</h2>
-<p class="text-success">You have successfully signed out.</p>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - @Constants.SiteName</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <meta http-equiv="refresh" content="5;url=@Url.Action("LandingPage", "Home")" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container jumbotron">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h1 style="text-align:center;">@ViewBag.Title</h1>
+            </div>
+        </div>
+        <hr style="border-top: 1px solid black" />
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p>
+                    Du har blivit utloggad.
+                </p>
+                <p>
+                    Vänligen vänta medans vi tar dig till startsidan...
+                </p>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_FooterPartial")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

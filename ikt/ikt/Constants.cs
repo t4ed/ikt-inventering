@@ -24,6 +24,11 @@ namespace ikt
             "9825faed"
         };
 
+        public static string[] BlackList { get; } =
+        {
+            
+        };
+
         public static int ItemsPerPage { get; } = 12;
 
         public static int MaxFileSizeMB { get; } = 10;

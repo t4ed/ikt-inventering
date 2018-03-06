@@ -91,18 +91,18 @@
     {
         @Html.Raw(" ")
         <a href="@Url.Action("AddStaff", new { staffID = currentStaff.ID, iktID = Model.Ikt.ID })" class="btn btn-success">
-            <i class="fas fa-user-plus"></i> Lägg till mig i projekt
+            <i class="fas fa-user-plus"></i> Lägg till mig som användare av verktyget
         </a>
     }
     else
     {
         @Html.Raw(" ")
         <a href="@Url.Action("RemoveStaff", new { id = iktStaff.ID, iktID = Model.Ikt.ID })" class="btn btn-danger">
-            <i class="fas fa-user-times"></i> Ta bort mig från projektet
+            <i class="fas fa-user-times"></i> Ta bort mig som användare av verktyget
         </a>
     }
     @Html.Raw(" ")
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Ta bort projektet</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Ta bort verktyget</button>
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">

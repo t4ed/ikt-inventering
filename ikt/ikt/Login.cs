@@ -16,7 +16,7 @@ namespace ikt
         public static bool CheckIfValidUser(string userEmail)
         {
             string userName = userEmail.Split('@')[0];
-            if (userName.Length == Constants.UserNameLength || Constants.Developers.Contains(userName))
+            if ((userName.Length == Constants.UserNameLength || Constants.Developers.Contains(userName)) && !Constants.BlackList.Contains(userName))
             {
                 return true;
             }

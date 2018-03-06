@@ -32,6 +32,9 @@ $.ajax({
             minLength: 0
         }).bind('focus', function () {
             $(this).autocomplete("search", "");
+            /*if ($(this).val.length > 3) {
+                $(this).trigger("change");
+            } */
         });
     },
     error(jqXHR, status, errorThrown) {

@@ -56,18 +56,31 @@ namespace ikt.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string Name, string SubjectID, string ClassID, int Grade, string Description, string Date, string CreatedBy, HttpPostedFileBase file)
         {
-            Project project = new Project
+            Project project = new Project();
+            int subjectID = 0;
+            try
             {
-                Name = Name,
-                SubjectID = db.Subjects.Where(s => s.Name == SubjectID).Single().ID,
-                Grade = Grade,
-                Description = Description,
-                Date = Date,
-                CreatedDate = DateTime.Now,
-                CreatedBy = CreatedBy,
-                UpdatedDate = DateTime.Now,
-                UpdatedBy = CreatedBy
-            };
+                subjectID = db.Subjects.Where(s => s.Name == SubjectID).Single().ID;
+            }
+            catch
+            {
+                ModelState.AddModelError("SubjectID", "Ämnet finns inte.");
+            }
+            if (ModelState.IsValid)
+            {
+                project = new Project
+                {
+                    Name = Name,
+                    SubjectID = subjectID,
+                    Grade = Grade,
+                    Description = Description,
+                    Date = Date,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = CreatedBy
+                };
+            }
             if (file != null)
             {
                 if (ValidateFile(file))

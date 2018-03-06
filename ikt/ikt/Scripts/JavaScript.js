@@ -27,7 +27,7 @@ $.ajax({
         for (i = 0; i < response.length; i++) {
             data.push(response[i].Name);
         }
-        $(".classList").autocomplete({
+        $(".subjectList").autocomplete({
             source: data,
             minLength: 0
         }).bind('focus', function () {
@@ -41,7 +41,7 @@ $.ajax({
         console.log(jqXHR);
     }
 });
-
+/*
 $.ajax({
     url: "/FetchData/FetchClassData",
     type: 'GET',
@@ -62,7 +62,43 @@ $.ajax({
         console.log(jqXHR);
     }
 });
+*/
+var data;
+$.ajax({
+    url: "/FetchData/FetchClassData",
+    type: 'GET',
+    dataType: 'json',
+    success(response) {
+        data = [];
+        for (i = 0; i < response.length; i++) {
+            data.push(response[i].Name);
+        }
+        console.log(data);
+        $(".classList").selectize({
+            plugins: ['remove_button'],
+            delimiter: ',',
+            options: data,
+            create: false
+        });
+    },
+    error(jqXHR, status, errorThrown) {
+        console.log(jqXHR);
+    }
+});
 
+/*
+$('.classList').selectize({
+    plugins: ['remove_button'],
+    delimiter: ',',
+    persist: false,
+    create: function (input) {
+        return {
+            value: input,
+            text: input
+        }
+    }
+});
+*/
 $(document).ready(function () {
     $('.subjectSelect').on('change', function () {
         this.form.submit();

@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
     <title>@ViewBag.Title - @Constants.SiteName</title>
@@ -43,7 +45,7 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fas fa-plus dropdownFasCreate"></i> Lägg till 
+                            <i class="fas fa-plus dropdownFasCreate"></i> Lägg till
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="@Url.Action("Create", "Projects")"><i class="fas fa-file-alt dropdownFas"></i> Projekt</a></li>
@@ -72,6 +74,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.js"></script>
     @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
 </body>

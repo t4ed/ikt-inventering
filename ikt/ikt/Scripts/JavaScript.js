@@ -27,11 +27,14 @@ $.ajax({
         for (i = 0; i < response.length; i++) {
             data.push(response[i].Name);
         }
-        $("#SubjectID").autocomplete({
+        $(".classList").autocomplete({
             source: data,
             minLength: 0
         }).bind('focus', function () {
             $(this).autocomplete("search", "");
+            /*if ($(this).val.length > 3) {
+                $(this).trigger("change");
+            } */
         });
     },
     error(jqXHR, status, errorThrown) {
@@ -61,10 +64,10 @@ $.ajax({
 });
 
 $(document).ready(function () {
-    $('#SubjectID').on('change', function () {
+    $('.subjectSelect').on('change', function () {
         this.form.submit();
     });
-    $('#Grade').on('change', function () {
+    $('.gradeSelect').on('change', function () {
         this.form.submit();
     });
     $('#SortBy').on('change', function () {

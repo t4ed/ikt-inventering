@@ -38,5 +38,7 @@ namespace ikt
         {
             return (int)(bytes / 1048576);
         }
+
+        public static int DescriptionLengthIndex { get; } = 65;
     }
 }

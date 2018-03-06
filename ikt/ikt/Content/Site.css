@@ -48,8 +48,20 @@ fieldset[disabled] .form-control {
     background-color: #FFFFFF;
 }
 
-#copyrighter {
+.footerText {
     color: #000000;
+    float: left;
+    margin:0 10% 0 5%;
+}
+footer {
+   width: 100%;
+    margin:20px 0 -45px 0;
+    height: 45px;
+    background: rgba(255,255,255, 0.5);
+}
+
+.footerText a:hover {
+    text-decoration:none;
 }
 
 .dropdown a, .navbar-text, .navbar-right a {
@@ -151,6 +163,7 @@ select {
 
 .card:hover {
     background-color: #6B6A69;
+    color:#FFFFFF;
     transition: 0.5s;
 }
 
@@ -170,3 +183,4 @@ select {
 footer, .btn-StickBottom {
     clear: both;
 }
+

@@ -56,7 +56,7 @@
                 <dt>
                     @Html.DisplayNameFor(model => model.Ikt.Description)
                 </dt>
-                <dd>
+                <dd class="descriptionBreaker">
                     @Html.DisplayFor(model => model.Ikt.Description)
                 </dd>
             </dl>
@@ -85,20 +85,24 @@
     
 </div>
 <div class="form-group btn-StickBottom">
-    @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Redigera", "Edit", new { id = Model.Ikt.ID }, new { @class = "btn btn-default" })
+    <a href="@Url.Action("Index", "Home")" class="btn btn-default"><i class="fas fa-chevron-circle-left"></i> Tillbaka</a>
+    <a href="@Url.Action("Edit", new { id = Model.Ikt.ID })" class="btn btn-default"><i class="fas fa-edit"></i> Redigera</a>
     @if (iktStaff == null)
     {
         @Html.Raw(" ")
-        @Html.ActionLink("Lägg till mig som användare av verktyget!", "AddStaff", new { staffID = currentStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-success" })
+        <a href="@Url.Action("AddStaff", new { staffID = currentStaff.ID, iktID = Model.Ikt.ID })" class="btn btn-success">
+            <i class="fas fa-user-plus"></i> Lägg till mig i projekt
+        </a>
     }
     else
     {
         @Html.Raw(" ")
-        @Html.ActionLink("Ta bort mig som användare av verktyget!", "RemoveStaff", new { id = iktStaff.ID, iktID = Model.Ikt.ID }, new { @class = "btn btn-danger" })
+        <a href="@Url.Action("RemoveStaff", new { id = iktStaff.ID, iktID = Model.Ikt.ID })" class="btn btn-danger">
+            <i class="fas fa-user-times"></i> Ta bort mig från projektet
+        </a>
     }
     @Html.Raw(" ")
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Ta bort projektet</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Ta bort projektet</button>
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
@@ -112,8 +116,8 @@
                 <h4>Är du säker på att du vill ta bort verktyget @Model.Ikt.Name?</h4>
             </div>
             <div class="modal-footer">
-                @Html.ActionLink("Ta bort", "Delete", new { id = Model.Ikt.ID }, new { @class = "btn btn-danger" })
-                <button type="button" class="btn btn-info" data-dismiss="modal">Stäng</button>
+                <a href="@Url.Action("Delete",new { id = Model.Ikt.ID })" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Ta bort</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times"></i> Stäng</button>
             </div>
         </div>
 

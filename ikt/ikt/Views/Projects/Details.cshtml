@@ -8,7 +8,7 @@
 
 <h2>@Html.DisplayFor(model => model.Project.Name)</h2>
 <h4>@ViewBag.Title</h4>
-
+<hr />
 <script src="/Scripts/pdf.js"></script>
 
 <script>
@@ -58,9 +58,13 @@
         console.error(reason);
     });
 </script>
-<canvas id="the-canvas"></canvas>
 
-<hr />
+@if (!string.IsNullOrEmpty(Model.Project.PDF))
+{
+    <canvas id="the-canvas"></canvas>
+}
+
+
 <div class=" col-md-12">
     <div class="col-md-3">
         <div class="form-group">
@@ -116,7 +120,7 @@
                 <dt>
                     @Html.DisplayNameFor(model => model.Project.Description)
                 </dt>
-                <dd>
+                <dd class="descriptionBreaker">
                     @Html.DisplayFor(model => model.Project.Description)
                 </dd>
             </dl>
@@ -156,20 +160,24 @@
 }
 
 <div class="form-group btn-StickBottom">
-    @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Redigera", "Edit", new { id = Model.Project.ID }, new { @class = "btn btn-default" })
+    <a href="@Url.Action("Index", "Home")" class="btn btn-default"><i class="fas fa-chevron-circle-left"></i> Tillbaka</a>
+    <a href="@Url.Action("Edit", new { id = Model.Project.ID })" class="btn btn-default"><i class="fas fa-edit"></i> Redigera</a>
     @if (projectStaff == null)
     {
         @Html.Raw(" ")
-        @Html.ActionLink("Lägg till mig i projektet!", "AddStaff", new { staffID = currentStaff.ID, projectID = Model.Project.ID }, new { @class = "btn btn-success" })
+        <a href="@Url.Action("AddStaff", new { staffID = currentStaff.ID, projectID = Model.Project.ID })" class="btn btn-success">
+            <i class="fas fa-user-plus"></i> Lägg till mig i projekt
+        </a>
     }
     else
     {
         @Html.Raw(" ")
-        @Html.ActionLink("Ta bort mig från projektet!", "RemoveStaff", new { id = projectStaff.ID, projectID = Model.Project.ID }, new { @class = "btn btn-danger" })
+        <a href="@Url.Action("RemoveStaff", new { id = projectStaff.ID, projectID = Model.Project.ID })" class="btn btn-danger">
+            <i class="fas fa-user-times"></i> Ta bort mig från projektet
+        </a>
     }
     @Html.Raw(" ")
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Ta bort projektet</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Ta bort projektet</button>
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
@@ -183,8 +191,8 @@
                 <h4>Är du säker på att du vill ta bort projektet @Model.Project.Name?</h4>
             </div>
             <div class="modal-footer">
-                @Html.ActionLink("Ta bort", "Delete", new { id = Model.Project.ID }, new { @class = "btn btn-danger" })
-                <button type="button" class="btn btn-info" data-dismiss="modal">Stäng</button>
+                <a href="@Url.Action("Delete",new { id = Model.Project.ID })" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Ta bort</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times"></i> Stäng</button>
             </div>
         </div>
 

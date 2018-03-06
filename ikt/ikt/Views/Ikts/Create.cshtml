@@ -50,7 +50,7 @@
     <input type="text" name="CreatedBy" id="CreatedBy" value="@ViewBag.Staff.Username" hidden required />
 
     <div class="form-group">
-        @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" })
+        <a href="@Url.Action("Index", "Home")" class="btn btn-default"><i class="fas fa-chevron-circle-left"></i> Tillbaka</a>
         <input type="submit" value="Skapa" class="btn btn-default" />
     </div>
 }

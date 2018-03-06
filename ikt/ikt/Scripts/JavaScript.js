@@ -27,7 +27,7 @@ $.ajax({
         for (i = 0; i < response.length; i++) {
             data.push(response[i].Name);
         }
-        $("#SubjectID").autocomplete({
+        $(".classList").autocomplete({
             source: data,
             minLength: 0
         }).bind('focus', function () {
@@ -64,10 +64,10 @@ $.ajax({
 });
 
 $(document).ready(function () {
-    $('#SubjectID').on('change', function () {
+    $('.subjectSelect').on('change', function () {
         this.form.submit();
     });
-    $('#Grade').on('change', function () {
+    $('.gradeSelect').on('change', function () {
         this.form.submit();
     });
     $('#SortBy').on('change', function () {

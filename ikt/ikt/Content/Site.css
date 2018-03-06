@@ -12,8 +12,31 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
 
+}
+input:focus, textarea:focus {
+    border-color: #7BB5AD !important;
+    box-shadow: 0 1px 1px #7BB5AD inset, 0 0 8px #7BB5AD !important;
+    outline: 0 none;
+}
+.pagination li a {
+    background-color: #6B6A69 !important;
+    color: #FFFFFF !important;
+    /*border-color: #4C4B4A;*/
+}
+.pagination li a:hover {
+    background-color: white !important;
+    color: #000000 !important;
+   
+}
+.pagination > .active > a:hover {
+    color: #000000 !important;
+}
+.pagination > .active > a {
+    /*border-color: #4C4B4A;*/
+    background-color: white !important;
+    color: #000000 !important;
+}
 .dl-horizontal dt {
     white-space: normal;
 }
@@ -54,9 +77,9 @@ fieldset[disabled] .form-control {
     margin:0 10% 0 5%;
 }
 footer {
-   width: 100%;
+    width: 100%;
     margin:20px 0 -45px 0;
-    height: 45px;
+    height: 26px;
     background: rgba(255,255,255, 0.5);
 }
 
@@ -192,3 +215,7 @@ footer, .btn-StickBottom {
     clear: both;
 }
 
+#the-canvas{
+    width:400px;
+    height: 560px;
+}

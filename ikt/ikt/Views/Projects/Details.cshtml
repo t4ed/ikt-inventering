@@ -59,7 +59,7 @@
     });
 </script>
 
-@if (Model.Project.PDF != null)
+@if (!string.IsNullOrEmpty(Model.Project.PDF))
 {
     <canvas id="the-canvas"></canvas>
 }

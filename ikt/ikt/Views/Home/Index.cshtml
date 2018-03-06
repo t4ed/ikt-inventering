@@ -59,29 +59,36 @@
             <div class="item">
                 <a href="@Url.Action("Details", item.Type + "s", new {id=item.ItemID })">
                     <div class="card img-rounded">
-                        <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
-                        @if (item.Grade > 0)
-                        {@Html.Raw("Årskurs ") @Html.DisplayFor(modelItem => item.Grade)<br />}
-                        
-                        @if (!string.IsNullOrEmpty(item.Subject))
-                        {@Html.DisplayFor(modelItem => item.Subject)<br />}
-                        
-                        @if (item.Type == "Ikt")
-                        {
-                            if (item.Description.Length <= Constants.DescriptionLengthIndex)
+                        <h3>
+                            @if (item.Type == "Ikt")
                             {
-                                @Html.Raw(item.Description)<br />
+                                <i class="fas fa-cogs"></i>
                             }
                             else
                             {
-                                @(item.Description.Substring(0, Constants.DescriptionLengthIndex) + "...")<br />
+                                <i class="fas fa-file-alt"></i>
+                            }@Html.DisplayFor(modelItem => item.Name)
+                        </h3>
+
+                        <div class="description">
+                            @if (item.Grade > 0)
+                            {@Html.Raw("Årskurs ") @Html.DisplayFor(modelItem => item.Grade)<br />}
+
+                            @if (!string.IsNullOrEmpty(item.Subject))
+                            {@Html.DisplayFor(modelItem => item.Subject)<br />}
+                            @if (item.Type == "Ikt")
+                            {
+                                if (item.Description.Length <= Constants.DescriptionLengthIndex)
+                                {
+                                    @Html.Raw(item.Description)<br />
+                                }
+                                else
+                                {
+                                    @(item.Description.Substring(0, Constants.DescriptionLengthIndex) + "...")<br />
+                                }
                             }
-                            <i class="fas fa-cogs"></i>
-                        }
-                        else
-                        {
-                            <i class="fas fa-file-alt"></i>
-                        }
+                        </div>
+
                     </div>
                 </a>
             </div>

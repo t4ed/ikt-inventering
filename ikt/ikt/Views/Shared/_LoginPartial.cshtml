@@ -4,7 +4,7 @@
 <ul class="nav navbar-nav navbar-right">
     <li class="WelcomeMessage">
         <a>
-            Välkommen, @(String.IsNullOrWhiteSpace(ViewBag.Staff.Username) ? User.Identity.Name : ViewBag.Staff.FirstName + " " + ViewBag.Staff.LastName)!
+            <i class="fas fa-user"></i>  @(String.IsNullOrWhiteSpace(ViewBag.Staff.Username) ? User.Identity.Name : ViewBag.Staff.FirstName + " " + ViewBag.Staff.LastName)
         </a>
     </li>
     <li>

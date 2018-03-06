@@ -59,14 +59,8 @@
     });
 </script>
 
-@if (!string.IsNullOrEmpty(Model.Project.PDF))
-{
-    <canvas id="the-canvas"></canvas>
-}
-
-
 <div class=" col-md-12">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <div class="form-group">
             <dl>
                 <dt>
@@ -113,8 +107,18 @@
                 }
             </dl>
         </div>
+        <div class="form-group">
+            <dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Project.Date)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Project.Date)
+                </dd>
+            </dl>
+        </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-5">
         <div class="form-group">
             <dl>
                 <dt>
@@ -140,15 +144,13 @@
                 </dl>
             </div>
         }
+    </div>
+    <div class="col-md-5">
         <div class="form-group">
-            <dl>
-                <dt>
-                    @Html.DisplayNameFor(model => model.Project.Date)
-                </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Project.Date)
-                </dd>
-            </dl>
+            @if (!string.IsNullOrEmpty(Model.Project.PDF))
+            {
+                <canvas id="the-canvas" class="col-md-5"></canvas>
+            }
         </div>
     </div>
 </div>
@@ -160,24 +162,24 @@
 }
 
 <div class="form-group btn-StickBottom">
-    <a href="@Url.Action("Index", "Home")" class="btn btn-default"><i class="fas fa-chevron-circle-left"></i> Tillbaka</a>
-    <a href="@Url.Action("Edit", new { id = Model.Project.ID })" class="btn btn-default"><i class="fas fa-edit"></i> Redigera</a>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-default buttonStyle"><i class="fas fa-arrow-left"></i> Tillbaka</a>
+    <a href="@Url.Action("Edit", new { id = Model.Project.ID })" class="btn btn-default buttonStyle"><i class="fas fa-edit"></i> Redigera</a>
     @if (projectStaff == null)
     {
         @Html.Raw(" ")
-        <a href="@Url.Action("AddStaff", new { staffID = currentStaff.ID, projectID = Model.Project.ID })" class="btn btn-success">
+        <a href="@Url.Action("AddStaff", new { staffID = currentStaff.ID, projectID = Model.Project.ID })" class="btn btn-success buttonStyle">
             <i class="fas fa-user-plus"></i> Lägg till mig i projekt
         </a>
     }
     else
     {
         @Html.Raw(" ")
-        <a href="@Url.Action("RemoveStaff", new { id = projectStaff.ID, projectID = Model.Project.ID })" class="btn btn-danger">
+        <a href="@Url.Action("RemoveStaff", new { id = projectStaff.ID, projectID = Model.Project.ID })" class="btn btn-danger buttonStyle">
             <i class="fas fa-user-times"></i> Ta bort mig från projektet
         </a>
     }
     @Html.Raw(" ")
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Ta bort projektet</button>
+    <button type="button" class="btn btn-danger buttonStyle" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i> Ta bort projektet</button>
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">

@@ -43,12 +43,11 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Lägg till
-                            <span class="caret"></span>
+                            <i class="fas fa-plus dropdownFasCreate"></i> Lägg till 
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Projekt", "Create", "Projects")</li>
-                            <li>@Html.ActionLink("Verktyg", "Create", "Ikts")</li>
+                            <li><a href="@Url.Action("Create", "Projects")"><i class="fas fa-file-alt dropdownFas"></i> Projekt</a></li>
+                            <li><a href="@Url.Action("Create", "Ikts")"><i class="fas fa-cogs dropdownFas"></i> Verktyg</a></li>
                         </ul>
                     </li>
                 </ul>

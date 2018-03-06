@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ikt.DAL;
 using ikt.Models;
+using ikt.ViewModels;
 
 namespace ikt.Controllers
 {
@@ -25,6 +26,7 @@ namespace ikt.Controllers
         // GET: Projects/Details/5
         public ActionResult Details(int? id)
         {
+            ProjectDetailsViewModel viewModel = new ProjectDetailsViewModel();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -34,7 +36,10 @@ namespace ikt.Controllers
             {
                 return HttpNotFound();
             }
-            return View(project);
+            viewModel.Project = project;
+            viewModel.ProjectClass = db.ProjectClasses.Where(p => p.ProjectID == id).ToList();
+            viewModel.ProjectStaff = db.ProjectStaffs.Where(p => p.ProjectID == id).ToList();
+            return View(viewModel);
         }
 
         // GET: Projects/Create
@@ -49,16 +54,74 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,SubjectID,Grade,Description,Date,PDF,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Project project)
+        public ActionResult Create(string Name, string SubjectID, string ClassID, int Grade, string Description, string Date, string CreatedBy, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            Project project = new Project
             {
-                db.Projects.Add(project);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Name = Name,
+                SubjectID = db.Subjects.Where(s => s.Name == SubjectID).Single().ID,
+                Grade = Grade,
+                Description = Description,
+                Date = Date,
+                CreatedDate = DateTime.Now,
+                CreatedBy = CreatedBy,
+                UpdatedDate = DateTime.Now,
+                UpdatedBy = CreatedBy
+            };
+
+            if (file != null)
+            {
+                if (ValidateFile(file))
+                {
+                    try
+                    {
+                        if (ModelState.IsValid)
+                        {
+                            SaveToDisk(file);
+                            project.PDF = file.FileName;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        ModelState.AddModelError("PDF", "Ett okänt fel inträffade. Vänligen försök igen. " + e.Message);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("PDF", "Filen " + file.FileName + " orsakade ett fel. Kolla att det är en PDF-fil och att den är mindre än " + Constants.MaxFileSizeMB + "MB");
+                }
             }
 
-            ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", project.SubjectID);
+
+            if (ModelState.IsValid)
+            {
+
+                db.Projects.Add(project);
+
+                db.ProjectClasses.Add(new ProjectClass
+                {
+                    ClassID = db.Classes.Where(c => c.Name == ClassID).Single().ID,
+                    ProjectID = project.ID,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = CreatedBy
+                });
+
+                db.ProjectStaffs.Add(new ProjectStaff
+                {
+                    StaffID = db.Staff.Where(s => s.Username == CreatedBy).Single().ID,
+                    ProjectID = project.ID,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = CreatedBy
+                });
+
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            
             return View(project);
         }
 
@@ -83,13 +146,28 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,SubjectID,Grade,Description,Date,PDF,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Project project)
+        public ActionResult Edit(int ID, string Name, int Grade, string SubjectID, string PDF, string Description, string Date, string CreatedBy, string CreatedDate, string UpdatedBy)
         {
+            Project project = new Project
+            {
+                ID = ID,
+                Name = Name,
+                SubjectID = db.Subjects.Where(s => s.Name == SubjectID).Single().ID,
+                Grade = Grade,
+                Description = Description,
+                Date = Date,
+                PDF = PDF,
+                CreatedBy = CreatedBy,
+                CreatedDate = DateTime.Parse(CreatedDate),
+                UpdatedBy = UpdatedBy,
+                UpdatedDate = DateTime.Now
+            };
+
             if (ModelState.IsValid)
             {
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = ID });
             }
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", project.SubjectID);
             return View(project);
@@ -107,7 +185,11 @@ namespace ikt.Controllers
             {
                 return HttpNotFound();
             }
-            return View(project);
+            db.ProjectStaffs.RemoveRange(db.ProjectStaffs.Where(s => s.ProjectID == id));
+            db.ProjectClasses.RemoveRange(db.ProjectClasses.Where(c => c.ProjectID == id));
+            db.Projects.Remove(project);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Projects/Delete/5
@@ -116,9 +198,11 @@ namespace ikt.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Project project = db.Projects.Find(id);
+            db.ProjectStaffs.RemoveRange(db.ProjectStaffs.Where(s => s.ProjectID == id));
+            db.ProjectClasses.RemoveRange(db.ProjectClasses.Where(c => c.ProjectID == id));
             db.Projects.Remove(project);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
@@ -128,6 +212,52 @@ namespace ikt.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult AddStaff(int projectID, int staffID)
+        {
+            ProjectStaff projectStaff = new ProjectStaff
+            {
+                StaffID = staffID,
+                ProjectID = projectID,
+                CreatedBy = db.Staff.Single(s => s.ID == staffID).Username,
+                CreatedDate = DateTime.Now,
+                UpdatedBy = db.Staff.Single(s => s.ID == staffID).Username,
+                UpdatedDate = DateTime.Now
+            };
+
+            db.ProjectStaffs.Add(projectStaff);
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = projectID });
+        }
+
+        public ActionResult RemoveStaff(int id, int projectID)
+        {
+            db.ProjectStaffs.Remove(db.ProjectStaffs.Where(i => i.ID == id).Single());
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = projectID });
+        }
+
+        private bool ValidateFile(HttpPostedFileBase file)
+        {
+            string[] allowedFileTypes = { ".pdf" };
+            string fileExtension = System.IO.Path.GetExtension(file.FileName).ToLower();
+
+            if (allowedFileTypes.Contains(fileExtension))
+            {
+                if (file.ContentLength > 0 && file.ContentLength < Constants.MegabytesToBytes(Constants.MaxFileSizeMB))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void SaveToDisk(HttpPostedFileBase file)
+        {
+            file.SaveAs(Server.MapPath(Constants.FilePath + file.FileName));
         }
     }
 }

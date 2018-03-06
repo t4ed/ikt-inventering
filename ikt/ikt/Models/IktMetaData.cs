@@ -12,7 +12,7 @@ namespace ikt.Models
     public partial class IktMetaData
     {
         [Required(ErrorMessage = "Namnet är blankt")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Namnet Måste vara mellan 3 och 100 tecken")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Namnet Måste vara mellan 3 och 50 tecken")]
         [RegularExpression(@"^[a-zåäöA-ZÅÄÖ0-9]+[a-zåäöA-ZÅÄÖ0-9\s'-'---]*$", ErrorMessage = "Namnet kan inte ha speciella tecken")]
         [Display(Name = "Namn")]
         public string Name;

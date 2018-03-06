@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
     <title>@ViewBag.Title - Verktyg & Projekt Bibliotek</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -21,13 +23,12 @@
                 Response.Redirect(Url.Action("Create", "Staffs", new { Username = User.Identity.Name.Split('@')[0] }));
             }
         }
-        ViewBag.Test = "Hello";
     }
 
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -35,7 +36,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="/">
-                    <img src="~/Content/WebImages/LoggaEdit.png" alt="logga" width="77" height="50" />
+                    <img class="loggo" src="~/Content/WebImages/Loggo.png" alt="logga" width="55" height="40" />
                 </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -57,12 +58,13 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        
-        <footer>
-            <hr />
-            <p id="copyrighter">&copy; @DateTime.Now.Year - Verktyg & Projekt Bibliotek</p>
-        </footer>
     </div>
+    <footer>
+        <p class="footerText" id="copyrighter">&copy; @DateTime.Now.Year - IKT</p>
+        <p class="footerText">T4</p>
+        <p class="footerText">Tillämpad Programmering</p>
+        <p class="footerText"><a href="https://github.com/t4ed/ikt-inventering">Github Projektsida</a></p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

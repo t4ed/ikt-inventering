@@ -8,6 +8,10 @@ ikt/ikt/[Mm]igrations/*.resx
 ikt/ikt/[Mm]igrations/*.cs
 !ikt/ikt/[Mm]igrations/[Cc]onfiguration.cs
 
+# No file uploads
+ikt/ikt/[Cc]ontent/[Pp]roject[Ff]iles/*
+!ikt/ikt/[Cc]ontent/[Pp]roject[Ff]iles/tom
+
 # User-specific files
 *.suo
 *.user

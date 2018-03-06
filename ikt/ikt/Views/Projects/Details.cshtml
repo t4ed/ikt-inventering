@@ -1,10 +1,11 @@
-﻿@model ikt.Models.Project
+﻿@using ikt.Models
+@model ikt.ViewModels.ProjectDetailsViewModel
 
 @{
     ViewBag.Title = "Projekt";
 }
 
-<h2>@Html.DisplayFor(model => model.Name)</h2>
+<h2>@Html.DisplayFor(model => model.Project.Name)</h2>
 <h4>@ViewBag.Title</h4>
 <hr />
 <div class=" col-md-12">
@@ -12,41 +13,47 @@
         <div class="form-group">
             <dl>
                 <dt>
-                    @Html.DisplayNameFor(model => model.Subject.Name)
+                    @Html.DisplayNameFor(model => model.Project.Subject.Name)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Subject.Name)
+                    @Html.DisplayFor(model => model.Project.Subject.Name)
                 </dd>
             </dl>
         </div>
         <div class="form-group">
             <dl>
                 <dt>
-                    @Html.DisplayNameFor(model => model.Name)
+                    @Html.DisplayNameFor(model => model.Project.Grade)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Name)
+                    @Html.DisplayFor(model => model.Project.Grade)
                 </dd>
             </dl>
         </div>
         <div class="form-group">
             <dl>
                 <dt>
-                    @Html.DisplayNameFor(model => model.Grade)
+                    Lärare
                 </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Grade)
-                </dd>
+                @foreach (var staff in Model.ProjectStaff)
+                {
+                    <dd>
+                        @staff.Staff.FirstName @staff.Staff.LastName
+                    </dd>
+                }
             </dl>
         </div>
         <div class="form-group">
             <dl>
                 <dt>
-                    @Html.DisplayNameFor(model => model.Date)
+                    Klasser
                 </dt>
-                <dd>
-                    @Html.DisplayFor(model => model.Date)
-                </dd>
+                @foreach (var klass in Model.ProjectClass)
+                {
+                    <dd>
+                        @klass.Class.Name
+                    </dd>
+                }
             </dl>
         </div>
     </div>
@@ -54,29 +61,79 @@
         <div class="form-group">
             <dl>
                 <dt>
-                    @Html.DisplayNameFor(model => model.Description)
+                    @Html.DisplayNameFor(model => model.Project.Description)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Description)
+                    @Html.DisplayFor(model => model.Project.Description)
                 </dd>
             </dl>
         </div>
-        @if (!string.IsNullOrEmpty(Model.PDF))
+        @if (!string.IsNullOrEmpty(Model.Project.PDF))
         {
+            <div class="form-group">
+                <dl>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Project.PDF)
+                    </dt>
+                    <dd>
+                        <a href="@Url.Content(Constants.FilePath + Model.Project.PDF)" target="_blank">
+                            @Html.DisplayFor(model => model.Project.PDF)
+                        </a>
+                    </dd>
+                </dl>
+            </div>
+        }
         <div class="form-group">
             <dl>
                 <dt>
-                    @Html.DisplayNameFor(model => model.PDF)
+                    @Html.DisplayNameFor(model => model.Project.Date)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.PDF)
+                    @Html.DisplayFor(model => model.Project.Date)
                 </dd>
             </dl>
         </div>
-        }
     </div>
 </div>
-<div  class="form-group btn-StickBottom">
+@{
+    ikt.DAL.iktContext iktContext = new ikt.DAL.iktContext();
+    string username = (string)HttpContext.Current.Session["Username"];
+    Staff currentStaff = iktContext.Staff.Where(s => s.Username == username).Single();
+    ProjectStaff projectStaff = iktContext.ProjectStaffs.Where(s => s.ProjectID == Model.Project.ID && s.StaffID == currentStaff.ID).SingleOrDefault();
+}
+
+<div class="form-group btn-StickBottom">
     @Html.ActionLink("Tillbaka", "Index", "Home", null, new { @class = "btn btn-default" })
-    @Html.ActionLink("Redigera", "Edit", new { id = Model.ID }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Redigera", "Edit", new { id = Model.Project.ID }, new { @class = "btn btn-default" })
+    @if (projectStaff == null)
+    {
+        @Html.Raw(" ")
+        @Html.ActionLink("Lägg till mig i projektet!", "AddStaff", new { staffID = currentStaff.ID, projectID = Model.Project.ID }, new { @class = "btn btn-success" })
+    }
+    else
+    {
+        @Html.Raw(" ")
+        @Html.ActionLink("Ta bort mig från projektet!", "RemoveStaff", new { id = projectStaff.ID, projectID = Model.Project.ID }, new { @class = "btn btn-danger" })
+    }
+    @Html.Raw(" ")
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Ta bort projektet</button>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-danger">Varning!</h4>
+            </div>
+            <div class="modal-body">
+                <h4>Är du säker på att du vill ta bort projektet @Model.Project.Name?</h4>
+            </div>
+            <div class="modal-footer">
+                @Html.ActionLink("Ta bort", "Delete", new { id = Model.Project.ID }, new {@class = "btn btn-danger" })
+                <button type="button" class="btn btn-info" data-dismiss="modal">Stäng</button>
+            </div>
+        </div>
+
+    </div>
 </div>

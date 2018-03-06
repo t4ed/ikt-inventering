@@ -16,6 +16,8 @@ namespace ikt.Models
         public string Description { get; set; }
         [Display(Name = "Kommentar")]
         public string Comment { get; set; }
+        [Display(Name = "Ämne")]
+        public string Subject { get; set; }
         [Display(Name = "Årskurs")]
         public int Grade { get; set; }
         public DateTime CreatedDate { get; set; }

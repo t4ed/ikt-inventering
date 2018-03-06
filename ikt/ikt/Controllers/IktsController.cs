@@ -32,7 +32,6 @@ namespace ikt.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Ikt ikt = db.Ikts.Find(id);
-            viewModel.Ikt = ikt;
             if (ikt == null)
             {
                 return HttpNotFound();
@@ -46,8 +45,6 @@ namespace ikt.Controllers
         // GET: Ikts/Create
         public ActionResult Create()
         {
-            ViewBag.StaffList = new SelectList(db.Staff, "ID", "Name");
-            ViewBag.ProjectList = new SelectList(db.Projects, "ID", "Name");
             return View();
         }
 
@@ -56,19 +53,47 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Description,Comment,Link,CreatedDate,CreatedBy")] Ikt Ikts)
+        public ActionResult Create(string Name, string ClassID, string Description, string Comment, string Link, string CreatedBy)
         {
+            Ikt Ikts = new Ikt
+            {
+                Name = Name,
+                Description = Description,
+                Comment = Comment,
+                Link = Link,
+                CreatedBy = CreatedBy,
+                CreatedDate = DateTime.Now
+            };
+
             if (ModelState.IsValid)
             {
                 Ikts.UpdatedDate = Ikts.CreatedDate;
                 Ikts.UpdatedBy = Ikts.CreatedBy;
                 db.Ikts.Add(Ikts);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            //ViewBag.StaffList = new SelectList(db.Staff, "ID", "Name", Staff.StaffID);
-            //ViewBag.ProjectList = new SelectList(db.Staff, "ID", "Name", Staff.ProjectID);
+                db.IktStaffs.Add(new IktStaff()
+                {
+                    IktID = Ikts.ID,
+                    StaffID = db.Staff.Where(s => s.Username == Ikts.CreatedBy).Single().ID,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = Ikts.CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = Ikts.UpdatedBy
+                });
+
+                db.IktClasses.Add(new IktClass()
+                {
+                    IktID = Ikts.ID,
+                    ClassID = db.Classes.Where(c => c.Name == ClassID).Single().ID,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = Ikts.CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = Ikts.UpdatedBy
+                });
+
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
             return View(Ikts);
         }
 
@@ -92,15 +117,26 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Description,Comment,Link,CreatedDate,CreatedBy,UpdatedDate,UpdatedBy")] Ikt Ikts)
+        public ActionResult Edit(int ID, string Name, string Description, string Comment, string Link, string CreatedBy, string CreatedDate, string UpdatedBy)
         {
+            Ikt Ikts = new Ikt
+            {
+                ID = ID,
+                Name = Name,
+                Description = Description,
+                Comment = Comment,
+                Link = Link,
+                CreatedBy = CreatedBy,
+                CreatedDate = DateTime.Parse(CreatedDate),
+                UpdatedBy = UpdatedBy,
+                UpdatedDate = DateTime.Now
+            };
+
             if (ModelState.IsValid)
             {
-                Ikts.UpdatedDate = Ikts.CreatedDate;
-                Ikts.UpdatedBy = Ikts.CreatedBy;
                 db.Entry(Ikts).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = ID });
             }
             return View(Ikts);
         }
@@ -117,7 +153,11 @@ namespace ikt.Controllers
             {
                 return HttpNotFound();
             }
-            return View(ikt);
+            db.IktClasses.RemoveRange(db.IktClasses.Where(c => c.IktID == id));
+            db.IktStaffs.RemoveRange(db.IktStaffs.Where(s => s.IktID == id));
+            db.Ikts.Remove(ikt);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Ikts/Delete/5
@@ -138,6 +178,32 @@ namespace ikt.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult AddStaff(int iktID, int staffID)
+        {
+            IktStaff iktStaff = new IktStaff
+            {
+                StaffID = staffID,
+                IktID = iktID,
+                CreatedBy = db.Staff.Single(s => s.ID == staffID).Username,
+                CreatedDate = DateTime.Now,
+                UpdatedBy = db.Staff.Single(s => s.ID == staffID).Username,
+                UpdatedDate = DateTime.Now
+            };
+
+            db.IktStaffs.Add(iktStaff);
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = iktID });
+        }
+
+        public ActionResult RemoveStaff(int id, int iktID)
+        {
+            db.IktStaffs.Remove(db.IktStaffs.Where(i => i.ID == id).Single());
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = iktID });
         }
     }
 }

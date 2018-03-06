@@ -22,6 +22,21 @@ namespace ikt
             "9825faed"
         };
 
-        public static int ItemsPerPage = 10;
+        public static int ItemsPerPage = 12;
+
+        public static int MaxFileSizeMB = 10;
+        public static string FilePath = "~/Content/ProjectFiles/";
+
+        public static long MegabytesToBytes(int MB)
+        {
+            return (MB * 1048576);
+        }
+
+        public static int BytesToMegabytes(long bytes)
+        {
+            return (int)(bytes / 1048576);
+        }
+
+        public static int DescriptionLengthIndex { get; } = 40;
     }
 }

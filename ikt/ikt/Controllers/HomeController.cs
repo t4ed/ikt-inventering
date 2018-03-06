@@ -90,6 +90,7 @@ namespace ikt.Controllers
                     ItemID = pList[i].ID,
                     Name = pList[i].Name,
                     Grade = pList[i].Grade,
+                    Subject = pList[i].Subject.Name,
                     Description = pList[i].Description,
                     CreatedDate = pList[i].CreatedDate,
                     Type = "Project"

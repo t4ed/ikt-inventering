@@ -87,8 +87,8 @@ footer .container {
     text-align:center;
 }
 
-.footerText a:hover {
-    text-decoration:none;
+.footerText a:hover, .footerText a:active, footerText a:visited, .footerText a:focus {
+    text-decoration:none !important;
 }
 
 .dropdown a, .navbar-text, .navbar-right a {

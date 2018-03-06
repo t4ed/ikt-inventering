@@ -70,14 +70,21 @@ fieldset[disabled] .form-control {
 
 .footerText {
     color: #000000;
-    float: left;
-    margin:0 10% 0 5%;
 }
+
 footer {
+    position:fixed;
+    bottom:0;
     width: 100%;
-    margin:20px 0 -45px 0;
-    height: 26px;
     background: rgba(255,255,255, 0.5);
+}
+.spacer {
+    margin-top: 10px;
+}
+footer .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align:center;
 }
 
 .footerText a:hover {
@@ -166,12 +173,18 @@ select {
         grid-template-columns: 32% 32% 32%;
         grid-gap: 1.5%;
     }
+    .spacer {
+        margin-top: 20px;
+    }
 }
 
 @media screen and (max-width: 990px) {
     .grid-container {
         grid-template-columns: 49% 49%;
         grid-gap: 2%;
+    }
+    .spacer {
+        margin-top: 100px;
     }
 }
 

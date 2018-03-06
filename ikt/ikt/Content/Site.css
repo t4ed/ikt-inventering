@@ -24,7 +24,8 @@ input:focus, textarea:focus, select:focus {
     color: #FFFFFF !important;
     /*border-color: #4C4B4A;*/
 }
-.pagination li a:hover {
+.pagination li a:hover, .pagination > .active > a {
+    /*border-color: #4C4B4A;*/
     background-color: white !important;
     color: #000000 !important;
    
@@ -32,11 +33,7 @@ input:focus, textarea:focus, select:focus {
 .pagination > .active > a:hover {
     color: #000000 !important;
 }
-.pagination > .active > a {
-    /*border-color: #4C4B4A;*/
-    background-color: white !important;
-    color: #000000 !important;
-}
+
 .dl-horizontal dt {
     white-space: normal;
 }

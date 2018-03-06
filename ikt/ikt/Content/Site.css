@@ -141,7 +141,6 @@ select {
     padding: 5px;
     margin-top: 10px;
     text-decoration: none;
-    border-radius: 10px;
     height: 150px;
     transition: 0.5s;
 }

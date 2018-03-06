@@ -58,7 +58,11 @@
         console.error(reason);
     });
 </script>
-<canvas id="the-canvas"></canvas>
+
+@if (Model.Project.PDF != null)
+{
+    <canvas id="the-canvas"></canvas>
+}
 
 <hr />
 <div class=" col-md-12">

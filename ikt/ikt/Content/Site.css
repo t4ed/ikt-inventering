@@ -207,7 +207,8 @@ footer, .btn-StickBottom {
     clear: both;
 }
 
-#the-canvas{
-    width:400px;
+#the-canvas {
+    width: 400px;
     height: 560px;
+    
 }

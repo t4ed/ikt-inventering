@@ -58,7 +58,7 @@
         {
             <div class="item">
                 <a href="@Url.Action("Details", item.Type + "s", new {id=item.ItemID })">
-                    <div class="card">
+                    <div class="card img-rounded">
                         <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
                         @if (item.Grade > 0)
                         {@Html.Raw("Årskurs ") @Html.DisplayFor(modelItem => item.Grade)<br />}
@@ -70,11 +70,11 @@
                         {
                             if (item.Description.Length <= Constants.DescriptionLengthIndex)
                             {
-                                @Html.Raw(item.Description)
+                                @Html.Raw(item.Description)<br />
                             }
                             else
                             {
-                                @(item.Description.Substring(0, Constants.DescriptionLengthIndex) + "...")
+                                @(item.Description.Substring(0, Constants.DescriptionLengthIndex) + "...")<br />
                             }
                             <i class="fas fa-cogs"></i>
                         }

@@ -189,6 +189,7 @@ select {
     text-decoration: none;
     height: 150px;
     transition: 0.5s;
+    position:relative;
 }
 
 .card h3{
@@ -205,6 +206,13 @@ select {
     font-size:3x;
 }
 
+.description {
+    position:absolute;
+    bottom:20px;
+    left:5px;
+    right:2px;
+}
+
 .item a {
     text-decoration: none;
     color: inherit;
@@ -218,3 +226,7 @@ footer, .btn-StickBottom {
     clear: both;
 }
 
+#the-canvas{
+    width:400px;
+    height: 560px;
+}

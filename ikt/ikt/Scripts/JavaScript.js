@@ -33,38 +33,13 @@ $.ajax({
             minLength: 0
         }).bind('focus', function () {
             $(this).autocomplete("search", "");
-            /*if ($(this).val.length > 3) {
-                $(this).trigger("change");
-            } */
         });
     },
     error(jqXHR, status, errorThrown) {
         console.log(jqXHR);
     }
 });
-/*
-$.ajax({
-    url: "/FetchData/FetchClassData",
-    type: 'GET',
-    dataType: 'json',
-    success(response) {
-        var data = [];
-        for (i = 0; i < response.length; i++) {
-            data.push(response[i].Name);
-        }
-        $("#ClassID").autocomplete({
-            source: data,
-            minLength: 0
-        }).bind('focus', function () {
-            $(this).autocomplete("search", "");
-        });
-    },
-    error(jqXHR, status, errorThrown) {
-        console.log(jqXHR);
-    }
-});
-*/
-var data;
+
 $.ajax({
     url: "/FetchData/FetchClassData",
     type: 'GET',
@@ -87,23 +62,7 @@ $.ajax({
     }
 });
 
-function SelectizeDataFormat(data) {
 
-}
-
-/*
-$('.classList').selectize({
-    plugins: ['remove_button'],
-    delimiter: ',',
-    persist: false,
-    create: function (input) {
-        return {
-            value: input,
-            text: input
-        }
-    }
-});
-*/
 $(document).ready(function () {
     $('.subjectSelect').on('change', function () {
         this.form.submit();

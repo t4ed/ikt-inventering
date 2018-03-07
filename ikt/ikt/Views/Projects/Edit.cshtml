@@ -26,22 +26,27 @@
                 @Html.ValidationMessageFor(model => model.SubjectID, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
+                <label class="control-label">Klass</label>
+                <input type="text" class="form-control classList" id="ClassID" name="ClassID" value="@ViewBag.ClassList" required />
+                <input type="text" id="OldClassList" name="OldClassList" value="@ViewBag.ClassList" required hidden />
+            </div>
+            <div class="form-group">
                 @Html.LabelFor(model => model.Grade, htmlAttributes: new { @class = "control-label" })
                 @Html.EditorFor(model => model.Grade, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })
             </div>
             @if (!string.IsNullOrEmpty(Model.PDF))
-            {
-                <div class="form-group">
-                    <label for="PDF">Uppladdad PDF</label>
-                    <dd>
-                        <a href="@Url.Content(Constants.FilePath + Model.PDF)" target="_blank">
-                            Visa PDF (öppnas i ny flik)
-                        </a>
-                    </dd>
-                    @Html.HiddenFor(model => model.PDF)
-                </div>
-            }
+    {
+        <div class="form-group">
+            <label for="PDF">Uppladdad PDF</label>
+            <dd>
+                <a href="@Url.Content(Constants.FilePath + Model.PDF)" target="_blank">
+                    Visa PDF (öppnas i ny flik)
+                </a>
+            </dd>
+            @Html.HiddenFor(model => model.PDF)
+        </div>
+}
             <div class="form-group">
                 <label for="file">Ny PDF</label>
                 <div class="input-group pdfInput">

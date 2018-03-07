@@ -44,7 +44,14 @@
             }
             <div class="form-group">
                 <label for="file">Ny PDF</label>
-                <input type="file" name="file" id="file" class="form-control" accept=".pdf" />
+                <div class="input-group pdfInput">
+                    <label class="input-group-btn">
+                        <span class="btn btn-default">
+                            Välj fil... <input type="file" name="file" id="file" accept=".pdf" style="display: none;">
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" readonly>
+                </div>
                 @Html.ValidationMessageFor(model => model.PDF, "", new { @class = "text-danger" })
             </div>
         </div>

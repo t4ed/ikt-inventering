@@ -46,7 +46,7 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fas fa-plus dropdownFasCreate"></i> Lägg till 
+                            <i class="fas fa-plus dropdownFasCreate"></i> Lägg till
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="@Url.Action("Create", "Projects")"><i class="fas fa-file-alt dropdownFas"></i> Projekt</a></li>
@@ -61,7 +61,7 @@
     <div class="container body-content">
         @RenderBody()
     </div>
-    
+    @Html.Partial("_FooterPartial")
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

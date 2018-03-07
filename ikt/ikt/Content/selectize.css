@@ -120,11 +120,19 @@
 .selectize-dropdown,
 .selectize-input,
 .selectize-input input {
-  color: #333333;
+  color: #000000;
   font-family: inherit;
   font-size: inherit;
   line-height: 20px;
   -webkit-font-smoothing: inherit;
+}
+.selectize-dropdown-content .option:hover {
+    border: 1px solid #003eff;
+    background: #007fff;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 20px;
 }
 .selectize-input,
 .selectize-control.single .selectize-input.input-active {

@@ -70,14 +70,14 @@ $.ajax({
     dataType: 'json',
     success(response) {
         data = [];
-        for (i = 0; i < response.length; i++) {
-            data.push(response[i].Name);
-        }
-        console.log(data);
+        console.log(response);
         $(".classList").selectize({
             plugins: ['remove_button'],
             delimiter: ',',
-            options: data,
+            valueField: 'ID',
+            labelField: 'Name',
+            searchField: 'Name',
+            options: response,
             create: false
         });
     },
@@ -85,6 +85,10 @@ $.ajax({
         console.log(jqXHR);
     }
 });
+
+function SelectizeDataFormat(data) {
+
+}
 
 /*
 $('.classList').selectize({

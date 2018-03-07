@@ -52,6 +52,10 @@ textarea {
     max-width: 400px !important;
 }
 
+.selectize-input {
+    max-width: 400px !important;
+}
+
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {

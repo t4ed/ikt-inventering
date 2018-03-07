@@ -12,16 +12,19 @@
     @Scripts.Render("~/bundles/modernizr")
 
     @{
-        if (!Login.CheckIfValidUser(User.Identity.Name))
+        if (Request.IsAuthenticated)
         {
-            Response.Redirect(Url.Action("SignOut", "Account"));
-        }
-        else
-        {
-            ViewBag.Staff = Login.GetStaffInfo(User.Identity.Name);
-            if (ViewBag.Staff.Username == "invalid")
+            if (Login.CheckIfValidUser(User.Identity.Name))
             {
-                Response.Redirect(Url.Action("Create", "Staffs", new { Username = User.Identity.Name.Split('@')[0] }));
+                ViewBag.Staff = Login.GetStaffInfo(User.Identity.Name);
+                if (ViewBag.Staff.Username == "invalid")
+                {
+                    Response.Redirect(Url.Action("Create", "Staffs", new { Username = User.Identity.Name.Split('@')[0] }));
+                }
+            }
+            else
+            {
+                Response.Redirect(Url.Action("BlockEntry", "Account"));
             }
         }
     }
@@ -59,17 +62,7 @@
     <div class="container body-content">
         @RenderBody()
     </div>
-    <div class="spacer"></div>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <p class="footerText col-xs-12 col-sm-12 col-md-3 col-lg-3">&copy; @DateTime.Now.Year - @Constants.SiteName</p>
-                <p class="footerText col-xs-12 col-sm-12 col-md-3 col-lg-3">T4</p>
-                <p class="footerText col-xs-12 col-sm-12 col-md-3 col-lg-3">Tillämpad Programmering</p>
-                <p class="footerText col-xs-12 col-sm-12 col-md-3 col-lg-3"><a href="https://github.com/t4ed/ikt-inventering" target="_blank"><i class="fab fa-github"></i> Github Projektsida</a></p>
-            </div>
-        </div>
-    </footer>
+    @Html.Partial("_FooterPartial")
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

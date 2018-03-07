@@ -34,6 +34,30 @@ namespace ikt.Controllers
                 OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
         }
 
+        public void BlockEntry()
+        {
+            Session["Username"] = "";
+            Session["FirstName"] = "";
+            Session["LastName"] = "";
+
+            string callbackUrl = Url.Action("AccessDenied", "Account", routeValues: null, protocol: Request.Url.Scheme);
+
+            HttpContext.GetOwinContext().Authentication.SignOut(
+                new AuthenticationProperties { RedirectUri = callbackUrl },
+                OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+        }
+
+        public ActionResult AccessDenied()
+        {
+            if (Request.IsAuthenticated)
+            {
+                // Redirect to home page if the user is authenticated.
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
+        }
+
         public ActionResult SignOutCallback()
         {
             if (Request.IsAuthenticated)

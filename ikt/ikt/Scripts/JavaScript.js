@@ -16,7 +16,8 @@
         showMonthAfterYear: false,
         yearSuffix: '',
         showWeek: true
-    });
+    }
+);
 
 $.ajax({
     url: "/FetchData/FetchSubjectData",
@@ -75,41 +76,28 @@ $(document).ready(function () {
     });
 });
 
-'use strict';
-
-; (function (document, window, index) {
-
-    var inputs = document.querySelectorAll('.inputfile');
-    Array.prototype.forEach.call(inputs, function (input) {
-        var label = input.nextElementSibling,
-            labelVal = label.innerHTML;
-
-        input.addEventListener('change', function (e) {
-            var fileName = '';
-            if (this.files && this.files.length > 1) {
-                fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
-                file.style.width += fileName.length * 100;
-                console.log(fileName.length);
-            }
-            else
-            {
-                fileName = e.target.value.split('\\').pop();
-                var Hej = document.getElementById('filechange').className = 'form-control-PDF2';
-                console.log(Hej);
-            }
 
 
 
-            if (fileName)
-                label.querySelector('span').innerHTML = fileName;
-            else
-                label.innerHTML = labelVal;
-        });
+$(function () {
 
-        // Firefox bug fix
-        input.addEventListener('focus', function () { input.classList.add('has-focus'); });
-        input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
+    $(document).on('change', ':file', function () {
+        var input = $(this),
+            numFiles = input.get(0).files ? input.get(0).files.length : 1,
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [numFiles, label]);
     });
-}(document, window, 0));
 
+    $(document).ready(function () {
+        $(':file').on('fileselect', function (event, numFiles, label) {
+            var input = $(this).parents('.input-group').find(':text'),
+                log = numFiles > 1 ? numFiles + ' files selected' : label;
 
+            if (input.length) {
+                input.val(log);
+            } else {
+                if (log) alert(log);
+            }
+        });
+    });
+});

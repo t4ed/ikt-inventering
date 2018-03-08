@@ -116,7 +116,15 @@ namespace ikt.Controllers
             {
                 db.Projects.Add(project);
 
-                string[] classes = ClassID.Split(',');
+                string[] classes;
+                if (string.IsNullOrEmpty(ClassID))
+                {
+                    classes = new string[0];
+                }
+                else
+                {
+                    classes = ClassID.Split(',');
+                }
 
                 for (int i = 0; i < classes.Length; i++)
                 {
@@ -168,6 +176,10 @@ namespace ikt.Controllers
             foreach (var klass in pc)
             {
                 klassList += klass.ClassID + ",";
+            }
+            if (klassList.Length > 0)
+            {
+                klassList = klassList.Substring(0, klassList.Length - 1);
             }
             ViewBag.ClassList = klassList;
 
@@ -239,19 +251,47 @@ namespace ikt.Controllers
 
             if (ModelState.IsValid)
             {
-
-                string[] newClasses = ClassID.Split(',');
-                string[] oldClasses = OldClassList.Split(',');
-
-                foreach (var nClass in newClasses)
+                string[] newClasses;
+                string[] oldClasses;
+                if (string.IsNullOrEmpty(ClassID))
                 {
-                    bool match = false;
-                    foreach (var oClass in oldClasses)
+                    newClasses = new string[0];
+                }
+                else
+                {
+                    newClasses = ClassID.Split(',');
+                }
+                if (string.IsNullOrEmpty(OldClassList))
+                {
+                    oldClasses = new string[0];
+                }
+                else
+                {
+                    oldClasses = OldClassList.Split(',');
+                }
+                List<string> remove = Constants.GetClassesToRemove(oldClasses, newClasses);
+                List<string> add = Constants.GetClassesToAdd(oldClasses, newClasses);
+                if (add.Count > 0)
+                {
+                    foreach (var toAdd in add)
                     {
-                        if(nClass == oClass)
+                        db.ProjectClasses.Add(new ProjectClass
                         {
-                            match = true;
-                        }
+                            ClassID = Convert.ToInt32(toAdd),
+                            ProjectID = project.ID,
+                            CreatedDate = DateTime.Now,
+                            CreatedBy = CreatedBy,
+                            UpdatedDate = DateTime.Now,
+                            UpdatedBy = CreatedBy
+                        });
+                    }
+                }
+                if (remove.Count > 0)
+                {
+                    foreach (var toRemove in remove)
+                    {
+                        int removeID = Convert.ToInt32(toRemove);
+                        db.ProjectClasses.Remove(db.ProjectClasses.Where(c => c.ClassID == removeID && c.ProjectID == project.ID).Single());
                     }
                 }
 

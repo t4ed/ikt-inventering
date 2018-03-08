@@ -1,4 +1,3 @@
 # How to Contribute
 
-we dont care if you contribute after the completion, since after this edjucational project it wont be monitored afterwards
-feel free to fork and develop, but we dont garante we will ever look at this project again.
+Since this is an educational project, we will not continue to develop the application after the course ends in the middle of March 2018. This means that we do not guarantee that we will look at the project ever again. If you want to, you can fork our repo and continue development on the project. The code is provided as is.

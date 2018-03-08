@@ -56,18 +56,31 @@ namespace ikt.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string Name, string SubjectID, string ClassID, int Grade, string Description, string Date, string CreatedBy, HttpPostedFileBase file)
         {
-            Project project = new Project
+            Project project = new Project();
+            int subjectID = 0;
+            try
             {
-                Name = Name,
-                SubjectID = db.Subjects.Where(s => s.Name == SubjectID).Single().ID,
-                Grade = Grade,
-                Description = Description,
-                Date = Date,
-                CreatedDate = DateTime.Now,
-                CreatedBy = CreatedBy,
-                UpdatedDate = DateTime.Now,
-                UpdatedBy = CreatedBy
-            };
+                subjectID = db.Subjects.Where(s => s.Name == SubjectID).Single().ID;
+            }
+            catch
+            {
+                ModelState.AddModelError("SubjectID", "Ämnet finns inte.");
+            }
+            if (ModelState.IsValid)
+            {
+                project = new Project
+                {
+                    Name = Name,
+                    SubjectID = subjectID,
+                    Grade = Grade,
+                    Description = Description,
+                    Date = Date,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = CreatedBy,
+                    UpdatedDate = DateTime.Now,
+                    UpdatedBy = CreatedBy
+                };
+            }
             if (file != null)
             {
                 if (ValidateFile(file))
@@ -102,15 +115,29 @@ namespace ikt.Controllers
             if (ModelState.IsValid)
             {
                 db.Projects.Add(project);
-                db.ProjectClasses.Add(new ProjectClass
+
+                string[] classes;
+                if (string.IsNullOrEmpty(ClassID))
                 {
-                    ClassID = db.Classes.Where(c => c.Name == ClassID).Single().ID,
-                    ProjectID = project.ID,
-                    CreatedDate = DateTime.Now,
-                    CreatedBy = CreatedBy,
-                    UpdatedDate = DateTime.Now,
-                    UpdatedBy = CreatedBy
-                });
+                    classes = new string[0];
+                }
+                else
+                {
+                    classes = ClassID.Split(',');
+                }
+
+                for (int i = 0; i < classes.Length; i++)
+                {
+                    db.ProjectClasses.Add(new ProjectClass
+                    {
+                        ClassID = Convert.ToInt32(classes[i]),
+                        ProjectID = project.ID,
+                        CreatedDate = DateTime.Now,
+                        CreatedBy = CreatedBy,
+                        UpdatedDate = DateTime.Now,
+                        UpdatedBy = CreatedBy
+                    });
+                }
 
                 db.ProjectStaffs.Add(new ProjectStaff
                 {
@@ -142,6 +169,20 @@ namespace ikt.Controllers
                 return HttpNotFound();
             }
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", project.SubjectID);
+
+            List<ProjectClass> pc = db.ProjectClasses.Where(c => c.ProjectID == id).ToList();
+
+            string klassList = "";
+            foreach (var klass in pc)
+            {
+                klassList += klass.ClassID + ",";
+            }
+            if (klassList.Length > 0)
+            {
+                klassList = klassList.Substring(0, klassList.Length - 1);
+            }
+            ViewBag.ClassList = klassList;
+
             return View(project);
         }
 
@@ -150,7 +191,7 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int ID, string Name, int Grade, string SubjectID, string PDF, string Description, string Date, string CreatedBy, string CreatedDate, string UpdatedBy, HttpPostedFileBase file)
+        public ActionResult Edit(int ID, string Name, int Grade, string SubjectID, string ClassID, string OldClassList, string PDF, string Description, string Date, string CreatedBy, string CreatedDate, string UpdatedBy, HttpPostedFileBase file)
         {
             Project project = new Project
             {
@@ -206,15 +247,60 @@ namespace ikt.Controllers
             {
                 project.PDF = PDF;
             }
-            
+
 
             if (ModelState.IsValid)
             {
+                string[] newClasses;
+                string[] oldClasses;
+                if (string.IsNullOrEmpty(ClassID))
+                {
+                    newClasses = new string[0];
+                }
+                else
+                {
+                    newClasses = ClassID.Split(',');
+                }
+                if (string.IsNullOrEmpty(OldClassList))
+                {
+                    oldClasses = new string[0];
+                }
+                else
+                {
+                    oldClasses = OldClassList.Split(',');
+                }
+                List<string> remove = Constants.GetClassesToRemove(oldClasses, newClasses);
+                List<string> add = Constants.GetClassesToAdd(oldClasses, newClasses);
+                if (add.Count > 0)
+                {
+                    foreach (var toAdd in add)
+                    {
+                        db.ProjectClasses.Add(new ProjectClass
+                        {
+                            ClassID = Convert.ToInt32(toAdd),
+                            ProjectID = project.ID,
+                            CreatedDate = DateTime.Now,
+                            CreatedBy = CreatedBy,
+                            UpdatedDate = DateTime.Now,
+                            UpdatedBy = CreatedBy
+                        });
+                    }
+                }
+                if (remove.Count > 0)
+                {
+                    foreach (var toRemove in remove)
+                    {
+                        int removeID = Convert.ToInt32(toRemove);
+                        db.ProjectClasses.Remove(db.ProjectClasses.Where(c => c.ClassID == removeID && c.ProjectID == project.ID).Single());
+                    }
+                }
+
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details", new { id = ID });
             }
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", project.SubjectID);
+            ViewBag.OldClassList = OldClassList;
             return View(project);
         }
 

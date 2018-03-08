@@ -42,7 +42,13 @@ namespace ikt
                 url: "Projects/Edit/{id}",
                 defaults: new { controller = "Projects", action = "Edit", id = UrlParameter.Optional }
             );
-
+            
+            routes.MapRoute(
+                name: "ProjectsAddStaff",
+                url: "Projects/AddStaff",
+                defaults: new { controller = "Projects", action = "AddStaff", id = UrlParameter.Optional }
+            );
+            
             routes.MapRoute(
                 name: "ProjectDetails",
                 url: "Projects/{id}",

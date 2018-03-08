@@ -81,15 +81,28 @@ namespace ikt.Controllers
                     UpdatedBy = Ikts.UpdatedBy
                 });
 
-                db.IktClasses.Add(new IktClass()
+                string[] classes;
+                if (string.IsNullOrEmpty(ClassID))
                 {
-                    IktID = Ikts.ID,
-                    ClassID = db.Classes.Where(c => c.Name == ClassID).Single().ID,
-                    CreatedDate = DateTime.Now,
-                    CreatedBy = Ikts.CreatedBy,
-                    UpdatedDate = DateTime.Now,
-                    UpdatedBy = Ikts.UpdatedBy
-                });
+                    classes = new string[0];
+                }
+                else
+                {
+                    classes = ClassID.Split(',');
+                }
+
+                for (int i = 0; i < classes.Length; i++)
+                {
+                    db.IktClasses.Add(new IktClass()
+                    {
+                        IktID = Ikts.ID,
+                        ClassID = Convert.ToInt32(classes[i]),
+                        CreatedDate = DateTime.Now,
+                        CreatedBy = Ikts.CreatedBy,
+                        UpdatedDate = DateTime.Now,
+                        UpdatedBy = Ikts.UpdatedBy
+                    });
+                }
 
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
@@ -109,6 +122,18 @@ namespace ikt.Controllers
             {
                 return HttpNotFound();
             }
+            List<IktClass> ic = db.IktClasses.Where(c => c.IktID == id).ToList();
+
+            string klassList = "";
+            foreach (var klass in ic)
+            {
+                klassList += klass.ClassID + ",";
+            }
+            if (klassList.Length > 0)
+            {
+                klassList = klassList.Substring(0, klassList.Length - 1);
+            }
+            ViewBag.ClassList = klassList;
             return View(ikt);
         }
 
@@ -117,7 +142,7 @@ namespace ikt.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int ID, string Name, string Description, string Comment, string Link, string CreatedBy, string CreatedDate, string UpdatedBy)
+        public ActionResult Edit(int ID, string Name, string Description, string ClassID, string OldClassList, string Comment, string Link, string CreatedBy, string CreatedDate, string UpdatedBy)
         {
             Ikt Ikts = new Ikt
             {
@@ -134,6 +159,46 @@ namespace ikt.Controllers
 
             if (ModelState.IsValid)
             {
+                string[] newClasses;
+                string[] oldClasses;
+                if (string.IsNullOrEmpty(ClassID))
+                {
+                    newClasses = new string[0];
+                }
+                else
+                {
+                    newClasses = ClassID.Split(',');
+                }
+                if (string.IsNullOrEmpty(OldClassList))
+                {
+                    oldClasses = new string[0];
+                }
+                else
+                {
+                    oldClasses = OldClassList.Split(',');
+                }
+                List<string> remove = Constants.GetClassesToRemove(oldClasses, newClasses);
+                List<string> add = Constants.GetClassesToAdd(oldClasses, newClasses);
+
+                foreach (var toAdd in add)
+                {
+                    db.IktClasses.Add(new IktClass
+                    {
+                        ClassID = Convert.ToInt32(toAdd),
+                        IktID = Ikts.ID,
+                        CreatedDate = DateTime.Now,
+                        CreatedBy = CreatedBy,
+                        UpdatedDate = DateTime.Now,
+                        UpdatedBy = CreatedBy
+                    });
+                }
+
+                foreach (var toRemove in remove)
+                {
+                    int removeID = Convert.ToInt32(toRemove);
+                    db.IktClasses.Remove(db.IktClasses.Where(c => c.ClassID == removeID && c.IktID == Ikts.ID).Single());
+                }
+
                 db.Entry(Ikts).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details", new { id = ID });

@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+    ViewBag.Title = "Välkommen";
 }
 
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Login - @Constants.SiteName</title>
+    <title>@ViewBag.Title - @Constants.SiteName</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
@@ -35,12 +36,7 @@
             </div>
         </div>
     </div>
-    <footer>
-        <p class="footerText" id="copyrighter">&copy; @DateTime.Now.Year - @Constants.SiteName</p>
-        <p class="footerText">T4</p>
-        <p class="footerText">Tillämpad Programmering</p>
-        <p class="footerText"><a href="https://github.com/t4ed/ikt-inventering">Github Projektsida</a></p>
-    </footer>
+    @Html.Partial("_FooterPartial")
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

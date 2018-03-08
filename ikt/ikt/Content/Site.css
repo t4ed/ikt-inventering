@@ -89,7 +89,7 @@ footer {
 }
 
 .spacer {
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 footer .container {
@@ -201,7 +201,7 @@ select {
         grid-gap: 2%;
     }
     .spacer {
-        margin-top: 100px;
+        margin-top: 120px;
     }
     canvas {
         display: none;

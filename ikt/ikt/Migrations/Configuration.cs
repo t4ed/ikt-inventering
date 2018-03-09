@@ -39,16 +39,6 @@ namespace ikt.Migrations
                     CreatedBy = "admin",
                     UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     UpdatedBy = "admin"
-                },
-                new Staff
-                {
-                    Username = "9810pema",
-                    FirstName = "Marcus",
-                    LastName = "Perhamn",
-                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
-                    CreatedBy = "admin",
-                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
-                    UpdatedBy = "admin"
                 }
             };
 
@@ -1512,16 +1502,6 @@ namespace ikt.Migrations
                     ID = 1,
                     ProjectID = 2,
                     StaffID = staff.Single(s => s.Username == "larar").ID,
-                    CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
-                    CreatedBy = "admin",
-                    UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
-                    UpdatedBy = "admin"
-                },
-                new ProjectStaff
-                {
-                    ID = 2,
-                    ProjectID = 2,
-                    StaffID = staff.Single(s => s.Username == "9810pema").ID,
                     CreatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
                     CreatedBy = "admin",
                     UpdatedDate = DateTime.Parse("26 dec 2017", new CultureInfo("sv-SE")),
